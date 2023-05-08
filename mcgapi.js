@@ -22,5 +22,8 @@ function postBadge(e){
 }
 
 function dataElement(e){
-  console.log(e.target.id)
+  const parser = new DOMParser();
+  const h=e.currentTarget.parentNode.getAttribute('data-title')
+  const htmlDoc = parser.parseFromString(h, 'text/html');
+  console.log(htmlDoc.body)
 }
