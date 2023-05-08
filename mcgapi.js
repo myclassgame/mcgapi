@@ -1,5 +1,5 @@
 function prova(){
-  alert("¿Cómo estás?")
+  alert("Cómo estás?")
 }
 
 function postBadge(e){
