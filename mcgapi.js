@@ -20,3 +20,7 @@ function postBadge(e){
     alert(e.target.closest(".genially-animated-wrapper").id)
   });
 }
+
+function dataElement(e){
+  alert(e.target.id)
+}
