@@ -22,5 +22,5 @@ function postBadge(e){
 }
 
 function dataElement(e){
-  alert(e.target.id)
+  console.log(e.target.id)
 }
