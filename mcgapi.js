@@ -25,5 +25,7 @@ function dataElement(e){
   const parser = new DOMParser();
   const h=e.currentTarget.parentNode.getAttribute('data-title')
   const htmlDoc = parser.parseFromString(h, 'text/html');
-  console.log(htmlDoc.body)
+  const type = htmlDoc.querySelector('.mcgType').innerText;
+  const XP = htmlDoc.querySelector('.mcgXP').innerText.substring(3).trim();
+  console.log( type + ": " + XP )
 }
