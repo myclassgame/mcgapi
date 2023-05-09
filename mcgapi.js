@@ -1,3 +1,13 @@
+(function (d) { 
+var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+if (d.getElementById(id)) { return; }
+js = d.createElement("script"); 
+js.id = id; 
+js.async = true; 
+js.src = "https://www.myclassgame.es/mcgapi/genially/sweetalert2.min.js"; 
+ref.parentNode.insertBefore(js, ref); }
+(document));
+
 function prova(){
   alert("Cómo estás?")
 }
@@ -104,6 +114,7 @@ function showStudentData(studentCreds) {
     })
     .catch((err) => console.log(err));
 }
+
 async function SA() {
     if ( ! localStorage.getItem('mcgStudentCreds')) {
         const { value: formValues } = await Swal.fire({
