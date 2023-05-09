@@ -137,3 +137,7 @@ async function SA() {
         showStudentData(JSON.parse(localStorage.getItem('mcgStudentCreds')))
     }
 }
+
+const element = document.getElementById("myclassgame");
+element.addEventListener("click", SA);
+
