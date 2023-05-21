@@ -1,0 +1,48 @@
+<div class="card-iframe">
+
+
+  <title>Formulario de envío</title>
+
+
+  <form id="myForm">
+    <input type="text" id="myInput" placeholder="Ingrese su mensaje">
+    <input  id="myFormButton" type="button" value="Enviar" />
+  </form>
+
+  <script>
+    document.getElementById("myFormButton").addEventListener("click", function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe de manera convencional
+
+      // Obtener el valor del campo de texto
+      var className = document.getElementById("myInput").value;
+
+      // Objeto de datos que se enviará en la solicitud POST
+      var data = {
+        className: className
+      };
+
+      // Configurar opciones para la solicitud fetch POST
+      var options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
+
+      // Realizar la solicitud fetch POST
+      fetch('https://genialmcg.glitch.me/classes', options)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          console.log(data); // Manejar la respuesta recibida del servidor
+        })
+        .catch(function(error) {
+          console.log('Error:', error);
+        });
+    });
+  </script>
+
+
+</div>
