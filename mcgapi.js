@@ -167,13 +167,11 @@ async function createClass() {
             imageHeight: 75,
             imageAlt: '@MyClassGame',
             html:
-                '<input id="swal-input1" class="swal2-input" placeholder="Nombre clase">' +
-                '<input id="swal-input2" class="swal2-input" placeholder="StudentCode">',
+                '<input id="swal-input1" class="swal2-input" placeholder="Nombre clase">',
             focusConfirm: false,
             preConfirm: () => {
                 const clase = {
-                    className: document.getElementById('swal-input1').value,
-                    studentCode: document.getElementById('swal-input2').value
+                    className: document.getElementById('swal-input1').value
                 }
                 return clase
             }
