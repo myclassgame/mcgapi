@@ -153,35 +153,54 @@ async function SA() {
 
 //Crear clase 
 async function createClass() {
-    if ( ! localStorage.getItem('mcgStudentCreds')) {
-        const { value: formValues } = await Swal.fire({
-            title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
-            background: '#268bd2',
-            showCloseButton: true,
-            showCancelButton: true,
-            confirmButtonColor: '#0f0',
-            confirmButtonText: 'Crear',
-            cancelButtonColor: '#d33',
-            imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
-            imageWidth: 75,
-            imageHeight: 75,
-            imageAlt: '@MyClassGame',
-            html:
-                '<input id="swal-input1" class="swal2-input" placeholder="Nombre clase">',
-            focusConfirm: false,
-            preConfirm: () => {
-                const clase = {
-                    className: document.getElementById('swal-input1').value
-                }
-                return clase
-            }
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Crear',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<input id="swal-input1" class="swal2-input" placeholder="Nombre clase">',
+      focusConfirm: false,
+      preConfirm: () => {
+          const clase = {
+              className: document.getElementById('swal-input1').value
+          }
+          return clase
+      }
+  })
+  if (formValues) {
+      console.log(formValues)
+      // Objeto de datos que se enviará en la solicitud POST
+      var data = formValues
+
+      // Configurar opciones para la solicitud fetch POST
+      var options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
+
+      // Realizar la solicitud fetch POST
+      fetch('https://genialmcg.glitch.me/classes', options)
+        .then(function(response) {
+          return response.json();
         })
-        if (formValues) {
-            console.log(formValues)
-        }
-    } else {
-        showStudentData(JSON.parse(localStorage.getItem('mcgStudentCreds')))
-    }
+        .then(function(data) {
+          console.log(data); // Manejar la respuesta recibida del servidor
+        })
+        .catch(function(error) {
+          console.log('Error:', error);
+        });
+  }
 }
 
 
