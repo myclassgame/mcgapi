@@ -5,7 +5,7 @@ if (d.getElementById(id)) { return; }
 js = d.createElement("script"); 
 js.id = id; 
 js.async = true; 
-js.src = "https://www.myclassgame.es/mcgapi/genially/sweetalert2.min.js"; 
+js.src = "https://myclassgame.github.io/mcgapi/sweetalert2.min.js"; 
 ref.parentNode.insertBefore(js, ref); }
 (document));
 
@@ -153,37 +153,31 @@ async function SA() {
 
 //Crear clase 
 async function createClass() {
-    if ( ! localStorage.getItem('mcgStudentCreds')) {
-        const { value: formValues } = await Swal.fire({
-            title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
-            background: '#268bd2',
-            showCloseButton: true,
-            showCancelButton: true,
-            confirmButtonColor: '#0f0',
-            confirmButtonText: 'Login',
-            cancelButtonColor: '#d33',
-            imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
-            imageWidth: 75,
-            imageHeight: 75,
-            imageAlt: '@MyClassGame',
-            html:
-                '<input id="swal-input1" class="swal2-input" placeholder="Alias">' +
-                '<input id="swal-input2" class="swal2-input" placeholder="StudentCode">',
-            focusConfirm: false,
-            preConfirm: () => {
-                const student = {
-                    alias: document.getElementById('swal-input1').value,
-                    studentCode: document.getElementById('swal-input2').value
-                }
-                return student
-            }
-        })
-        if (formValues) {
-            showStudentData(formValues)
-        }
-    } else {
-        showStudentData(JSON.parse(localStorage.getItem('mcgStudentCreds')))
-    }
+      const { value: formValues } = await Swal.fire({
+          title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+          background: '#268bd2',
+          showCloseButton: true,
+          showCancelButton: true,
+          confirmButtonColor: '#0f0',
+          confirmButtonText: 'Login',
+          cancelButtonColor: '#d33',
+          imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+          imageWidth: 75,
+          imageHeight: 75,
+          imageAlt: '@MyClassGame',
+          html:
+              '<input id="swal-input" class="swal2-input" placeholder="Nombre clase">'
+          focusConfirm: false,
+          preConfirm: () => {
+              const class = {
+                  className: document.getElementById('swal-input').value
+              }
+              return class
+          }
+      })
+      if (formValues) {
+          console.log(formValues)
+      }
 }
 
 
