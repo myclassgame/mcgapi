@@ -336,5 +336,5 @@ function loadMCGEvents(){
   
   //loginMCG
   const collection = document.querySelectorAll("[data-title='loginMCG']");
-  collection.forEach(function(element) { element.addEventListener("click", registerUser);});
+  collection.forEach(function(element) { element.addEventListener("click", loginMCG);});
 }
