@@ -234,7 +234,7 @@ async function registerUser() {
     console.log(formValues)
     
     // Objeto de datos que se enviará en la solicitud POST
-    var data = formValues
+    var userdata = formValues
 
     // Configurar opciones para la solicitud fetch POST
     var options = {
@@ -242,7 +242,7 @@ async function registerUser() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(userdata)
     };
 
     // Realizar la solicitud fetch POST
@@ -253,7 +253,7 @@ async function registerUser() {
       .then(function(data) {
         console.log(data); // Manejar la respuesta recibida del servidor
         if(!data.status){
-          document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+data.username+"</b>";
+          document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
         }
       })
       .catch(function(error) {
