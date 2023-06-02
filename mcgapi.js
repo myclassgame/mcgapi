@@ -331,10 +331,10 @@ async function loginMCG(){
 //Función para cargar los eventos MCG en Genially
 function loadMCGEvents(){
   //registerMCG
-  const collection = document.querySelectorAll("[data-title='registerMCG']");
-  collection.forEach(function(element) { element.addEventListener("click", registerUser);});
+  const registerButtons = document.querySelectorAll("[data-title='registerMCG']");
+  registerButtons.forEach(function(element) { element.addEventListener("click", registerUser);});
   
   //loginMCG
-  const collection = document.querySelectorAll("[data-title='loginMCG']");
-  collection.forEach(function(element) { element.addEventListener("click", loginMCG);});
+  const loginButtons = document.querySelectorAll("[data-title='loginMCG']");
+  loginButtons.forEach(function(element) { element.addEventListener("click", loginMCG);});
 }
