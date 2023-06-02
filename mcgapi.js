@@ -203,4 +203,68 @@ async function createClass() {
   }
 }
 
+//Función para registrar usuario en @MyClassGame
+async function registerUser() {
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Crear',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<input id="swal-input1" class="swal2-input" placeholder="Username">' +
+          '<input id="swal-input2" class="swal2-input" placeholder="Password">',
+      focusConfirm: false,
+      preConfirm: () => {
+          const user = {
+              username: document.getElementById('swal-input1').value,
+              password: document.getElementById('swal-input2').value
+          }
+          return user
+      }
+  })
+  if (formValues) {
+    
+    console.log(formValues)
+    
+    // Objeto de datos que se enviará en la solicitud POST
+    var data = formValues
 
+    // Configurar opciones para la solicitud fetch POST
+    var options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    };
+
+    // Realizar la solicitud fetch POST
+    fetch('https://genialmcg.glitch.me/users', options)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data); // Manejar la respuesta recibida del servidor
+        if(!data.status){
+          document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+data.username+"</b>";
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+      });
+    document.getElementsByClassName("icon-close")[0].click()
+  }
+}
+
+function loadMCGEvents(){
+  //registerMCG
+  const collection = document.querySelectorAll("[data-title='registerMCG']");
+  collection.forEach(function(element) { element.addEventListener("click", registerUser);});
+}
