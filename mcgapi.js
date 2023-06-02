@@ -254,6 +254,7 @@ async function registerUser() {
         console.log(data); // Manejar la respuesta recibida del servidor
         if(!data.status){
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
+          localStorage.setItem('userIdMCG',userdata.id);
         }
       })
       .catch(function(error) {
@@ -263,8 +264,77 @@ async function registerUser() {
   }
 }
 
+//Función para hacer login en @MyClassGame
+async function loginMCG(){
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Login',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<input id="swal-input1" class="swal2-input" placeholder="Username">' +
+          '<input id="swal-input2" class="swal2-input" placeholder="Password">',
+      focusConfirm: false,
+      preConfirm: () => {
+          const user = {
+              username: document.getElementById('swal-input1').value,
+              password: document.getElementById('swal-input2').value
+          }
+          return user
+      }
+  })
+  if (formValues) {
+    
+    console.log(formValues)
+    
+    // Objeto de datos que se enviará en la solicitud POST
+    var userdata = formValues
+
+    // Configurar opciones para la solicitud fetch POST
+    var options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userdata)
+    };
+
+    // Realizar la solicitud fetch POST
+    fetch('https://genialmcg.glitch.me/login', options)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data); // Manejar la respuesta recibida del servidor
+        if(!data.status){
+          console.log("Credenciales válidas")
+          document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
+          //document.querySelector("[data-title='loginMCG'] .genially-view-text").innerHTML="<b>LOGOUT</b>";
+          localStorage.setItem('userIdMCG',userdata.id);
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+        alert("Error de conexión")
+      });
+    document.getElementsByClassName("icon-close")[0].click()
+  }
+}
+
+//Función para cargar los eventos MCG en Genially
 function loadMCGEvents(){
   //registerMCG
   const collection = document.querySelectorAll("[data-title='registerMCG']");
+  collection.forEach(function(element) { element.addEventListener("click", registerUser);});
+  
+  //loginMCG
+  const collection = document.querySelectorAll("[data-title='loginMCG']");
   collection.forEach(function(element) { element.addEventListener("click", registerUser);});
 }
