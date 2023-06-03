@@ -252,7 +252,7 @@ async function registerUser() {
     var userdata = formValues
     
     //Crear userId
-    userData.userId = generarClaveAleatoria()
+    userdata.userId = generarClaveAleatoria()
 
     // Configurar opciones para la solicitud fetch POST
     var options = {
