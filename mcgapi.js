@@ -245,6 +245,9 @@ async function registerUser() {
     
     console.log(formValues)
     
+    //Visualizar waitingMCG
+    document.querySelector("[data-title='waitingMCG']").style.display="block";
+    
     // Objeto de datos que se enviará en la solicitud POST
     var userdata = formValues
     
@@ -267,6 +270,10 @@ async function registerUser() {
       })
       .then(function(data) {
         console.log(data); // Manejar la respuesta recibida del servidor
+      
+        //Oculat waitingMCG
+        document.querySelector("[data-title='waitingMCG']").style.display="none";
+      
         if(!data.status){
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           localStorage.setItem('userIdMCG',userdata.userId);
@@ -274,6 +281,9 @@ async function registerUser() {
       })
       .catch(function(error) {
         console.log('Error:', error);
+      
+        //Oculat waitingMCG
+        document.querySelector("[data-title='waitingMCG']").style.display="none";
       });
     //document.getElementsByClassName("icon-close")[0].click()
   }
@@ -309,6 +319,9 @@ async function loginMCG(){
     
     console.log(formValues)
     
+    //Visualizar waitingMCG
+    document.querySelector("[data-title='waitingMCG']").style.display="block";
+    
     // Objeto de datos que se enviará en la solicitud POST
     var userdata = formValues
 
@@ -328,6 +341,10 @@ async function loginMCG(){
       })
       .then(function(data) {
         console.log(data); // Manejar la respuesta recibida del servidor
+      
+        //Oculat waitingMCG
+        document.querySelector("[data-title='waitingMCG']").style.display="none";
+      
         if(!data.status){
           console.log("Credenciales válidas")
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
@@ -337,6 +354,10 @@ async function loginMCG(){
       })
       .catch(function(error) {
         console.log('Error:', error);
+      
+        //Oculat waitingMCG
+        document.querySelector("[data-title='waitingMCG']").style.display="none";
+      
         alert("Error de conexión")
       });
     //document.getElementsByClassName("icon-close")[0].click()
@@ -352,4 +373,7 @@ function loadMCGEvents(){
   //loginMCG
   const loginButtons = document.querySelectorAll("[data-title='loginMCG']");
   loginButtons.forEach(function(element) { element.addEventListener("click", loginMCG);});
+  
+  //waitingMCG
+  document.querySelector("[data-title='waitingMCG']").style.display="none";  
 }
