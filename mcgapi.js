@@ -290,8 +290,8 @@ async function registerUser() {
           document.querySelector("[data-title='loginMCG']").style.display="none";
           
           const userMCG = {
-            'userId':userdata.userId,
-            'username':userdata.username
+            'userId':data.userId,
+            'username':data.username
           }
           
           localStorage.setItem('userMCG',JSON.stringify(userMCG));
