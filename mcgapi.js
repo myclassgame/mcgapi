@@ -402,8 +402,8 @@ async function loginMCG(){
 
 //Función de logout
 function logoutMCG(){
-  //Borrar 'userIdMCG'
-  localStorage.removeItem('userIdMCG');
+  //Borrar 'userMCG'
+  localStorage.removeItem('userMCG');
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").style.display="none";  
   //Ocultar logoutMCG
