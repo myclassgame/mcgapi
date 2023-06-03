@@ -275,7 +275,20 @@ async function registerUser() {
         document.querySelector("[data-title='waitingMCG']").style.display="none";
       
         if(!data.status){
+          //Visualizar logoutMCG
+          document.querySelector("[data-title='logoutMCG']").style.display="block";  
+          
+          //Visualizar usernameMCG
+          document.querySelector("[data-title='usernameMCG']").style.display="block";
+          
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
+          
+          //Ocultar registerMCG
+          document.querySelector("[data-title='registerMCG']").style.display="none";  
+          
+          //Ocultar loginMCG
+          document.querySelector("[data-title='loginMCG']").style.display="none";
+          
           localStorage.setItem('userIdMCG',userdata.userId);
         }
       })
@@ -347,8 +360,21 @@ async function loginMCG(){
       
         if(!data.status){
           console.log("Credenciales válidas")
+          
+          //Visualizar logoutMCG
+          document.querySelector("[data-title='logoutMCG']").style.display="block";  
+          
+          //Visualizar usernameMCG
+          document.querySelector("[data-title='usernameMCG']").style.display="block";
+          
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
-          //document.querySelector("[data-title='loginMCG'] .genially-view-text").innerHTML="<b>LOGOUT</b>";
+          
+          //Ocultar registerMCG
+          document.querySelector("[data-title='registerMCG']").style.display="none";  
+          
+          //Ocultar loginMCG
+          document.querySelector("[data-title='loginMCG']").style.display="none";
+          
           localStorage.setItem('userIdMCG',userdata.userId);
         }
       })
@@ -364,6 +390,22 @@ async function loginMCG(){
   }
 }
 
+//Función de logout
+function logoutMCG(){
+  //Borrar 'userIdMCG'
+  localStorage.removeItem('userIdMCG');
+  //Ocultar waitingMCG
+  document.querySelector("[data-title='waitingMCG']").style.display="none";  
+  //Ocultar logoutMCG
+  document.querySelector("[data-title='logoutMCG']").style.display="none";  
+  //Ocultar usernameMCG
+  document.querySelector("[data-title='usernameMCG']").style.display="none"; 
+  //Visualizar registerMCG
+  document.querySelector("[data-title='registerMCG']").style.display="block";  
+  //Visualizar loginMCG
+  document.querySelector("[data-title='loginMCG']").style.display="block";
+}
+
 //Función para cargar los eventos MCG en Genially
 function loadMCGEvents(){
   //registerMCG
@@ -374,6 +416,16 @@ function loadMCGEvents(){
   const loginButtons = document.querySelectorAll("[data-title='loginMCG']");
   loginButtons.forEach(function(element) { element.addEventListener("click", loginMCG);});
   
-  //waitingMCG
-  document.querySelector("[data-title='waitingMCG']").style.display="none";  
+  //logoutMCG
+  const logoutButtons = document.querySelectorAll("[data-title='logoutMCG']");
+  logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
+  
+  //Ocultar waitingMCG
+  document.querySelector("[data-title='waitingMCG']").style.display="none"; 
+  
+  //Ocultar logoutMCG
+  document.querySelector("[data-title='logoutMCG']").style.display="none";  
+  
+  //Ocultar usernameMCG
+  document.querySelector("[data-title='usernameMCG']").style.display="none";  
 }
