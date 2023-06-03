@@ -260,7 +260,7 @@ async function registerUser() {
       .catch(function(error) {
         console.log('Error:', error);
       });
-    document.getElementsByClassName("icon-close")[0].click()
+    //document.getElementsByClassName("icon-close")[0].click()
   }
 }
 
@@ -324,7 +324,7 @@ async function loginMCG(){
         console.log('Error:', error);
         alert("Error de conexión")
       });
-    document.getElementsByClassName("icon-close")[0].click()
+    //document.getElementsByClassName("icon-close")[0].click()
   }
 }
 
