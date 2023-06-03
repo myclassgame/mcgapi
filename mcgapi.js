@@ -231,7 +231,7 @@ async function registerUser() {
       imageAlt: '@MyClassGame',
       html:
           '<input id="swal-input1" class="swal2-input" placeholder="Username">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="Password">',
+          '<input type="password" id="swal-input2" class="swal2-input" placeholder="Password">',
       focusConfirm: false,
       preConfirm: () => {
           const user = {
@@ -289,7 +289,12 @@ async function registerUser() {
           //Ocultar loginMCG
           document.querySelector("[data-title='loginMCG']").style.display="none";
           
-          localStorage.setItem('userIdMCG',userdata.userId);
+          const userMCG = {
+            'userId':userdata.userId,
+            'username':userdata.username
+          }
+          
+          localStorage.setItem('userMCG',JSON.stringify(userMCG));
         }
       })
       .catch(function(error) {
@@ -318,7 +323,7 @@ async function loginMCG(){
       imageAlt: '@MyClassGame',
       html:
           '<input id="swal-input1" class="swal2-input" placeholder="Username">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="Password">',
+          '<input type="password" id="swal-input2" class="swal2-input" placeholder="Password">',
       focusConfirm: false,
       preConfirm: () => {
           const user = {
@@ -375,7 +380,12 @@ async function loginMCG(){
           //Ocultar loginMCG
           document.querySelector("[data-title='loginMCG']").style.display="none";
           
-          localStorage.setItem('userIdMCG',userdata.userId);
+          const userMCG = {
+            'userId':userdata.userId,
+            'username':userdata.username
+          }
+          
+          localStorage.setItem('userMCG',JSON.stringify(userMCG));
         }
       })
       .catch(function(error) {
@@ -421,11 +431,35 @@ function loadMCGEvents(){
   logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
   
   //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").style.display="none"; 
+  document.querySelector("[data-title='waitingMCG']").style.display="none";  
   
-  //Ocultar logoutMCG
-  document.querySelector("[data-title='logoutMCG']").style.display="none";  
-  
-  //Ocultar usernameMCG
-  document.querySelector("[data-title='usernameMCG']").style.display="none";  
+  if (localStorage.getItem('userMCG')){
+    //Visualizar logoutMCG
+    document.querySelector("[data-title='logoutMCG']").style.display="block";  
+
+    //Visualizar usernameMCG
+    document.querySelector("[data-title='usernameMCG']").style.display="block";
+    
+    let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+
+    document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
+
+    //Ocultar registerMCG
+    document.querySelector("[data-title='registerMCG']").style.display="none";  
+
+    //Ocultar loginMCG
+    document.querySelector("[data-title='loginMCG']").style.display="none";
+  } else {
+    //Ocultar logoutMCG
+    document.querySelector("[data-title='logoutMCG']").style.display="none";  
+
+    //Ocultar usernameMCG
+    document.querySelector("[data-title='usernameMCG']").style.display="none";
+
+    //Visualizar registerMCG
+    document.querySelector("[data-title='registerMCG']").style.display="block";  
+
+    //Visualizar loginMCG
+    document.querySelector("[data-title='loginMCG']").style.display="block";
+  }
 }
