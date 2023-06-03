@@ -13,6 +13,18 @@ function prova(){
   alert("Cómo estás?")
 }
 
+function generarClaveAleatoria() {
+  const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let clave = '';
+
+  for (let i = 0; i < 6; i++) {
+    const indice = Math.floor(Math.random() * caracteres.length);
+    clave += caracteres.charAt(indice);
+  }
+
+  return clave;
+}
+
 function postBadge(e){
   fetch('https://juantoman-json-server.glitch.me/badges', {
     method: 'POST',
@@ -235,6 +247,9 @@ async function registerUser() {
     
     // Objeto de datos que se enviará en la solicitud POST
     var userdata = formValues
+    
+    //Crear userId
+    userData.userId = generarClaveAleatoria()
 
     // Configurar opciones para la solicitud fetch POST
     var options = {
@@ -254,7 +269,7 @@ async function registerUser() {
         console.log(data); // Manejar la respuesta recibida del servidor
         if(!data.status){
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
-          localStorage.setItem('userIdMCG',userdata.id);
+          localStorage.setItem('userIdMCG',userdata.userId);
         }
       })
       .catch(function(error) {
@@ -317,7 +332,7 @@ async function loginMCG(){
           console.log("Credenciales válidas")
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           //document.querySelector("[data-title='loginMCG'] .genially-view-text").innerHTML="<b>LOGOUT</b>";
-          localStorage.setItem('userIdMCG',userdata.id);
+          localStorage.setItem('userIdMCG',userdata.userId);
         }
       })
       .catch(function(error) {
