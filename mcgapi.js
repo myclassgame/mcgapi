@@ -164,7 +164,7 @@ async function SA() {
 }
 
 //Crear clase 
-async function createClass() {
+async function newclassMCG() {
   const { value: formValues } = await Swal.fire({
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
       background: '#268bd2',
@@ -191,6 +191,10 @@ async function createClass() {
       console.log(formValues)
       // Objeto de datos que se enviará en la solicitud POST
       var data = formValues
+      
+      //Datos userMCG
+      let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+      data.userId=userMCG.userId;
 
       // Configurar opciones para la solicitud fetch POST
       var options = {
@@ -429,6 +433,10 @@ function loadMCGEvents(){
   //logoutMCG
   const logoutButtons = document.querySelectorAll("[data-title='logoutMCG']");
   logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
+  
+  //newclassMCG
+  const newclassButtons = document.querySelectorAll("[data-title='newclassMCG']");
+  newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").style.display="none";  
