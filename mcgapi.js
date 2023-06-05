@@ -222,6 +222,28 @@ async function newclassMCG() {
   }
 }
 
+//Crear clase 
+function loadClassesMCG() {
+  
+  //Datos userMCG
+  let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+  let userId=userMCG.userId;
+  
+  // Realizar la solicitud fetch POST
+  fetch('https://genialmcg.glitch.me/classes/?userId='+userId)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data); // Manejar la respuesta recibida del servidor
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+    });
+  }
+
+}
+
 //Función para registrar usuario en @MyClassGame
 async function registerUser() {
   const { value: formValues } = await Swal.fire({
@@ -302,6 +324,9 @@ async function registerUser() {
           }
           
           localStorage.setItem('userMCG',JSON.stringify(userMCG));
+          
+          //Cargar classes
+          loadClassesMCG()
         }
       })
       .catch(function(error) {
@@ -393,6 +418,9 @@ async function loginMCG(){
           }
           
           localStorage.setItem('userMCG',JSON.stringify(userMCG));
+          
+          //Cargar classes
+          loadClassesMCG()
         }
       })
       .catch(function(error) {
@@ -460,6 +488,9 @@ function loadMCGEvents(){
 
     //Ocultar loginMCG
     document.querySelector("[data-title='loginMCG']").style.display="none";
+    
+    //Cargar classes
+    loadClassesMCG()
   } else {
     //Ocultar logoutMCG
     document.querySelector("[data-title='logoutMCG']").style.display="none";  
