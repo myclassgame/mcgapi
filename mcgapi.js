@@ -237,9 +237,12 @@ async function loadClassesMCG() {
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
+      // Crea una copia del objeto
+      const copiaObjeto = newclassBtn.cloneNode(true);
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02");
       data.forEach(function(element) {
-        postitMCG.innerHTML+=newclassBtn;
+        // Inserta la copia del objeto en el div de destino
+        postitMCG.appendChild(copiaObjeto);
       })
     })
     .catch(function(error) {
