@@ -240,8 +240,6 @@ function loadClassesMCG() {
     .catch(function(error) {
       console.log('Error:', error);
     });
-  }
-
 }
 
 //Función para registrar usuario en @MyClassGame
