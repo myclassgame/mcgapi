@@ -222,8 +222,8 @@ async function newclassMCG() {
   }
 }
 
-//Crear clase 
-function loadClassesMCG() {
+//Cargar clases
+async function loadClassesMCG() {
   
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -238,7 +238,9 @@ function loadClassesMCG() {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02");
-      console.log(postitMCG)
+      data.forEach(function(element) {
+        postitMCG.innerHTML+=newclassBtn;
+      })
     })
     .catch(function(error) {
       console.log('Error:', error);
