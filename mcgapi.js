@@ -195,6 +195,9 @@ async function newclassMCG() {
       //Datos userMCG
       let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
       data.userId=userMCG.userId;
+    
+      //Crear classId
+      data.classId = generarClaveAleatoria()
 
       // Configurar opciones para la solicitud fetch POST
       var options = {
