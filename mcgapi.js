@@ -256,6 +256,7 @@ async function loadClassesMCG() {
         // Crea una copia del objeto
         const classBtn = newclassBtn.cloneNode(true);
         classBtn.addEventListener("click", loadClassMCG)
+        classBtn.querySelector('span span').textContent = element.className;
         classBtn.id=element.classId;
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
