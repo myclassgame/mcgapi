@@ -239,10 +239,12 @@ async function loadClassesMCG() {
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
       
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02").closest(".genially-animated-wrapper");
-      const myclassesMCG = document.createElement('div');
-      myclassesMCG.id = 'myclassesMCG';
-      myclassesMCG.classList.add('myclassesMCG');
-      postitMCG.appendChild(myclassesMCG);
+      if (!document.querySelector("#myclassesMCG")) {
+        const myclassesMCG = document.createElement('div');
+        myclassesMCG.id = 'myclassesMCG';
+        myclassesMCG.classList.add('myclassesMCG');
+        postitMCG.appendChild(myclassesMCG);
+      }
     
       data.forEach(function(element) {
         // Crea una copia del objeto
