@@ -238,10 +238,12 @@ async function loadClassesMCG() {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
       // Crea una copia del objeto
-      const copiaObjeto = newclassBtn.cloneNode(true);
+      
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02").closest(".genially-animated-wrapper");
       data.forEach(function(element) {
-        // Inserta la copia del objeto en el div de destino
+
+const copiaObjeto = newclassBtn.cloneNode(true);
+//Inserta la copia del objeto en el div de destino
         postitMCG.appendChild(copiaObjeto);
       })
     })
