@@ -94,6 +94,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-left: 50px;
+  margin-top: 25px;
 }
 
 #myclassesMCG > div {
