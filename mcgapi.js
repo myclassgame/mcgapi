@@ -237,7 +237,8 @@ function loadClassesMCG() {
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
-      console.log(newclassBtn)
+      const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02");
+      console.log(postitMCG)
     })
     .catch(function(error) {
       console.log('Error:', error);
