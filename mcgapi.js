@@ -222,6 +222,12 @@ async function newclassMCG() {
   }
 }
 
+//Cargar clase
+function loadClassMCG(e){
+  console.log(e.currentTarget.id);
+  localStorage.setItem('classIdMCG',e.currentTarget.id);
+}
+
 //Cargar clases
 async function loadClassesMCG() {
   
@@ -249,6 +255,8 @@ async function loadClassesMCG() {
       data.forEach(function(element) {
         // Crea una copia del objeto
         const classBtn = newclassBtn.cloneNode(true);
+        classBtn.addEventListener("click", loadClassMCG)
+        classBtn.id=element.classId;
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
       })
