@@ -237,14 +237,18 @@ async function loadClassesMCG() {
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
-      // Crea una copia del objeto
       
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02").closest(".genially-animated-wrapper");
+      const myclassesMCG = document.createElement('div');
+      myclassesMCG.id = 'myclassesMCG';
+      myclassesMCG.classList.add('myclassesMCG');
+      postitMCG.appendChild(myclassesMCG);
+    
       data.forEach(function(element) {
-
-const copiaObjeto = newclassBtn.cloneNode(true);
-//Inserta la copia del objeto en el div de destino
-        postitMCG.appendChild(copiaObjeto);
+        // Crea una copia del objeto
+        const classBtn = newclassBtn.cloneNode(true);
+        //Inserta la copia del objeto en el div de destino
+        myclassesMCG.appendChild(classBtn);
       })
     })
     .catch(function(error) {
@@ -457,6 +461,8 @@ function logoutMCG(){
   document.querySelector("[data-title='registerMCG']").style.display="block";  
   //Visualizar loginMCG
   document.querySelector("[data-title='loginMCG']").style.display="block";
+  //Borrar clases
+  document.querySelector("#myclassesMCG").innerHTML="";
 }
 
 //Función para cargar los eventos MCG en Genially
