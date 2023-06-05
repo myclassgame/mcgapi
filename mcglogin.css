@@ -89,3 +89,13 @@
     right:10px;
     opacity:0;
 }
+
+#myclassesMCG {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#myclassesMCG > div {
+  margin: 10px;
+}
