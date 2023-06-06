@@ -298,7 +298,7 @@ async function registerUser() {
     console.log(formValues)
     
     //Visualizar waitingMCG
-    document.querySelector("[data-title='waitingMCG']").style.display="block";
+    document.querySelector("[data-title='waitingMCG']").style.visibility="visible";
     
     // Objeto de datos que se enviará en la solicitud POST
     var userdata = formValues
@@ -324,22 +324,22 @@ async function registerUser() {
         console.log(data); // Manejar la respuesta recibida del servidor
       
         //Oculat waitingMCG
-        document.querySelector("[data-title='waitingMCG']").style.display="none";
+        document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";
       
         if(!data.status){
           //Visualizar logoutMCG
-          document.querySelector("[data-title='logoutMCG']").style.display="block";  
+          document.querySelector("[data-title='logoutMCG']").style.visibility="visible";  
           
           //Visualizar usernameMCG
-          document.querySelector("[data-title='usernameMCG']").style.display="block";
+          document.querySelector("[data-title='usernameMCG']").style.visibility="visible";
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           
           //Ocultar registerMCG
-          document.querySelector("[data-title='registerMCG']").style.display="none";  
+          document.querySelector("[data-title='registerMCG']").style.visibility="hidden";  
           
           //Ocultar loginMCG
-          document.querySelector("[data-title='loginMCG']").style.display="none";
+          document.querySelector("[data-title='loginMCG']").style.visibility="hidden";
           
           const userMCG = {
             'userId':userdata.userId,
@@ -356,7 +356,7 @@ async function registerUser() {
         console.log('Error:', error);
       
         //Oculat waitingMCG
-        document.querySelector("[data-title='waitingMCG']").style.display="none";
+        document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";
       });
     //document.getElementsByClassName("icon-close")[0].click()
   }
@@ -393,7 +393,7 @@ async function loginMCG(){
     console.log(formValues)
     
     //Visualizar waitingMCG
-    document.querySelector("[data-title='waitingMCG']").style.display="block";
+    document.querySelector("[data-title='waitingMCG']").style.visibility="visible";
     
     // Objeto de datos que se enviará en la solicitud POST
     var userdata = formValues
@@ -416,24 +416,24 @@ async function loginMCG(){
         console.log(data); // Manejar la respuesta recibida del servidor
       
         //Oculat waitingMCG
-        document.querySelector("[data-title='waitingMCG']").style.display="none";
+        document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";
       
         if(!data.status){
           console.log("Credenciales válidas")
           
           //Visualizar logoutMCG
-          document.querySelector("[data-title='logoutMCG']").style.display="block";  
+          document.querySelector("[data-title='logoutMCG']").style.visibility="visible";  
           
           //Visualizar usernameMCG
-          document.querySelector("[data-title='usernameMCG']").style.display="block";
+          document.querySelector("[data-title='usernameMCG']").style.visibility="visible";
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           
           //Ocultar registerMCG
-          document.querySelector("[data-title='registerMCG']").style.display="none";  
+          document.querySelector("[data-title='registerMCG']").style.visibility="hidden";  
           
           //Ocultar loginMCG
-          document.querySelector("[data-title='loginMCG']").style.display="none";
+          document.querySelector("[data-title='loginMCG']").style.visibility="hidden";
           
           const userMCG = {
             'userId':data.user.userId,
@@ -450,7 +450,7 @@ async function loginMCG(){
         console.log('Error:', error);
       
         //Oculat waitingMCG
-        document.querySelector("[data-title='waitingMCG']").style.display="none";
+        document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";
       
         alert("Error de conexión")
       });
@@ -463,15 +463,15 @@ function logoutMCG(){
   //Borrar 'userMCG'
   localStorage.removeItem('userMCG');
   //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").style.display="none";  
+  document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";  
   //Ocultar logoutMCG
-  document.querySelector("[data-title='logoutMCG']").style.display="none";  
+  document.querySelector("[data-title='logoutMCG']").style.visibility="hidden";  
   //Ocultar usernameMCG
-  document.querySelector("[data-title='usernameMCG']").style.display="none"; 
+  document.querySelector("[data-title='usernameMCG']").style.visibility="hidden"; 
   //Visualizar registerMCG
-  document.querySelector("[data-title='registerMCG']").style.display="block";  
+  document.querySelector("[data-title='registerMCG']").style.visibility="visible";  
   //Visualizar loginMCG
-  document.querySelector("[data-title='loginMCG']").style.display="block";
+  document.querySelector("[data-title='loginMCG']").style.visibility="visible";
   //Borrar clases
   document.querySelector("#myclassesMCG").innerHTML="";
 }
@@ -495,38 +495,38 @@ function loadMCGEvents(){
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
   
   //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").style.display="none";  
+  document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";  
   
   if (localStorage.getItem('userMCG')){
     //Visualizar logoutMCG
-    document.querySelector("[data-title='logoutMCG']").style.display="block";  
+    document.querySelector("[data-title='logoutMCG']").style.visibility="visible";;  
 
     //Visualizar usernameMCG
-    document.querySelector("[data-title='usernameMCG']").style.display="block";
+    document.querySelector("[data-title='usernameMCG']").style.visibility="visible";
     
     let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
 
     document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
 
     //Ocultar registerMCG
-    document.querySelector("[data-title='registerMCG']").style.display="none";  
+    document.querySelector("[data-title='registerMCG']").style.visibility="hidden";  
 
     //Ocultar loginMCG
-    document.querySelector("[data-title='loginMCG']").style.display="none";
+    document.querySelector("[data-title='loginMCG']").style.visibility="hidden";
     
     //Cargar classes
     loadClassesMCG()
   } else {
     //Ocultar logoutMCG
-    document.querySelector("[data-title='logoutMCG']").style.display="none";  
+    document.querySelector("[data-title='logoutMCG']").style.visibility="hidden"; 
 
     //Ocultar usernameMCG
-    document.querySelector("[data-title='usernameMCG']").style.display="none";
+    document.querySelector("[data-title='usernameMCG']").style.visibility="hidden";
 
     //Visualizar registerMCG
-    document.querySelector("[data-title='registerMCG']").style.display="block";  
+    document.querySelector("[data-title='registerMCG']").style.visibility="visible";  
 
     //Visualizar loginMCG
-    document.querySelector("[data-title='loginMCG']").style.display="block";
+    document.querySelector("[data-title='loginMCG']").style.visibility="visible";
   }
 }
