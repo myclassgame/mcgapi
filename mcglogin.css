@@ -101,3 +101,7 @@
 #myclassesMCG > div {
   margin: 10px;
 }
+
+[data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'] {
+    transition: all 1s;
+}
