@@ -103,5 +103,5 @@
 }
 
 [data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'] {
-    transition: all 1s;
+    transition: visibility 1s ease-in-out;
 }
