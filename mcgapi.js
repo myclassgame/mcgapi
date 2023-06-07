@@ -495,7 +495,7 @@ function loadMCGEvents(){
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
   
   //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").style.visibility="hidden";  
+  document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");  
   
   if (localStorage.getItem('userMCG')){
     //Visualizar logoutMCG
