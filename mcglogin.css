@@ -102,13 +102,13 @@
   margin: 10px;
 }
 
-[data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'] {
+[data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'], [data-title='waitingMCG'] {
     visibility: visible;
     opacity:1;
     transition: all 1s ease-in-out;
 }
 
-.hiddenElement{
+[data-title='loginMCG'].hiddenElement{
     visibility: hidden;
     opacity:0;
 }
