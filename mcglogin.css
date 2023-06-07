@@ -103,5 +103,13 @@
 }
 
 [data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'] {
-    transition: visibility 1s ease-in-out;
+    visibility: visible;
+    opacity:1;
+    transition: all 1s ease-in-out;
 }
+
+.hiddenElement{
+    visibility: hidden;
+    opacity:0;
+}
+
