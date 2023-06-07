@@ -105,7 +105,7 @@
 [data-title='logoutMCG'], [data-title='usernameMCG'], [data-title='registerMCG'], [data-title='loginMCG'], [data-title='waitingMCG'] {
     visibility: visible;
     opacity:1;
-    transition: all 1s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .hiddenElement{
