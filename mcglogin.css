@@ -108,7 +108,7 @@
     transition: all 1s ease-in-out;
 }
 
-[data-title='loginMCG'].hiddenElement{
+.hiddenElement{
     visibility: hidden;
     opacity:0;
 }
