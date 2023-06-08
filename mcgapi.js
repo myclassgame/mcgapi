@@ -216,6 +216,7 @@ async function newclassMCG() {
         .then(function(data) {
           console.log(data); // Manejar la respuesta recibida del servidor
           // Crea una copia del objeto
+          const newclassBtn = document.querySelector("[data-title='newclassMCG']")
           const classBtn = newclassBtn.cloneNode(true);
           classBtn.addEventListener("click", loadClassMCG)
           classBtn.querySelector('span span').textContent = data.className;
