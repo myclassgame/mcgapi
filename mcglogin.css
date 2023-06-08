@@ -113,7 +113,12 @@
     opacity:0 !important;
 }
 
-[data-title="classButton"].hover {
-    transform: translate(0, -10px);
+[data-title="classButton"] {
+  transition: all .5s ease-in-out;
+}
+
+[data-title="classButton"]:hover {
+    transform: translate(0, -10px) !important;
 } 
+
 
