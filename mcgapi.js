@@ -215,6 +215,13 @@ async function newclassMCG() {
         })
         .then(function(data) {
           console.log(data); // Manejar la respuesta recibida del servidor
+          // Crea una copia del objeto
+          const classBtn = newclassBtn.cloneNode(true);
+          classBtn.addEventListener("click", loadClassMCG)
+          classBtn.querySelector('span span').textContent = data.className;
+          classBtn.id=data.classId;
+          //Inserta la copia del objeto en el div de destino
+          document.querySelector("#myclassesMCG").appendChild(classBtn);
         })
         .catch(function(error) {
           console.log('Error:', error);
