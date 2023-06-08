@@ -234,6 +234,7 @@ async function newclassMCG() {
 function loadClassMCG(e){
   console.log(e.currentTarget.id);
   localStorage.setItem('classIdMCG',e.currentTarget.id);
+  document.querySelector("[data-title='myclassMCG']").click();
 }
 
 //Cargar clases
