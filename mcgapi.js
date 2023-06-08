@@ -221,6 +221,7 @@ async function newclassMCG() {
           classBtn.addEventListener("click", loadClassMCG)
           classBtn.querySelector('span span').textContent = data.className;
           classBtn.id=data.classId;
+          classBtn.setAttribute("data-title", "classButton"); 
           //Inserta la copia del objeto en el div de destino
           document.querySelector("#myclassesMCG").appendChild(classBtn);
         })
@@ -267,6 +268,7 @@ async function loadClassesMCG() {
         classBtn.addEventListener("click", loadClassMCG)
         classBtn.querySelector('span span').textContent = element.className;
         classBtn.id=element.classId;
+        classBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
       })
