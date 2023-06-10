@@ -504,7 +504,7 @@ function logoutMCG(){
 }
 
 //Función para cargar los eventos MCG en Genially
-function loadMCGEvents(){
+function loadEventsMyClasses(){
   //registerMCG
   const registerButtons = document.querySelectorAll("[data-title='registerMCG']");
   registerButtons.forEach(function(element) { element.addEventListener("click", registerUser);});
