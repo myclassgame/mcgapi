@@ -586,3 +586,7 @@ function loadEventsMyClasses(){
     document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
   }
 }
+
+function loadEventsStudents() {
+  console.log("loadEventsStudents")
+}
