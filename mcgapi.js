@@ -24,6 +24,11 @@ function generarClaveAleatoria() {
 
   return clave;
 }
+function randomPastelColor() {
+  let hue = Math.floor(Math.random() * 360);
+  let pastel = 'hsl(' + hue + ', 100%, 80%)';
+  return pastel;
+}
 
 function postBadge(e){
   fetch('https://juantoman-json-server.glitch.me/badges', {
@@ -198,6 +203,7 @@ async function newclassMCG() {
     
       //Crear classId
       data.classId = generarClaveAleatoria()
+      data.color = randomPastelColor()
 
       // Configurar opciones para la solicitud fetch POST
       var options = {
@@ -220,6 +226,7 @@ async function newclassMCG() {
           const classBtn = newclassBtn.cloneNode(true);
           classBtn.addEventListener("click", loadClassMCG)
           classBtn.querySelector('span span').textContent = data.className;
+          classBtn.querySelector('.color1').style.fill = data.color;
           classBtn.id=data.classId;
           classBtn.setAttribute("data-title", "classButton"); 
           //Inserta la copia del objeto en el div de destino
