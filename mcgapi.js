@@ -252,6 +252,9 @@ async function loadClassesMCG() {
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
   
+  //Visualizar waitingMCG
+  document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
+  
   // Realizar la solicitud fetch POST
   fetch('https://genialmcg.glitch.me/classes/?userId='+userId)
     .then(function(response) {
@@ -268,7 +271,7 @@ async function loadClassesMCG() {
         myclassesMCG.classList.add('myclassesMCG');
         postitMCG.appendChild(myclassesMCG);
       }
-    
+   
       data.forEach(function(element) {
         // Crea una copia del objeto
         const classBtn = newclassBtn.cloneNode(true);
@@ -280,9 +283,15 @@ async function loadClassesMCG() {
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
       })
+    
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+    
     })
     .catch(function(error) {
       console.log('Error:', error);
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     });
 }
 
