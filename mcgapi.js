@@ -265,6 +265,7 @@ async function loadClassesMCG() {
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
       
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02").closest(".genially-animated-wrapper");
+      postitMCG.style.overflow-y="scroll";
       if (!document.querySelector("#myclassesMCG")) {
         const myclassesMCG = document.createElement('div');
         myclassesMCG.id = 'myclassesMCG';
