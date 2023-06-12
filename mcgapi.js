@@ -265,7 +265,7 @@ async function loadClassesMCG() {
       const newclassBtn = document.querySelector("[data-title='newclassMCG']");
       
       const postitMCG = document.querySelector("[data-title='myclassesMCG'] .postit-base02").closest(".genially-animated-wrapper");
-      postitMCG.style.overflowY="scroll";
+      postitMCG.style.overflowY="auto";
       postitMCG.style.overflowX="hidden";
       postitMCG.style.pointerEvents="auto";
       if (!document.querySelector("#myclassesMCG")) {
