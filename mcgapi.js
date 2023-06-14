@@ -270,6 +270,7 @@ async function loadClassesMCG() {
       postitMCG.style.pointerEvents="auto";*/
       postitMCG.style.opacity=0;
       postitMCG.style.visibility="hidden";
+      postitMCG.style.transition="all 5s ease-in-out";
       if (!document.querySelector("#myclassesMCG")) {
         const myclassesMCG = document.createElement('div');
         myclassesMCG.id = 'myclassesMCG';
