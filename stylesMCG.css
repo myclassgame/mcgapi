@@ -97,6 +97,8 @@
   margin-left: 50px;
   margin-top: 25px;
   transition: all 1s ease-in-out;
+  scrollbar-width: thin;
+  scrollbar-color: #90A4AE #CFD8DC;
 }
 
 #myclassesMCG > div {
