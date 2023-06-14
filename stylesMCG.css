@@ -126,6 +126,17 @@
 }
 
 [data-title="myclassesMCG"] {
-  scrollbar-width: thin;
-  scrollbar-color: #90A4AE #CFD8DC;
+  overflow-y: auto;
+}
+
+[data-title="myclassesMCG"]::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+[data-title="myclassesMCG"]::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+[data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
+  background: #666; 
 }
