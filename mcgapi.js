@@ -274,6 +274,7 @@ async function loadClassesMCG() {
         myclassesMCG.classList.add('myclassesMCG');
         postitMCG.appendChild(myclassesMCG);
       }
+      
    
       data.forEach(function(element) {
         // Crea una copia del objeto
@@ -286,7 +287,9 @@ async function loadClassesMCG() {
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
       })
-    
+      
+      //Visualizar postitMCG
+      postitMCG.classList.add('myclassesVisible');
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     
