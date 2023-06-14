@@ -384,8 +384,10 @@
 }
 
 [data-title="myclassesMCG"] {
-  overflow-y: auto;
-  transition: all 1s ease-in-out;
+    overflow-y: auto;
+    opacity:0 !important;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
 }
 
 [data-title="myclassesMCG"]::-webkit-scrollbar {
