@@ -385,8 +385,6 @@
 
 [data-title="myclassesMCG"] {
     overflow-y: auto;
-    opacity:0 !important;
-    visibility: hidden;
     transition: all 1s ease-in-out;
 }
 
