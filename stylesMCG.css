@@ -383,11 +383,6 @@
     transform: translate(0, -10px) !important;
 }
 
-[data-title="myclassesMCG"] {
-    overflow-y: auto;
-    transition: all 1s ease-in-out;
-}
-
 [data-title="myclassesMCG"]::-webkit-scrollbar {
   width: 5px;
 }
