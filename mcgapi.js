@@ -275,10 +275,10 @@ async function loadClassesMCG() {
         const myclassesMCG = document.createElement('div');
         myclassesMCG.id = 'myclassesMCG';
         myclassesMCG.classList.add('myclassesMCG');
-        postitMCG.appendChild(myclassesMCG);
+      } else {
+        const myclassesMCG = document.querySelector("#myclassesMCG");
       }
-      
-   
+         
       data.forEach(function(element) {
         // Crea una copia del objeto
         const classBtn = newclassBtn.cloneNode(true);
@@ -290,7 +290,8 @@ async function loadClassesMCG() {
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
       })
-      
+
+      postitMCG.appendChild(myclassesMCG);
       //Visualizar postitMCG
       postitMCG.style.opacity=1;
       postitMCG.style.visibility="visible";
