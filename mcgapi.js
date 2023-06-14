@@ -268,7 +268,7 @@ async function loadClassesMCG() {
       /*postitMCG.style.overflowY="auto";
       postitMCG.style.overflowX="hidden";
       postitMCG.style.pointerEvents="auto";*/
-      postitMCG.style.opacity=0 !important;
+      postitMCG.style.opacity=0;
       postitMCG.style.visibility="hidden";
       if (!document.querySelector("#myclassesMCG")) {
         const myclassesMCG = document.createElement('div');
@@ -291,7 +291,7 @@ async function loadClassesMCG() {
       })
       
       //Visualizar postitMCG
-      postitMCG.style.opacity=1 !important;
+      postitMCG.style.opacity=1;
       postitMCG.style.visibility="visible";
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
