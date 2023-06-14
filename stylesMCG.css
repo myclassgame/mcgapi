@@ -127,6 +127,7 @@
 
 [data-title="myclassesMCG"] {
   overflow-y: auto;
+  transition: all 1s ease-in-out;
 }
 
 [data-title="myclassesMCG"]::-webkit-scrollbar {
