@@ -532,6 +532,8 @@ function logoutMCG(){
   document.querySelector("[data-title='newclassMCG']").classList.add("hiddenElement"); 
   //Ocultar myclassesMCG
   document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
+  //Ocultar lcg
+  document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
   //Visualizar registerMCG
   document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
   //Visualizar loginMCG
