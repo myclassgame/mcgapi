@@ -578,7 +578,7 @@ function loadEventsMyClasses(){
     document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
     
     //Cargar classes
-    loadClassesMCG()
+    setTimeout(loadClassesMCG, 3000)
     
   } else {
     
