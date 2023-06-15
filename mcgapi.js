@@ -529,7 +529,7 @@ function logoutMCG(){
   //Visualizar loginMCG
   document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
   //Borrar clases
-  document.querySelector("#myclassesMCG").innerHTML="";
+  document.querySelector("#myclassesMCG").remove();
 }
 
 //Función para cargar los eventos MCG en Genially
