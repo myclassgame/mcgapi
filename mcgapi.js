@@ -555,30 +555,30 @@ function loadEventsMyClasses(){
   
   if (localStorage.getItem('userMCG')){
 
-    //Cargar classes
-    setTimeout(loadClassesMCG, 3000);
-    
     //Visualizar logoutMCG
     document.querySelector("[data-title='logoutMCG']").classList.remove("hiddenElement");  
-
+    
     //Visualizar usernameMCG
     document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
     
     //Visualizar newclassMCG
     document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
 
-    //Visualizaar myclassesMCG
+    //Visualizar myclassesMCG
     document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
-    
+
     let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-
+    
     document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
-
+    
     //Ocultar registerMCG
     document.querySelector("[data-title='registerMCG']").classList.add("hiddenElement");  
-
+    
     //Ocultar loginMCG
     document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
+    
+    //Cargar classes
+    loadClassesMCG()
     
   } else {
     
