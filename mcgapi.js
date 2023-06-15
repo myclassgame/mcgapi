@@ -243,6 +243,7 @@ function loadClassMCG(e){
   console.log(e.currentTarget.id);
   localStorage.setItem('classIdMCG',e.currentTarget.id);
   document.querySelector("[data-title='myclassMCG']").click();
+  document.querySelector("#myclassesMCG").remove();
 }
 
 //Cargar clases
@@ -268,16 +269,14 @@ async function loadClassesMCG() {
       /*postitMCG.style.overflowY="auto";
       postitMCG.style.overflowX="hidden";
       postitMCG.style.pointerEvents="auto";*/
+      
       postitMCG.style.opacity=0;
       postitMCG.style.visibility="hidden";
       postitMCG.style.transition="all 5s ease-in-out";
-      if (!document.querySelector("#myclassesMCG")) {
-        const myclassesMCG = document.createElement('div');
-        myclassesMCG.id = 'myclassesMCG';
-        myclassesMCG.classList.add('myclassesMCG');
-      } else {
-        const myclassesMCG = document.querySelector("#myclassesMCG");
-      }
+      
+      const myclassesMCG = document.createElement('div');
+      myclassesMCG.id = 'myclassesMCG';
+      myclassesMCG.classList.add('myclassesMCG');
          
       data.forEach(function(element) {
         // Crea una copia del objeto
@@ -295,6 +294,7 @@ async function loadClassesMCG() {
       //Visualizar postitMCG
       postitMCG.style.opacity=1;
       postitMCG.style.visibility="visible";
+      postitMCG.style.transition="all 0s ease-in-out";
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     
