@@ -117,12 +117,16 @@
 [data-title="classButton"] {
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
-    transition: all 1s ease-in-out;
+    transition: transform .2s ease-in-out, opacity 2s ease-in-out;
 }
 
 [data-title="classButton"]:hover {
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.6);
     transform: translate(0, -10px) !important;
+}
+
+[data-title="myclassesMCG"] {
+    overflow-y: auto;
 }
 
 [data-title="myclassesMCG"]::-webkit-scrollbar {
