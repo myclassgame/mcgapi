@@ -248,6 +248,11 @@ function loadClassMCG(e){
 
 //Cargar clases
 async function loadClassesMCG() {
+  //Ocultar lcg
+  document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
+
+  //Visualizar newclassMCG
+  document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
   
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -295,6 +300,10 @@ async function loadClassesMCG() {
       /*postitMCG.style.opacity=1;
       postitMCG.style.visibility="visible";
       postitMCG.style.transition="all 0s ease-in-out";*/
+
+       //Visualizar myclassesMCG
+      document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
+      
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     
@@ -554,7 +563,7 @@ async function loadEventsMyClasses(){
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
 
   //loadClassesMCG
-  document.querySelector("[data-title='loadClassesMCG']").addEventListener("click", loadClassesMCG);
+  document.querySelector("[data-title='lcg']").addEventListener("click", loadClassesMCG);
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
@@ -567,8 +576,8 @@ async function loadEventsMyClasses(){
     //Visualizar usernameMCG
     document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
     
-    //Visualizar newclassMCG
-    document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
+    //Ocultar newclassMCG
+    document.querySelector("[data-title='newclassMCG']").classList.add("hiddenElement"); 
 
     let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
     
@@ -583,8 +592,11 @@ async function loadEventsMyClasses(){
     //Cargar classes
     //setTimeout(loadClassesMCG, 3000)
 
-    //Visualizar myclassesMCG
-    document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
+    //Ocultar myclassesMCG
+    document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
+
+    //Visualizar lcg
+    document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
     
   } else {
     
@@ -599,6 +611,9 @@ async function loadEventsMyClasses(){
 
     //Ocultar myclassesMCG
     document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
+
+    //Ocultar lcg
+    document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
 
     //Visualizar registerMCG
     document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
