@@ -248,7 +248,8 @@ function loadClassMCG(e){
 
 //Cargar clases
 async function loadClassesMCG() {
-  
+
+  document.querySelector("[data-title='myclassesMCG']").opacity="0 !important"
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
@@ -555,7 +556,7 @@ function loadEventsMyClasses(){
   if (localStorage.getItem('userMCG')){
 
     //Cargar classes
-    loadClassesMCG()
+    setTimeout(loadClassesMCG, 3000);
     
     //Visualizar logoutMCG
     document.querySelector("[data-title='logoutMCG']").classList.remove("hiddenElement");  
