@@ -248,7 +248,7 @@ function loadClassMCG(e){
 
 //Cargar clases
 async function loadClassesMCG() {
-
+  
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
@@ -554,8 +554,7 @@ async function loadEventsMyClasses(){
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
 
   //loadClassesMCG
-  const loadClassesnButton = document.querySelectorAll("[data-title='loadClassesMCG']");
-  loadClassesnButton.forEach(function(element) { element.addEventListener("click", loadClassesMCG);});
+  document.querySelector("[data-title='loadClassesMCG']").addEventListener("click", loadClassesMCG);
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
