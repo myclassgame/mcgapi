@@ -552,6 +552,10 @@ async function loadEventsMyClasses(){
   //newclassMCG
   const newclassButtons = document.querySelectorAll("[data-title='newclassMCG']");
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
+
+  //loadClassesMCG
+  const loadClassesnButton = document.querySelectorAll("[data-title='loadClassesMCG']");
+  loadClassesnButton.forEach(function(element) { element.addEventListener("click", loadClassesMCG);});
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
@@ -578,7 +582,7 @@ async function loadEventsMyClasses(){
     document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
     
     //Cargar classes
-    setTimeout(loadClassesMCG, 3000)
+    //setTimeout(loadClassesMCG, 3000)
 
     //Visualizar myclassesMCG
     document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
