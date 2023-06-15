@@ -127,7 +127,7 @@
 
 [data-title="myclassesMCG"] {
     overflow-y: auto;
-    transition: transform 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 [data-title="myclassesMCG"].hiddenElement{
