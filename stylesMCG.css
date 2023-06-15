@@ -140,9 +140,9 @@
 }
  
 [data-title="myclassesMCG"]::-webkit-scrollbar-track {
-  background: #ddd;
+  background: #ecec8e4d;
 }
  
 [data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
-  background: #666; 
+  background: #ecb52a80; 
 }
