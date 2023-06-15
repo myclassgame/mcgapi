@@ -249,7 +249,6 @@ function loadClassMCG(e){
 //Cargar clases
 async function loadClassesMCG() {
 
-  document.querySelector("[data-title='myclassesMCG']").opacity="0 !important"
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
