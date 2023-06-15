@@ -533,7 +533,11 @@ function logoutMCG(){
 }
 
 //Función para cargar los eventos MCG en Genially
-function loadEventsMyClasses(){
+async function loadEventsMyClasses(){
+
+  //Ocultar logoutMCG
+  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
+  
   //registerMCG
   const registerButtons = document.querySelectorAll("[data-title='registerMCG']");
   registerButtons.forEach(function(element) { element.addEventListener("click", registerUser);});
@@ -564,9 +568,6 @@ function loadEventsMyClasses(){
     //Visualizar newclassMCG
     document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
 
-    //Visualizar myclassesMCG
-    document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
-
     let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
     
     document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
@@ -579,6 +580,9 @@ function loadEventsMyClasses(){
     
     //Cargar classes
     setTimeout(loadClassesMCG, 3000)
+
+    //Visualizar myclassesMCG
+    document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
     
   } else {
     
