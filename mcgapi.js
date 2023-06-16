@@ -565,7 +565,7 @@ async function loadEventsMyClasses(){
   newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
 
   //loadClassesMCG
-  document.querySelector("[data-title='lcg']").addEventListener("click", loadClassesMCG);
+  //document.querySelector("[data-title='lcg']").addEventListener("click", loadClassesMCG);
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
