@@ -131,7 +131,7 @@
     overflow-y: auto;
     transition: opacity 2s ease-in-out !important;
     background: #f4c7553d;
-    border: 10px solid #ffa50063;
+    border: 10px solid #ffa50063 !important;
 }
 
 [data-title="myclassesMCG"].hiddenElement{
