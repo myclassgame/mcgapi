@@ -130,7 +130,8 @@
     opacity:1;
     overflow-y: auto;
     transition: opacity 2s ease-in-out !important;
-    background: #f4c7553d; 
+    background: #f4c7553d;
+    border: 10px solid #ffa50063;
 }
 
 [data-title="myclassesMCG"].hiddenElement{
@@ -147,5 +148,5 @@
 }
  
 [data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
-  background: #ecb52a80; 
+  background: orange; 
 }
