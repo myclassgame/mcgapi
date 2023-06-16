@@ -249,7 +249,7 @@ function loadClassMCG(e){
 //Cargar clases
 async function loadClassesMCG() {
   //Ocultar lcg
-  document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
+  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
 
   //Visualizar newclassMCG
   document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
@@ -533,7 +533,7 @@ function logoutMCG(){
   //Ocultar myclassesMCG
   document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
   //Ocultar lcg
-  document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
+  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
   //Visualizar registerMCG
   document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
   //Visualizar loginMCG
@@ -592,13 +592,13 @@ async function loadEventsMyClasses(){
     document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
     
     //Cargar classes
-    //setTimeout(loadClassesMCG, 3000)
+    setTimeout(loadClassesMCG, 3000)
 
     //Ocultar myclassesMCG
     document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
 
     //Visualizar lcg
-    document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
+    //document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
     
   } else {
     
@@ -615,7 +615,7 @@ async function loadEventsMyClasses(){
     document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
 
     //Ocultar lcg
-    document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
+    //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
 
     //Visualizar registerMCG
     document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
