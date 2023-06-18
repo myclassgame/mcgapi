@@ -513,7 +513,11 @@ function logoutMCG(){
   //Borrar 'userMCG'
   localStorage.removeItem('userMCG');
   //Ocultar logoutMCG
-  document.querySelector("[data-title='logoutMCG']").classList.add("hiddenElement");  
+  document.querySelector("[data-title='logoutMCG']").classList.add("hiddenElement");
+  //Ocultar classesMCG
+  document.querySelector("[data-title='classesMCG']").classList.add("hiddenElement");
+  //Ocultar adventuresMCG
+  document.querySelector("[data-title='adventuresMCG']").classList.add("hiddenElement");
   //Visualizar registerMCG
   document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
   //Visualizar loginMCG
