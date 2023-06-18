@@ -479,7 +479,7 @@ async function loginMCG(){
           document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
-          document.querySelector("#userId").textContent=userdata.userId;
+          //document.querySelector("#userId").textContent=userdata.userId;
 
           //Visualizar classesMCG
           document.querySelector("[data-title='classesMCG']").classList.remove("hiddenElement");
