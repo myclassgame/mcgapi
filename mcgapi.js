@@ -444,7 +444,7 @@ async function loginMCG(){
   })
   if (formValues) {
     
-    console.log(formValues)
+    //console.log(formValues)
     
     //Visualizar waitingMCG
     document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
@@ -467,11 +467,8 @@ async function loginMCG(){
         return response.json();
       })
       .then(function(data) {
-        console.log(data); // Manejar la respuesta recibida del servidor
-      
-        //Oculat waitingMCG
-        document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-      
+        //console.log(data); // Manejar la respuesta recibida del servidor
+           
         if(!data.status){
           console.log("Credenciales válidas")
           
@@ -480,12 +477,6 @@ async function loginMCG(){
           
           //Visualizar usernameMCG
           document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
-          
-          //Visualizar newclassMCG
-          document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
-
-          //Visualizar myclassesMCG
-          document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           
@@ -501,20 +492,19 @@ async function loginMCG(){
           }
           
           localStorage.setItem('userMCG',JSON.stringify(userMCG));
-          
-          //Cargar classes
-          loadClassesMCG()
+
+          //Ocultar waitingMCG
+          document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
         }
       })
       .catch(function(error) {
         console.log('Error:', error);
       
-        //Oculat waitingMCG
+        //Ocultar waitingMCG
         document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
       
         alert("Error de conexión")
       });
-    //document.getElementsByClassName("icon-close")[0].click()
   }
 }
 
@@ -522,24 +512,12 @@ async function loginMCG(){
 function logoutMCG(){
   //Borrar 'userMCG'
   localStorage.removeItem('userMCG');
-  //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
   //Ocultar logoutMCG
   document.querySelector("[data-title='logoutMCG']").classList.add("hiddenElement");  
-  //Ocultar usernameMCG
-  document.querySelector("[data-title='usernameMCG']").classList.add("hiddenElement");
-  //Ocultar newclassMCG
-  document.querySelector("[data-title='newclassMCG']").classList.add("hiddenElement"); 
-  //Ocultar myclassesMCG
-  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
-  //Ocultar lcg
-  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
   //Visualizar registerMCG
   document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
   //Visualizar loginMCG
   document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
-  //Borrar clases
-  document.querySelector("#myclassesMCG").remove();
 }
 
 //Función para cargar los eventos MCG en Genially
