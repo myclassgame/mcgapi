@@ -632,4 +632,28 @@ function loadEventsStudents() {
 
 function loadEventsTeachers() {
   console.log("loadEventsTeachers")
+   
+  //registerMCG
+  const registerButtons = document.querySelectorAll("[data-title='registerMCG']");
+  registerButtons.forEach(function(element) { element.addEventListener("click", registerUser);});
+  
+  //loginMCG
+  const loginButtons = document.querySelectorAll("[data-title='loginMCG']");
+  loginButtons.forEach(function(element) { element.addEventListener("click", loginMCG);});
+  
+  //logoutMCG
+  const logoutButtons = document.querySelectorAll("[data-title='logoutMCG']");
+  logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
+
+  //Ocultar classesMCG
+  document.querySelector("[data-title='classesMCG']").classList.add("hiddenElement");
+
+  //Ocultar adventuresMCG
+  document.querySelector("[data-title='adventuresMCG']").classList.add("hiddenElement");
+
+  //Ocultar waitingMCG
+  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+
+  //Ocultar #loadEventsTeachers
+  document.querySelector("#loadEventsTeachers").style.display="none"; 
 }
