@@ -627,5 +627,9 @@ async function loadEventsMyClasses(){
 }
 
 function loadEventsStudents() {
-  console.log("loadEventsStudents")
+  console.log("loadEventsTeachers")
+}
+
+function loadEventsTeachers() {
+  console.log("loadEventsTeachers")
 }
