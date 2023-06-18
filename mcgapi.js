@@ -645,15 +645,55 @@ function loadEventsTeachers() {
   const logoutButtons = document.querySelectorAll("[data-title='logoutMCG']");
   logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
 
-  //Ocultar classesMCG
-  document.querySelector("[data-title='classesMCG']").classList.add("hiddenElement");
-
-  //Ocultar adventuresMCG
-  document.querySelector("[data-title='adventuresMCG']").classList.add("hiddenElement");
-
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
 
   //Ocultar #loadEventsTeachers
-  document.querySelector("#loadEventsTeachers").style.display="none"; 
+  document.querySelector("#loadEventsTeachers").style.display="none";
+
+   if (localStorage.getItem('userMCG')){
+
+    //Visualizar logoutMCG
+    document.querySelector("[data-title='logoutMCG']").classList.remove("hiddenElement");  
+    
+    //Visualizar usernameMCG
+    document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
+
+    let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+    
+    document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
+
+    //Visualizar classesMCG
+    document.querySelector("[data-title='classesMCG']").classList.remove("hiddenElement");
+
+    //Visualizar adventuresMCG
+    document.querySelector("[data-title='adventuresMCG']").classList.remove("hiddenElement");
+    
+    //Ocultar registerMCG
+    document.querySelector("[data-title='registerMCG']").classList.add("hiddenElement");  
+    
+    //Ocultar loginMCG
+    document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
+    
+  } else {
+    
+    //Ocultar logoutMCG
+    document.querySelector("[data-title='logoutMCG']").classList.add("hiddenElement"); 
+
+    //Ocultar usernameMCG
+    document.querySelector("[data-title='usernameMCG']").classList.add("hiddenElement");
+
+    //Ocultar classesMCG
+    document.querySelector("[data-title='classesMCG']").classList.add("hiddenElement");
+
+    //Ocultar adventuresMCG
+    document.querySelector("[data-title='adventuresMCG']").classList.add("hiddenElement");
+
+    //Visualizar registerMCG
+    document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
+
+    //Visualizar loginMCG
+    document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
+    
+  }
 }
