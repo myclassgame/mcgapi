@@ -479,6 +479,12 @@ async function loginMCG(){
           document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
+
+          //Visualizar classesMCG
+          document.querySelector("[data-title='classesMCG']").classList.remove("hiddenElement");
+      
+          //Visualizar adventuresMCG
+          document.querySelector("[data-title='adventuresMCG']").classList.remove("hiddenElement");
           
           //Ocultar registerMCG
           document.querySelector("[data-title='registerMCG']").classList.add("hiddenElement");  
