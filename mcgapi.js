@@ -533,6 +533,84 @@ function logoutMCG(){
   document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
 }
 
+//Crear estudiantes 
+async function newStudents() {
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Crear',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<input id="swal-input1" class="swal2-input" placeholder="Nombres estudiantes (separar por ,)">',
+      focusConfirm: false,
+      preConfirm: () => {
+          const students = {
+              studentList: document.getElementById('swal-input1').value
+          }
+          return students
+      }
+  })
+  if (formValues) {
+      console.log(formValues)
+      // Objeto con los nombres de los estudiantes
+      var studentList = formValues
+      
+      //Datos localStorage
+      let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+      let classIdMCG = JSON.parse(window.localStorage.getItem('classIdMCG'));
+    
+      //Crear studentId
+      let student = {
+        studentId : generarClaveAleatoria(),
+        userId : userMCG.userId,
+        classId : classIdMCG,
+        color : randomPastelColor()
+      }
+
+      console.log(student)
+
+      // Configurar opciones para la solicitud fetch POST
+      var options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(student)
+      };
+
+      // Realizar la solicitud fetch POST
+      fetch('https://genialmcg.glitch.me/students', options)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          console.log(data); // Manejar la respuesta recibida del servidor
+          /*
+          // Crea una copia del objeto
+          const newclassBtn = document.querySelector("[data-title='newclassMCG']")
+          const classBtn = newclassBtn.cloneNode(true);
+          classBtn.addEventListener("click", loadClassMCG)
+          classBtn.querySelector('span span').textContent = data.className;
+          classBtn.querySelector('.color1').style.fill = data.color;
+          classBtn.id=data.classId;
+          classBtn.setAttribute("data-title", "classButton"); 
+          //Inserta la copia del objeto en el div de destino
+          document.querySelector("#myclassesMCG").appendChild(classBtn);
+          */
+        })
+        .catch(function(error) {
+          console.log('Error:', error);
+        });
+  }
+}
+
 //Función para cargar los eventos MCG en Genially
 async function loadEventsMyClasses(){
 
@@ -619,6 +697,11 @@ async function loadEventsMyClasses(){
 
 function loadEventsStudents() {
   console.log("loadEventsStudents")
+
+  //newStudentsMCG
+  const registerButtons = document.querySelector("[data-title='newStudentsMCG']");
+  registerButtons.addEventListener("click", newStudents);
+  
 }
 
 function loadEventsTeachers() {
