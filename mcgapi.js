@@ -551,9 +551,7 @@ async function newStudents() {
           '<input id="swal-input1" class="swal2-input" placeholder="Nombres estudiantes (separar por ,)">',
       focusConfirm: false,
       preConfirm: () => {
-          const students = {
-              studentList: document.getElementById('swal-input1').value
-          }
+          const students = document.getElementById('swal-input1').value;
           return students
       }
   })
