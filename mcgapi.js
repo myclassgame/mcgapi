@@ -563,11 +563,11 @@ async function newStudents() {
       var studentList = formValues
       
       //Datos localStorage
-      let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-      let classIdMCG = JSON.parse(window.localStorage.getItem('classIdMCG'));
+      var userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+      var classIdMCG = JSON.parse(window.localStorage.getItem("classIdMCG"));
     
       //Crear studentId
-      let student = {
+      var student = {
         studentId : generarClaveAleatoria(),
         userId : userMCG.userId,
         classId : classIdMCG,
