@@ -560,54 +560,59 @@ async function newStudents() {
   if (formValues) {
       console.log(formValues)
       // Objeto con los nombres de los estudiantes
-      var studentList = formValues
+      const studentList = formValues.split(',');
+      const studentListSinEspacios = studentList.map(palabra => palabra.trim());
       
       //Datos localStorage
-      var userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-      var classIdMCG = window.localStorage.getItem("classIdMCG");
+      const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+      const classIdMCG = window.localStorage.getItem("classIdMCG");
+      
+      studentListSinEspacios.forEach(nombre =>   {
     
-      //Crear studentId
-      var student = {
-        studentId : generarClaveAleatoria(),
-        userId : userMCG.userId,
-        classId : classIdMCG,
-        color : randomPastelColor()
-      }
-
-      console.log(student)
-
-      // Configurar opciones para la solicitud fetch POST
-      var options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(student)
-      };
-
-      // Realizar la solicitud fetch POST
-      fetch('https://genialmcg.glitch.me/students', options)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          console.log(data); // Manejar la respuesta recibida del servidor
-          /*
-          // Crea una copia del objeto
-          const newclassBtn = document.querySelector("[data-title='newclassMCG']")
-          const classBtn = newclassBtn.cloneNode(true);
-          classBtn.addEventListener("click", loadClassMCG)
-          classBtn.querySelector('span span').textContent = data.className;
-          classBtn.querySelector('.color1').style.fill = data.color;
-          classBtn.id=data.classId;
-          classBtn.setAttribute("data-title", "classButton"); 
-          //Inserta la copia del objeto en el div de destino
-          document.querySelector("#myclassesMCG").appendChild(classBtn);
-          */
-        })
-        .catch(function(error) {
-          console.log('Error:', error);
-        });
+        //Crear studentId
+        const student = {
+          studentId : generarClaveAleatoria(),
+          studentName: nombre,
+          userId : userMCG.userId,
+          classId : classIdMCG,
+          color : randomPastelColor()
+        }
+  
+        console.log(student)
+  
+        // Configurar opciones para la solicitud fetch POST
+        let options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(student)
+        };
+  
+        // Realizar la solicitud fetch POST
+        fetch('https://genialmcg.glitch.me/students', options)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data); // Manejar la respuesta recibida del servidor
+            /*
+            // Crea una copia del objeto
+            const newclassBtn = document.querySelector("[data-title='newclassMCG']")
+            const classBtn = newclassBtn.cloneNode(true);
+            classBtn.addEventListener("click", loadClassMCG)
+            classBtn.querySelector('span span').textContent = data.className;
+            classBtn.querySelector('.color1').style.fill = data.color;
+            classBtn.id=data.classId;
+            classBtn.setAttribute("data-title", "classButton"); 
+            //Inserta la copia del objeto en el div de destino
+            document.querySelector("#myclassesMCG").appendChild(classBtn);
+            */
+          })
+          .catch(function(error) {
+            console.log('Error:', error);
+          });
+      })
   }
 }
 
