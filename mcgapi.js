@@ -564,7 +564,7 @@ async function newStudents() {
       
       //Datos localStorage
       var userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-      var classIdMCG = JSON.parse(window.localStorage.getItem("classIdMCG"));
+      var classIdMCG = window.localStorage.getItem("classIdMCG");
     
       //Crear studentId
       var student = {
