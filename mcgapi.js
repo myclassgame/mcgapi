@@ -725,7 +725,9 @@ function loadEventsStudents() {
 
   //Cargar estudiantes
   setTimeout(loadStudentsMCG, 3000)
-  
+
+  //Ocultar myclassesMCG
+  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
 }
 
 function loadEventsTeachers() {
