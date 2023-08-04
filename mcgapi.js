@@ -320,7 +320,7 @@ async function loadStudentsMCG() {
   //Ocultar lcg
   //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
 
-  //Visualizar newclassMCG
+  //Visualizar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.remove("hiddenElement"); 
   
   //Datos userMCG
@@ -370,6 +370,9 @@ async function loadStudentsMCG() {
       /*postitMCG.style.opacity=1;
       postitMCG.style.visibility="visible";
       postitMCG.style.transition="all 0s ease-in-out";*/
+
+      //Ocultar studentMCG
+      document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
        //Visualizar myclassesMCG
       document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
