@@ -249,10 +249,7 @@ function loadClassMCG(e){
 //Cargar clases
 async function loadClassesMCG() {
   //Ocultar lcg
-  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
-
-  //Visualizar newclassMCG
-  document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
+  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement"); 
   
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -268,7 +265,7 @@ async function loadClassesMCG() {
     })
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
-      const newclassBtn = document.querySelector("[data-title='newclassMCG']");
+      const classMCG = document.querySelector("[data-title='classMCG']");
       
       const postitMCG = document.querySelector("[data-title='myclassesMCG']");
       /*postitMCG.style.overflowY="auto";
@@ -285,11 +282,12 @@ async function loadClassesMCG() {
          
       data.forEach(function(element) {
         // Crea una copia del objeto
-        const classBtn = newclassBtn.cloneNode(true);
+        const classBtn = classMCG.cloneNode(true);
         classBtn.addEventListener("click", loadClassMCG)
         classBtn.querySelector('span span').textContent = element.className;
         classBtn.querySelector('.color1').style.fill = element.color;
         classBtn.id=element.classId;
+        classBtn.classList.remove("hiddenElement");
         classBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(classBtn);
@@ -687,86 +685,32 @@ async function newStudents() {
 
 //Función para cargar los eventos MCG en Genially
 async function loadEventsMyClasses(){
-
-  //Ocultar logoutMCG
-  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
-  
-  //registerMCG
-  const registerButtons = document.querySelectorAll("[data-title='registerMCG']");
-  registerButtons.forEach(function(element) { element.addEventListener("click", registerUser);});
-  
-  //loginMCG
-  const loginButtons = document.querySelectorAll("[data-title='loginMCG']");
-  loginButtons.forEach(function(element) { element.addEventListener("click", loginMCG);});
-  
-  //logoutMCG
-  const logoutButtons = document.querySelectorAll("[data-title='logoutMCG']");
-  logoutButtons.forEach(function(element) { element.addEventListener("click", logoutMCG);});
   
   //newclassMCG
-  const newclassButtons = document.querySelectorAll("[data-title='newclassMCG']");
-  newclassButtons.forEach(function(element) { element.addEventListener("click", newclassMCG);});
-
-  //loadClassesMCG
-  //document.querySelector("[data-title='lcg']").addEventListener("click", loadClassesMCG);
+  document.querySelector("[data-title='newclassMCG']").addEventListener("click", newclassMCG);
   
   //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");  
+  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");   
+    
+  //Visualizar usernameMCG
+  document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
   
-  if (localStorage.getItem('userMCG')){
+  //Ocultar classMCG
+  document.querySelector("[data-title='classMCG']").classList.add("hiddenElement"); 
 
-    //Visualizar logoutMCG
-    document.querySelector("[data-title='logoutMCG']").classList.remove("hiddenElement");  
-    
-    //Visualizar usernameMCG
-    document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
-    
-    //Ocultar newclassMCG
-    document.querySelector("[data-title='newclassMCG']").classList.add("hiddenElement"); 
+  let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
+  
+  document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
+  
+  //Cargar classes
+  setTimeout(loadClassesMCG, 3000)
 
-    let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-    
-    document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
-    
-    //Ocultar registerMCG
-    document.querySelector("[data-title='registerMCG']").classList.add("hiddenElement");  
-    
-    //Ocultar loginMCG
-    document.querySelector("[data-title='loginMCG']").classList.add("hiddenElement");
-    
-    //Cargar classes
-    setTimeout(loadClassesMCG, 3000)
+  //Ocultar myclassesMCG
+  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
 
-    //Ocultar myclassesMCG
-    document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
-
-    //Visualizar lcg
-    //document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
+  //Visualizar lcg
+  //document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
     
-  } else {
-    
-    //Ocultar logoutMCG
-    document.querySelector("[data-title='logoutMCG']").classList.add("hiddenElement"); 
-
-    //Ocultar usernameMCG
-    document.querySelector("[data-title='usernameMCG']").classList.add("hiddenElement");
-    
-    //Ocultar newclassMCG
-    document.querySelector("[data-title='newclassMCG']").classList.add("hiddenElement");
-
-    //Ocultar myclassesMCG
-    document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
-
-    //Ocultar lcg
-    //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
-
-    //Visualizar registerMCG
-    document.querySelector("[data-title='registerMCG']").classList.remove("hiddenElement");  
-
-    //Visualizar loginMCG
-    document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
-    
-  }
 }
 
 function loadEventsStudents() {
