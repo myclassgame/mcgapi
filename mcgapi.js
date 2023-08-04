@@ -319,9 +319,6 @@ async function loadClassesMCG() {
 async function loadStudentsMCG() {
   //Ocultar lcg
   //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
-
-  //Ocultar studentMCG
-  document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
   
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -360,6 +357,7 @@ async function loadStudentsMCG() {
         studentBtn.querySelector('span span').textContent = element.studentName;
         studentBtn.querySelector('.color1').style.fill = element.color;
         studentBtn.id=element.studentId;
+        studentBtn.classList.remove("hiddenElement");
         studentBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
         myclassesMCG.appendChild(studentBtn);
@@ -777,6 +775,9 @@ function loadEventsStudents() {
   //newStudentsMCG
   const registerButtons = document.querySelector("[data-title='newStudentsMCG']");
   registerButtons.addEventListener("click", newStudents);
+
+  //Ocultar studentMCG
+  document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
   //Cargar estudiantes
   setTimeout(loadStudentsMCG, 3000)
