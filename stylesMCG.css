@@ -109,6 +109,11 @@
     transition: all .5s ease-in-out;
 }
 
+.hiddenElement{
+    visibility: hidden !important;
+    opacity:0 !important;
+}
+
 [data-title].hiddenElement{
     visibility: hidden !important;
     opacity:0 !important;
