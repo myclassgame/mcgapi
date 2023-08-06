@@ -1,3 +1,3 @@
-export function studentPoints() {
+function studentPoints() {
   console.log('studentPoints');
 }
