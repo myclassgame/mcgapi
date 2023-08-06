@@ -1,3 +1,4 @@
-function studentPoints() {
-  console.log('studentPoints');
+function loadStudentPage() {
+  console.log('loadStudentPage');
+  
 }
