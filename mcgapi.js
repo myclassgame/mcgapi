@@ -1,3 +1,5 @@
+import { studentPoints } from './studentPage.mjs';
+
 //Cargar sweetalert2.min.js
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
@@ -797,8 +799,6 @@ function loadEventsTeachers() {
     
   }
 }
-
-import { studentPoints } from './studentPage.js';
 
 function loadEvents(page) {
   console.log("loadEvents")
