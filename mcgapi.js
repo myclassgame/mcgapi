@@ -812,8 +812,8 @@ function loadEvents(page) {
   document.querySelector("#loadEvents").classList.add("hiddenElement"); 
 
   if (page="studentPage") {
-    //Acceder función studentPoints de studentPage.js
-    studentPoints()
+    //Cargar datos y eventos de studentPage.js
+    loadStudentPage()
   }
 
   //Cargar datos dels Estudiante
