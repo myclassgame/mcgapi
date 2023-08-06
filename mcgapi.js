@@ -797,3 +797,20 @@ function loadEventsTeachers() {
     
   }
 }
+
+import { studentPoints } from './studentPage.js';
+
+function loadEvents(page) {
+  console.log("loadEvents")
+
+  //Ocultar loadEvents
+  document.querySelector("#loadEvents").classList.add("hiddenElement"); 
+
+  if (page="studentPage") {
+    //Acceder función studentPoints de studentPage.js
+    studentPoints()
+  }
+
+  //Cargar datos dels Estudiante
+  //setTimeout(loadStudentData, 3000)
+}
