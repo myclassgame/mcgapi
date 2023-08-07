@@ -1,19 +1,15 @@
-//Cargar sweetalert2.min.js
+//Cargar ficheros externos
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
 if (d.getElementById(id)) { return; }
-
-js = d.createElement("script"); 
-js.id = id; 
-js.async = true; 
-js.src = "https://myclassgame.github.io/mcgapi/sweetalert2.min.js"; 
-ref.parentNode.insertBefore(js, ref);
-  
-js = d.createElement("script"); 
-js.id = id; 
-js.async = true; 
-js.src = "https://myclassgame.github.io/mcgapi/studentPage.js"; 
-ref.parentNode.insertBefore(js, ref); }
+var files = [ "sweetalert2.min.js" , "studentPage.js" ]
+files.forEach(file =>   {
+  js = d.createElement("script"); 
+  js.id = id; 
+  js.async = true; 
+  js.src = "https://myclassgame.github.io/mcgapi/"+file; 
+  ref.parentNode.insertBefore(js, ref);
+})}
 (document));
 
 function prova(){
