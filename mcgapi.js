@@ -316,6 +316,14 @@ async function loadClassesMCG() {
     });
 }
 
+//Cargar estudiante
+function loadClassMCG(e){
+  console.log(e.currentTarget.id);
+  localStorage.setItem('studentIdMCG',e.currentTarget.id);
+  document.querySelector("[data-title='myclassMCG']").click();
+  document.querySelector("#myclassesMCG").remove();
+}
+
 //Cargar estudiantes
 async function loadStudentsMCG() {
   //Ocultar lcg
@@ -354,7 +362,7 @@ async function loadStudentsMCG() {
       data.forEach(function(element) {
         // Crea una copia del objeto
         const studentBtn = newStudentBtn.cloneNode(true);
-        studentBtn.addEventListener("click", loadClassMCG)
+        studentBtn.addEventListener("click", loadStudentMCG)
         studentBtn.querySelector('span span').textContent = element.studentName;
         studentBtn.querySelector('.color1').style.fill = element.color;
         studentBtn.id=element.studentId;
