@@ -8,12 +8,12 @@ function loadStudentPage() {
     })
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
-      
+      let student = data[0]
       const studentBtn = document.querySelector("[data-title='studentMCG']");
       //studentBtn.addEventListener("click", loadStudentMCG)
-      studentBtn.querySelector('span span').textContent = data.studentName;
-      studentBtn.querySelector('.color1').style.fill = data.color;
-      studentBtn.id=data.studentId;
+      studentBtn.querySelector('span span').textContent = student.studentName;
+      studentBtn.querySelector('.color1').style.fill = student.color;
+      studentBtn.id=student.studentId;
       
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
