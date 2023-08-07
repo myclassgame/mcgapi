@@ -317,7 +317,7 @@ async function loadClassesMCG() {
 }
 
 //Cargar estudiante
-function loadClassMCG(e){
+function loadStudentMCG(e){
   console.log(e.currentTarget.id);
   localStorage.setItem('studentIdMCG',e.currentTarget.id);
   document.querySelector("[data-title='myclassMCG']").click();
