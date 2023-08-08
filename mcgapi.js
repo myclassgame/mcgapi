@@ -641,7 +641,7 @@ async function newStudents() {
       const studentList = formValues.split(',');
       const studentListSinEspacios = studentList.map(palabra => palabra.trim());
       const newStudentBtn = document.querySelector("[data-title='studentMCG']");
-      const postitMCG = document.querySelector("[data-title='myclassesMCG']");
+      const postitMCG = document.querySelector("#myclassesMCG");
       
       //Datos localStorage
       const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
