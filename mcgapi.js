@@ -687,9 +687,9 @@ async function newStudents() {
             // Crea una copia del objeto
             const studentBtn = newStudentBtn.cloneNode(true);
             studentBtn.addEventListener("click", loadStudentMCG)
-            studentBtn.querySelector('span span').textContent = element.studentName;
-            studentBtn.querySelector('.color1').style.fill = element.color;
-            studentBtn.id=element.studentId;
+            studentBtn.querySelector('span span').textContent = student.studentName;
+            studentBtn.querySelector('.color1').style.fill = student.color;
+            studentBtn.id=student.studentId;
             studentBtn.classList.remove("hiddenElement");
             studentBtn.setAttribute("data-title", "classButton"); 
             //Inserta la copia del objeto en el div de destino
