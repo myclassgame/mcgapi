@@ -653,7 +653,11 @@ async function newStudents() {
           studentName: nombre,
           userId : userMCG.userId,
           classId : classIdMCG,
-          color : randomPastelColor()
+          color : randomPastelColor(),
+          XP:0,
+          HP:10,
+          GP:0,
+          AP:0
         }
   
         console.log(student)
