@@ -14,7 +14,7 @@ function loadStudentPage() {
       studentBtn.querySelector('span span').textContent = student.studentName;
       studentBtn.querySelector('.color1').style.fill = student.color;
       studentBtn.id=student.studentId;
-      const studentPoints=studentPoints.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
+      const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
       studentPoints[0].textContent = student.XP;
       studentPoints[1].textContent = student.HP;
       studentPoints[2].textContent = student.GP;
