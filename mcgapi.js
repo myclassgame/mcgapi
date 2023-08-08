@@ -680,9 +680,6 @@ async function newStudents() {
           })
           .then(function(data) {
             console.log(data); // Manejar la respuesta recibida del servidor
-            const myclassesMCG = document.createElement('div');
-            myclassesMCG.id = 'myclassesMCG';
-            myclassesMCG.classList.add('myclassesMCG');
             
             // Crea una copia del objeto
             const studentBtn = newStudentBtn.cloneNode(true);
@@ -693,9 +690,7 @@ async function newStudents() {
             studentBtn.classList.remove("hiddenElement");
             studentBtn.setAttribute("data-title", "classButton"); 
             //Inserta la copia del objeto en el div de destino
-            myclassesMCG.appendChild(studentBtn);
-      
-            postitMCG.appendChild(myclassesMCG);
+            postitMCG.appendChild(studentBtn);
             
             /*
             // Crea una copia del objeto
