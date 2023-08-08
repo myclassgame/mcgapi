@@ -640,6 +640,8 @@ async function newStudents() {
       // Objeto con los nombres de los estudiantes
       const studentList = formValues.split(',');
       const studentListSinEspacios = studentList.map(palabra => palabra.trim());
+      const newStudentBtn = document.querySelector("[data-title='studentMCG']");
+      const postitMCG = document.querySelector("[data-title='myclassesMCG']");
       
       //Datos localStorage
       const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -678,6 +680,23 @@ async function newStudents() {
           })
           .then(function(data) {
             console.log(data); // Manejar la respuesta recibida del servidor
+            const myclassesMCG = document.createElement('div');
+            myclassesMCG.id = 'myclassesMCG';
+            myclassesMCG.classList.add('myclassesMCG');
+            
+            // Crea una copia del objeto
+            const studentBtn = newStudentBtn.cloneNode(true);
+            studentBtn.addEventListener("click", loadStudentMCG)
+            studentBtn.querySelector('span span').textContent = element.studentName;
+            studentBtn.querySelector('.color1').style.fill = element.color;
+            studentBtn.id=element.studentId;
+            studentBtn.classList.remove("hiddenElement");
+            studentBtn.setAttribute("data-title", "classButton"); 
+            //Inserta la copia del objeto en el div de destino
+            myclassesMCG.appendChild(studentBtn);
+      
+            postitMCG.appendChild(myclassesMCG);
+            
             /*
             // Crea una copia del objeto
             const newclassBtn = document.querySelector("[data-title='newclassMCG']")
