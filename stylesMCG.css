@@ -112,11 +112,13 @@
 .hiddenElement{
     visibility: hidden !important;
     opacity:0 !important;
+    pointer-events:none;
 }
 
 [data-title].hiddenElement{
     visibility: hidden !important;
     opacity:0 !important;
+    pointer-events:none;
 }
 
 [data-title="classButton"] {
@@ -142,6 +144,7 @@
 [data-title="myclassesMCG"].hiddenElement{
     visibility: hidden !important;
     opacity:0 !important;
+    pointer-events:none;
 }
 
 [data-title="myclassesMCG"]::-webkit-scrollbar {
