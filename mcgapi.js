@@ -833,12 +833,12 @@ function loadEvents(page) {
   //Ocultar loadEvents
   document.querySelector("#loadEvents").classList.add("hiddenElement"); 
 
-  if (page="studentPage") {
+  if (page==="studentPage") {
     //Cargar datos y eventos de studentPage.js
     loadStudentPage()
   }
   
-  if (page="studentsPage") {
+  if (page==="studentsPage") {
     //Cargar datos y eventos de studentsPage.js
     loadStudentsPage()
   }
