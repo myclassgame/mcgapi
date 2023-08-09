@@ -2,7 +2,7 @@
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
 if (d.getElementById(id)) { return; }
-var files = [ "sweetalert2.min.js" , "studentPage.js" ]
+var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js" ]
 files.forEach(file =>   {
   js = d.createElement("script"); 
   js.id = id; 
@@ -837,6 +837,12 @@ function loadEvents(page) {
     //Cargar datos y eventos de studentPage.js
     loadStudentPage()
   }
+  
+  if (page="studentsPage") {
+    //Cargar datos y eventos de studentsPage.js
+    loadStudentsPage()
+  }
+  
 
   //Cargar datos dels Estudiante
   //setTimeout(loadStudentData, 3000)
