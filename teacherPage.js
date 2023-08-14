@@ -237,7 +237,7 @@ function loadTeacherPage() {
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
 
   //Ocultar #loadEventsTeachers
-  document.querySelector("#loadEventsTeachers").style.display="none";
+  //document.querySelector("#loadEventsTeachers").style.display="none";
 
    if (localStorage.getItem('userMCG')){
 
