@@ -2,7 +2,7 @@
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
 if (d.getElementById(id)) { return; }
-var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js" ]
+var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js", "classesPages.js" ]
 files.forEach(file =>   {
   js = d.createElement("script"); 
   js.id = id; 
@@ -11,151 +11,6 @@ files.forEach(file =>   {
   ref.parentNode.insertBefore(js, ref);
 })}
 (document));
-
-//Crear clase 
-async function newclassMCG() {
-  const { value: formValues } = await Swal.fire({
-      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
-      background: '#268bd2',
-      showCloseButton: true,
-      showCancelButton: true,
-      confirmButtonColor: '#0f0',
-      confirmButtonText: 'Crear',
-      cancelButtonColor: '#d33',
-      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
-      imageWidth: 75,
-      imageHeight: 75,
-      imageAlt: '@MyClassGame',
-      html:
-          '<input id="swal-input1" class="swal2-input" placeholder="Nombre clase">',
-      focusConfirm: false,
-      preConfirm: () => {
-          const clase = {
-              className: document.getElementById('swal-input1').value
-          }
-          return clase
-      }
-  })
-  if (formValues) {
-      console.log(formValues)
-      // Objeto de datos que se enviará en la solicitud POST
-      var data = formValues
-      
-      //Datos userMCG
-      let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-      data.userId=userMCG.userId;
-    
-      //Crear classId
-      data.classId = generarClaveAleatoria()
-      data.color = randomPastelColor()
-
-      // Configurar opciones para la solicitud fetch POST
-      var options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      };
-
-      // Realizar la solicitud fetch POST
-      fetch('https://genialmcg.glitch.me/classes', options)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          console.log(data); // Manejar la respuesta recibida del servidor
-          // Crea una copia del objeto
-          const newclassBtn = document.querySelector("[data-title='newclassMCG']")
-          const classBtn = newclassBtn.cloneNode(true);
-          classBtn.addEventListener("click", loadClassMCG)
-          classBtn.querySelector('span span').textContent = data.className;
-          classBtn.querySelector('.color1').style.fill = data.color;
-          classBtn.id=data.classId;
-          classBtn.setAttribute("data-title", "classButton"); 
-          //Inserta la copia del objeto en el div de destino
-          document.querySelector("#myclassesMCG").appendChild(classBtn);
-        })
-        .catch(function(error) {
-          console.log('Error:', error);
-        });
-  }
-}
-
-//Cargar clase
-function loadClassMCG(e){
-  console.log(e.currentTarget.id);
-  localStorage.setItem('classIdMCG',e.currentTarget.id);
-  document.querySelector("[data-title='myclassMCG']").click();
-  document.querySelector("#myclassesMCG").remove();
-}
-
-//Cargar clases
-async function loadClassesMCG() {
-  //Ocultar lcg
-  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement"); 
-  
-  //Datos userMCG
-  let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-  let userId=userMCG.userId;
-  
-  //Visualizar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
-  
-  // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/classes/?userId='+userId)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      console.log(data); // Manejar la respuesta recibida del servidor
-      const classMCG = document.querySelector("[data-title='classMCG']");
-      
-      const postitMCG = document.querySelector("[data-title='myclassesMCG']");
-      /*postitMCG.style.overflowY="auto";
-      postitMCG.style.overflowX="hidden";
-      postitMCG.style.pointerEvents="auto";
-      
-      postitMCG.style.opacity=0;
-      postitMCG.style.visibility="hidden";
-      postitMCG.style.transition="all 5s ease-in-out";*/
-      
-      const myclassesMCG = document.createElement('div');
-      myclassesMCG.id = 'myclassesMCG';
-      myclassesMCG.classList.add('myclassesMCG');
-         
-      data.forEach(function(element) {
-        // Crea una copia del objeto
-        const classBtn = classMCG.cloneNode(true);
-        classBtn.addEventListener("click", loadClassMCG)
-        classBtn.querySelector('span span').textContent = element.className;
-        classBtn.querySelector('.color1').style.fill = element.color;
-        classBtn.id=element.classId;
-        classBtn.classList.remove("hiddenElement");
-        classBtn.setAttribute("data-title", "classButton"); 
-        //Inserta la copia del objeto en el div de destino
-        myclassesMCG.appendChild(classBtn);
-      })
-
-      postitMCG.appendChild(myclassesMCG);
-      //Visualizar postitMCG
-      /*postitMCG.style.opacity=1;
-      postitMCG.style.visibility="visible";
-      postitMCG.style.transition="all 0s ease-in-out";*/
-
-       //Visualizar myclassesMCG
-      document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
-      
-      //Ocultar waitingMCG
-      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-    
-    })
-    .catch(function(error) {
-      console.log('Error:', error);
-      //Ocultar waitingMCG
-      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-    });
-}
 
 //Función para registrar usuario en @MyClassGame
 async function registerUser() {
@@ -375,35 +230,7 @@ function logoutMCG(){
   document.querySelector("[data-title='loginMCG']").classList.remove("hiddenElement");
 }
 
-//Función para cargar los eventos MCG en Genially
-async function loadEventsMyClasses(){
-  
-  //newclassMCG
-  document.querySelector("[data-title='newclassMCG']").addEventListener("click", newclassMCG);
-  
-  //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");   
-    
-  //Visualizar usernameMCG
-  document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
-  
-  //Ocultar classMCG
-  document.querySelector("[data-title='classMCG']").classList.add("hiddenElement"); 
 
-  let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-  
-  document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userMCG.username+"</b>";
-  
-  //Cargar classes
-  setTimeout(loadClassesMCG, 3000)
-
-  //Ocultar myclassesMCG
-  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
-
-  //Visualizar lcg
-  //document.querySelector("[data-title='lcg']").classList.remove("hiddenElement");
-    
-}
 
 function loadEventsTeachers() {
   console.log("loadEventsTeachers")
@@ -487,6 +314,11 @@ function loadEvents(page) {
   if (page==="studentsPage") {
     //Cargar datos y eventos de studentsPage.js
     loadStudentsPage()
+  }
+
+  if (page==="classesPage") {
+    //Cargar datos y eventos de classesPage.js
+    loadClassesPage()
   }
   
 
