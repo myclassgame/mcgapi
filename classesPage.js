@@ -100,7 +100,7 @@ function loadClassMCG(e){
   console.log(e.currentTarget.id);
   localStorage.setItem('classIdMCG',e.currentTarget.id);
   document.querySelector("[data-title='myclassMCG']").click();
-  document.querySelector("[data-title='myclassesMCG']").remove();
+  document.querySelector("#myclassesMCG").remove();
 }
 
 //Crear clase 
@@ -165,7 +165,7 @@ async function newclassMCG() {
           nclassBtn.id=data.classId;
           nclassBtn.setAttribute("data-title", "classButton"); 
           //Inserta la copia del objeto en el div de destino
-          document.querySelector("[data-title='myclassesMCG']").appendChild(nclassBtn);
+          document.querySelector("#myclassesMCG").appendChild(nclassBtn);
         })
         .catch(function(error) {
           console.log('Error:', error);
