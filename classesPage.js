@@ -158,14 +158,14 @@ async function newclassMCG() {
           console.log(data); // Manejar la respuesta recibida del servidor
           // Crea una copia del objeto
           const classBtn = document.querySelector("[data-title='classMCG']")
-          const classBtn = classBtn.cloneNode(true);
-          classBtn.addEventListener("click", loadClassMCG)
-          classBtn.querySelector('span span').textContent = data.className;
-          classBtn.querySelector('.color1').style.fill = data.color;
-          classBtn.id=data.classId;
-          classBtn.setAttribute("data-title", "classButton"); 
+          const nclassBtn = classBtn.cloneNode(true);
+          nclassBtn.addEventListener("click", loadClassMCG)
+          nclassBtn.querySelector('span span').textContent = data.className;
+          nclassBtn.querySelector('.color1').style.fill = data.color;
+          nclassBtn.id=data.classId;
+          nclassBtn.setAttribute("data-title", "classButton"); 
           //Inserta la copia del objeto en el div de destino
-          document.querySelector("#myclassesMCG").appendChild(classBtn);
+          document.querySelector("#myclassesMCG").appendChild(nclassBtn);
         })
         .catch(function(error) {
           console.log('Error:', error);
