@@ -4,7 +4,7 @@ function mensajeSWAL(mensaje){
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
       background: '#268bd2',
       showCloseButton: true,
-      confirmButtonColor: '#0f0',
+      confirmButtonColor: '#d33',
       confirmButtonText: 'OK',
       imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
       imageWidth: 75,
@@ -112,6 +112,8 @@ async function registerUser() {
           //loadClassesMCG()
         } else {
           mensajeSWAL(data.error)
+          //Oculat waitingMCG
+          document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
         }
       })
       .catch(function(error) {
@@ -212,6 +214,8 @@ async function loginMCG(){
           document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
         } else {
           mensajeSWAL(data.message)
+          //Oculat waitingMCG
+          document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
         }
       })
       .catch(function(error) {
