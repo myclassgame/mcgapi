@@ -93,6 +93,8 @@ async function registerUser() {
           
           //Cargar classes
           //loadClassesMCG()
+        } else {
+          alert(data.error)
         }
       })
       .catch(function(error) {
