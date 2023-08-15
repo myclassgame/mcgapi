@@ -211,7 +211,7 @@ async function loginMCG(){
           //Ocultar waitingMCG
           document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
         } else {
-          mensajeSWAL(data.error)
+          mensajeSWAL(data.message)
         }
       })
       .catch(function(error) {
