@@ -1,3 +1,18 @@
+//Función mensaje SWAL
+function mensajeSWAL(mensaje){
+  Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<h4>' + mensaje + '</h4>',
+  })
+}
+
 //Función para registrar usuario en @MyClassGame
 async function registerUser() {
   const { value: formValues } = await Swal.fire({
@@ -94,7 +109,7 @@ async function registerUser() {
           //Cargar classes
           //loadClassesMCG()
         } else {
-          alert(data.error)
+          mensajeSWAL(data.error)
         }
       })
       .catch(function(error) {
