@@ -65,10 +65,16 @@ async function registerUser() {
           document.querySelector("[data-title='usernameMCG']").classList.remove("hiddenElement");
           
           //Visualizar newclassMCG
-          document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement"); 
+          //document.querySelector("[data-title='newclassMCG']").classList.remove("hiddenElement");
+
+          //Visualizar classesMCG
+          document.querySelector("[data-title='classesMCG']").classList.remove("hiddenElement");
+      
+          //Visualizar adventuresMCG
+          document.querySelector("[data-title='adventuresMCG']").classList.remove("hiddenElement");
 
           //Visualizar myclassesMCG
-          document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
+          //document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
           
           document.querySelector("[data-title='usernameMCG'] .genially-view-text").innerHTML="<b style='color:blue'>"+userdata.username+"</b>";
           
@@ -86,7 +92,7 @@ async function registerUser() {
           localStorage.setItem('userMCG',JSON.stringify(userMCG));
           
           //Cargar classes
-          loadClassesMCG()
+          //loadClassesMCG()
         }
       })
       .catch(function(error) {
