@@ -19,7 +19,9 @@ function loadStudentPage() {
       studentPoints[1].textContent = student.HP;
       studentPoints[2].textContent = student.GP;
       studentPoints[3].textContent = student.AP;
-      
+
+      document.querySelectorAll("[data-title='studentPoints']").addEventListener("studentPointsBtn")
+                                
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     
@@ -29,4 +31,8 @@ function loadStudentPage() {
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     });
+}
+
+function studentPointsBtn() {
+  alert("Dar puntos");
 }
