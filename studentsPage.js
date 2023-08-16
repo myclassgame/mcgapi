@@ -89,7 +89,25 @@ async function loadStudentsMCG() {
 //Cargar estudiante
 function loadStudentMCG(e){
   console.log(e.currentTarget.id);
-  localStorage.setItem('studentIdMCG',e.currentTarget.id);
+  fetch('https://genialmcg.glitch.me/students/?studentId='+e.currentTarget.id)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data); // Manejar la respuesta recibida del servidor
+      let student = data[0]
+      localStorage.setItem('studentMCG',JSON.stringify(student));  
+                                
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+    
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+    });
+  
   document.querySelector("[data-title='myclassMCG']").click();
   document.querySelector("#myclassesMCG").remove();
 }
