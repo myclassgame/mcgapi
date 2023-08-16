@@ -83,7 +83,7 @@ async function studentPointsBtn() {
     const studentIdMCG = window.localStorage.getItem("studentIdMCG");
 
     // Realizar la solicitud fetch PATCH
-    fetch('https://genialmcg.glitch.me/students/?studentId='+studentIdMCG)
+    fetch('https://genialmcg.glitch.me/students/?studentId='+studentIdMCG, options)
       .then(function(response) {
         return response.json();
       })
