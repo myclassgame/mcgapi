@@ -97,7 +97,7 @@ function loadStudentMCG(e){
       console.log(data); // Manejar la respuesta recibida del servidor
       let student = JSON.stringify(data[0])
       localStorage.setItem('studentMCG',student);  
-      console.log(localStorage.setItem('studentMCG'))
+      console.log(localStorage.getItem('studentMCG'))
                                 
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
