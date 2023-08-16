@@ -1,7 +1,7 @@
-function loadStudentPage() {
+async function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
-  const student = JSON.parse(window.localStorage.getItem("studentMCG"));
+  const student = await JSON.parse(window.localStorage.getItem("studentMCG"));
   const studentBtn = document.querySelector("[data-title='studentMCG']");
   //studentBtn.addEventListener("click", loadStudentMCG)
   studentBtn.querySelector('span span').textContent = student.studentName;
