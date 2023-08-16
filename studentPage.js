@@ -1,15 +1,18 @@
-function getData() {
-  console.log("running");
-  // check fir requestAll in local storage. null if it doesn't exist.
-  const cache = localStorage.getItem("studentMCG");
-  // if the data is in the cache, return it.
-  if (cache) return Promise.resolve(JSON.parse(cache));
-}
-
 function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
-  getData().then( (student) => {
+
+  // Obtén el objeto almacenado en el LocalStorage
+  const storedObject = localStorage.getItem('studentMCG');
+  
+  if (storedObject) {
+    // Parsea el objeto almacenado
+    const student = JSON.parse(storedObject);
+  
+    // Continúa ejecutando el código con el objeto parseado
+    console.log('Objeto parseado:', student);
+  
+    // Continúa aquí con el resto de tu código utilizando parsedObject
     const studentBtn = document.querySelector("[data-title='studentMCG']");
     //studentBtn.addEventListener("click", loadStudentMCG)
     studentBtn.querySelector('span span').textContent = student.studentName;
@@ -25,7 +28,9 @@ function loadStudentPage() {
                               
     //Ocultar waitingMCG
     document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-  })
+  } else {
+    console.log('No se encontró ningún objeto en el LocalStorage');
+  }
 }
 
 async function studentPointsBtn() {
