@@ -55,10 +55,10 @@ async function studentPointsBtn() {
       focusConfirm: false,
       preConfirm: () => {
           const points = {
-              xp: document.getElementById('swal-input1').value,
-              hp: document.getElementById('swal-input2').value,
-              gp: document.getElementById('swal-input3').value,
-              ap: document.getElementById('swal-input4').value
+              XP: document.getElementById('swal-input1').value,
+              HP: document.getElementById('swal-input2').value,
+              GP: document.getElementById('swal-input3').value,
+              AP: document.getElementById('swal-input4').value
           }
           return points
       }
@@ -69,21 +69,21 @@ async function studentPointsBtn() {
     
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
-    
-    //Recuperar studentId   
-    points.studentId = localStorage.getItem('studentId');
 
     // Configurar opciones para la solicitud fetch GET
     var options = {
-      method: 'GET',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(points)
     };
 
-    // Realizar la solicitud fetch POST
-    fetch('https://genialmcg.glitch.me/users', options)
+    
+    const studentIdMCG = window.localStorage.getItem("studentIdMCG");
+
+    // Realizar la solicitud fetch PATCH
+    fetch('https://genialmcg.glitch.me/students/?studentId='+studentIdMCG)
       .then(function(response) {
         return response.json();
       })
