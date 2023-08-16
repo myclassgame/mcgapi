@@ -101,16 +101,15 @@ function loadStudentMCG(e){
                                 
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-    
+
+      document.querySelector("[data-title='myclassMCG']").click();
+      document.querySelector("#myclassesMCG").remove();
     })
     .catch(function(error) {
       console.log('Error:', error);
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
     });
-  
-  document.querySelector("[data-title='myclassMCG']").click();
-  document.querySelector("#myclassesMCG").remove();
 }
 
 async function newStudents() {
