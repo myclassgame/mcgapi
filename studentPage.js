@@ -1,22 +1,31 @@
-async function loadStudentPage() {
+function getData() {
+  console.log("running");
+  // check fir requestAll in local storage. null if it doesn't exist.
+  const cache = localStorage.getItem("studentMCG");
+  // if the data is in the cache, return it.
+  if (cache) return Promise.resolve(JSON.parse(cache));
+}
+
+function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
-  const student = await JSON.parse(window.localStorage.getItem("studentMCG"));
-  const studentBtn = document.querySelector("[data-title='studentMCG']");
-  //studentBtn.addEventListener("click", loadStudentMCG)
-  studentBtn.querySelector('span span').textContent = student.studentName;
-  studentBtn.querySelector('.color1').style.fill = student.color;
-  studentBtn.id=student.studentId;
-  const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-  studentPoints[0].textContent = student.XP;
-  studentPoints[1].textContent = student.HP;
-  studentPoints[2].textContent = student.GP;
-  studentPoints[3].textContent = student.AP;
-
-  document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
-                            
-  //Ocultar waitingMCG
-  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+  getData().then( (student) => {
+    const studentBtn = document.querySelector("[data-title='studentMCG']");
+    //studentBtn.addEventListener("click", loadStudentMCG)
+    studentBtn.querySelector('span span').textContent = student.studentName;
+    studentBtn.querySelector('.color1').style.fill = student.color;
+    studentBtn.id=student.studentId;
+    const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
+    studentPoints[0].textContent = student.XP;
+    studentPoints[1].textContent = student.HP;
+    studentPoints[2].textContent = student.GP;
+    studentPoints[3].textContent = student.AP;
+  
+    document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
+                              
+    //Ocultar waitingMCG
+    document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+  })
 }
 
 async function studentPointsBtn() {
