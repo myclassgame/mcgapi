@@ -1,36 +1,28 @@
+const studentMCG
+
 function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
 
-  // Obtén el objeto almacenado en el LocalStorage
-  const storedObject = localStorage.getItem('studentMCG');
+  // Obtén studentMCG almacenado en el LocalStorage
+  studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   
-  if (storedObject) {
-    // Parsea el objeto almacenado
-    const student = JSON.parse(storedObject);
-  
-    // Continúa ejecutando el código con el objeto parseado
-    console.log('Objeto parseado:', student);
-  
-    // Continúa aquí con el resto de tu código utilizando parsedObject
-    const studentBtn = document.querySelector("[data-title='studentMCG']");
-    //studentBtn.addEventListener("click", loadStudentMCG)
-    studentBtn.querySelector('span span').textContent = student.studentName;
-    studentBtn.querySelector('.color1').style.fill = student.color;
-    studentBtn.id=student.studentId;
-    const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-    studentPoints[0].textContent = student.XP;
-    studentPoints[1].textContent = student.HP;
-    studentPoints[2].textContent = student.GP;
-    studentPoints[3].textContent = student.AP;
-  
-    document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
-                              
-    //Ocultar waitingMCG
-    document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-  } else {
-    console.log('No se encontró ningún objeto en el LocalStorage');
-  }
+  const studentBtn = document.querySelector("[data-title='studentMCG']");
+  //studentBtn.addEventListener("click", loadStudentMCG)
+  studentBtn.querySelector('span span').textContent = studentMCG.studentName;
+  studentBtn.querySelector('.color1').style.fill = studentMCG.color;
+  studentBtn.id=studentMCG.studentId;
+  const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
+  studentPoints[0].textContent = studentMCG.XP;
+  studentPoints[1].textContent = studentMCG.HP;
+  studentPoints[2].textContent = studentMCG.GP;
+  studentPoints[3].textContent = studentMCG.AP;
+
+  document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
+                            
+  //Ocultar waitingMCG
+  document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+
 }
 
 async function studentPointsBtn() {
@@ -70,6 +62,17 @@ async function studentPointsBtn() {
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
 
+    const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
+    studentPoints[0].textContent = parseInt(studentMCG.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
+    studentPoints[1].textContent = parseInt(studentMCG.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
+    studentPoints[2].textContent = parseInt(studentMCG.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
+    studentPoints[3].textContent = parseInt(studentMCG.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;
+
+    points.XP= parseInt(studentPoints[0].textContent)
+    points.HP= parseInt(studentPoints[1].textContent)
+    points.GP= parseInt(studentPoints[2].textContent)
+    points.AP= parseInt(studentPoints[3].textContent)
+
     // Configurar opciones para la solicitud fetch GET
     var options = {
       method: 'PATCH',
@@ -79,11 +82,9 @@ async function studentPointsBtn() {
       body: JSON.stringify(points)
     };
 
-    
-    const student = JSON.parse(window.localStorage.getItem("studentMCG"));
 
     // Realizar la solicitud fetch PATCH
-    fetch('https://genialmcg.glitch.me/students/' + student.id, options)
+    fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, options)
       .then(function(response) {
         return response.json();
       })
