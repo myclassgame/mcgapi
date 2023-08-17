@@ -1,8 +1,10 @@
-const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+let studentMCG;
 
 function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
+
+  studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   
   const studentBtn = document.querySelector("[data-title='studentMCG']");
   //studentBtn.addEventListener("click", loadStudentMCG)
