@@ -39,10 +39,10 @@ async function studentPointsBtn() {
       imageHeight: 75,
       imageAlt: '@MyClassGame',
       html:
-          '<input id="swal-input1" class="swal2-input" placeholder="XP" type="number" min="-1000" max="1000" value="0">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="HP" type="number" min="-1000" max="1000" value="0">' +
-          '<input id="swal-input3" class="swal2-input" placeholder="GP" type="number" min="-1000" max="1000" value="0">' +
-          '<input id="swal-input4" class="swal2-input" placeholder="AP" type="number" min="-1000" max="1000" value="0">' ,
+          'XP<input id="swal-input1" class="swal2-input" placeholder="XP" type="number" min="-1000" max="1000" value="0">' +
+          'HP<input id="swal-input2" class="swal2-input" placeholder="HP" type="number" min="-1000" max="1000" value="0">' +
+          'GP<input id="swal-input3" class="swal2-input" placeholder="GP" type="number" min="-1000" max="1000" value="0">' +
+          'AP<input id="swal-input4" class="swal2-input" placeholder="AP" type="number" min="-1000" max="1000" value="0">' ,
       focusConfirm: false,
       preConfirm: () => {
           const points = {
