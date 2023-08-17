@@ -60,13 +60,15 @@ async function studentPointsBtn() {
     var points = formValues
 
     let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    console.log(studentMCG)
 
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
     studentPoints[0].textContent = parseInt(studentMCG.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
     studentPoints[1].textContent = parseInt(studentMCG.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
     studentPoints[2].textContent = parseInt(studentMCG.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
     studentPoints[3].textContent = parseInt(studentMCG.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;
-
+    console.log(studentPoints[0].textContent)
+    
     points.XP= parseInt(studentPoints[0].textContent)
     points.HP= parseInt(studentPoints[1].textContent)
     points.GP= parseInt(studentPoints[2].textContent)
@@ -77,6 +79,7 @@ async function studentPointsBtn() {
     studentMCG.GP= parseInt(studentPoints[2].textContent)
     studentMCG.AP= parseInt(studentPoints[3].textContent)
 
+    console.log(studentMCG)
     let student = JSON.stringify(studentMCG)
     localStorage.setItem('studentMCG',student); 
 
