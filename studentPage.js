@@ -59,7 +59,7 @@ async function studentPointsBtn() {
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
 
-    //let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
     console.log(studentMCG)
 
     points.XP = parseInt(studentMCG.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
