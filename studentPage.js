@@ -60,15 +60,17 @@ async function studentPointsBtn() {
     
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
+    console.log(points)
 
     const studentMCG2 = JSON.parse(localStorage.getItem('studentMCG'));
     console.log(studentMCG2)
     
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-    points.XP = parseInt(studentMCG2.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
-    points.HP = parseInt(studentMCG2.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
+    //points.XP = parseInt(studentMCG2.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
+    points.XP += parseInt(studentMCG2.XP);
+    /*points.HP = parseInt(studentMCG2.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
     points.GP = parseInt(studentMCG2.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
-    points.AP = parseInt(studentMCG2.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;
+    points.AP = parseInt(studentMCG2.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;*/
     console.log(points)
 
     studentPoints[0].textContent = parseInt(points.XP)
@@ -85,9 +87,8 @@ async function studentPointsBtn() {
       body: JSON.stringify(points)
     };
 
-    let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
     // Realizar la solicitud fetch PATCH
-    fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, options)
+    fetch('https://genialmcg.glitch.me/students/' + studentMCG2.id, options)
       .then(function(response) {
         return response.json();
       })
