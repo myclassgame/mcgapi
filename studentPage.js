@@ -100,7 +100,7 @@ async function studentPointsBtn() {
       })
       .then(function(data) {
         console.log(data); // Manejar la respuesta recibida del servidor
-        let student = JSON.stringify(data])
+        let student = JSON.stringify(data)
         localStorage.setItem('studentMCG',student);  
       
         if(!data.status){
