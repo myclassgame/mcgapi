@@ -24,6 +24,8 @@ function loadStudentPage() {
 
 async function studentPointsBtn() {
   console.log("Dar puntos");
+  const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+  console.log(studentMCG)
   const { value: formValues } = await Swal.fire({
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
       background: '#268bd2',
@@ -59,9 +61,9 @@ async function studentPointsBtn() {
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
 
-    //const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
-    //console.log(studentMCG)
-
+    studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    console.log(studentMCG)
+    /*
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
     points.XP = parseInt(studentPoints[0].textContent) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
     points.HP = parseInt(studentPoints[1].textContent) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
@@ -73,6 +75,7 @@ async function studentPointsBtn() {
     studentPoints[1].textContent = parseInt(points.HP)
     studentPoints[2].textContent = parseInt(points.GP)
     studentPoints[3].textContent = parseInt(points.AP)
+    */
 
     // Configurar opciones para la solicitud fetch GET
     var options = {
