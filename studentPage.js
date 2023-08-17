@@ -83,9 +83,9 @@ async function studentPointsBtn() {
       body: JSON.stringify(points)
     };
 
-
+    const studentBtn = document.querySelector("[data-title='studentMCG']");
     // Realizar la solicitud fetch PATCH
-    fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, options)
+    fetch('https://genialmcg.glitch.me/students/' + studentBtn.id, options)
       .then(function(response) {
         return response.json();
       })
