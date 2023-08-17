@@ -39,10 +39,11 @@ async function studentPointsBtn() {
       imageHeight: 75,
       imageAlt: '@MyClassGame',
       html:
-          '<input id="swal-input1" class="swal2-input" placeholder="XP">' +
-          '<input id="swal-input2" class="swal2-input" placeholder="HP">' +
-          '<input id="swal-input3" class="swal2-input" placeholder="GP">' +
-          '<input id="swal-input4" class="swal2-input" placeholder="AP">' ,
+        <input type="number" min="0" max="23" value="14" />
+          '<input id="swal-input1" class="swal2-input" placeholder="XP" type="number" min="-1000" max="1000" value="0">' +
+          '<input id="swal-input2" class="swal2-input" placeholder="HP" type="number" min="-1000" max="1000" value="0">' +
+          '<input id="swal-input3" class="swal2-input" placeholder="GP" type="number" min="-1000" max="1000" value="0">' +
+          '<input id="swal-input4" class="swal2-input" placeholder="AP" type="number" min="-1000" max="1000" value="0">' ,
       focusConfirm: false,
       preConfirm: () => {
           const points = {
@@ -66,16 +67,23 @@ async function studentPointsBtn() {
     console.log(studentMCG2)
     
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-    points.XP = parseInt(studentMCG2.XP) + isNaN(points.XP) ? 0 : parseInt(points.XP);
-    points.HP = parseInt(studentMCG2.HP) + isNaN(points.HP) ? 0 : parseInt(points.HP);
-    points.GP = parseInt(studentMCG2.GP) + isNaN(points.GP) ? 0 : parseInt(points.GP);
-    points.AP = parseInt(studentMCG2.AP) + isNaN(points.AP) ? 0 : parseInt(points.AP);
-    console.log(points)
+    let addPoints= {
+      'XP':0,
+      'HP':0,
+      'GP':0,
+      'AP':0,
+    }
+    
+    addPoints.XP = parseInt(studentMCG2.XP) + parseInt(points.XP);
+    addPoints.HP = parseInt(studentMCG2.HP) + parseInt(points.HP);
+    addPoints.GP = parseInt(studentMCG2.GP) + parseInt(points.GP);
+    addPoints.AP = parseInt(studentMCG2.AP) + parseInt(points.AP);
+    console.log(addPoints)
 
-    studentPoints[0].textContent = parseInt(points.XP)
-    studentPoints[1].textContent = parseInt(points.HP)
-    studentPoints[2].textContent = parseInt(points.GP)
-    studentPoints[3].textContent = parseInt(points.AP)
+    studentPoints[0].textContent = parseInt(addPoints.XP)
+    studentPoints[1].textContent = parseInt(addPoints.HP)
+    studentPoints[2].textContent = parseInt(addPoints.GP)
+    studentPoints[3].textContent = parseInt(addPoints.AP)
 
     // Configurar opciones para la solicitud fetch GET
     var options = {
@@ -83,7 +91,7 @@ async function studentPointsBtn() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(points)
+      body: JSON.stringify(addPoints)
     };
 
     // Realizar la solicitud fetch PATCH
