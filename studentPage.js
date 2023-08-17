@@ -1,11 +1,8 @@
-const studentMCG
+const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
 
 function loadStudentPage() {
   console.log('loadStudentPage');
   console.log(generarClaveAleatoria());
-
-  // Obtén studentMCG almacenado en el LocalStorage
-  studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   
   const studentBtn = document.querySelector("[data-title='studentMCG']");
   //studentBtn.addEventListener("click", loadStudentMCG)
@@ -72,6 +69,11 @@ async function studentPointsBtn() {
     points.HP= parseInt(studentPoints[1].textContent)
     points.GP= parseInt(studentPoints[2].textContent)
     points.AP= parseInt(studentPoints[3].textContent)
+
+    studentMCG.XP= parseInt(studentPoints[0].textContent)
+    studentMCG.HP= parseInt(studentPoints[1].textContent)
+    studentMCG.GP= parseInt(studentPoints[2].textContent)
+    studentMCG.AP= parseInt(studentPoints[3].textContent)
 
     // Configurar opciones para la solicitud fetch GET
     var options = {
