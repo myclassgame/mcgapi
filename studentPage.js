@@ -46,10 +46,10 @@ async function studentPointsBtn() {
       focusConfirm: false,
       preConfirm: () => {
           const points = {
-              XP: document.getElementById('swal-input1').value,
-              HP: document.getElementById('swal-input2').value,
-              GP: document.getElementById('swal-input3').value,
-              AP: document.getElementById('swal-input4').value
+              XP: parseInt(document.getElementById('swal-input1').value),
+              HP: parseInt(document.getElementById('swal-input2').value),
+              GP: parseInt(document.getElementById('swal-input3').value),
+              AP: parseInt(document.getElementById('swal-input4').value)
           }
           return points
       }
