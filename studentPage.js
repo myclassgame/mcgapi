@@ -24,7 +24,7 @@ function loadStudentPage() {
 
 async function studentPointsBtn() {
   console.log("Dar puntos");
-  const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+  let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   console.log(studentMCG)
   const { value: formValues } = await Swal.fire({
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
