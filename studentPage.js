@@ -59,20 +59,20 @@ async function studentPointsBtn() {
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
 
-    let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    //let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
     console.log(studentMCG)
 
+    points.XP = parseInt(studentMCG.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
+    points.HP = parseInt(studentMCG.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
+    points.GP = parseInt(studentMCG.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
+    points.AP = parseInt(studentMCG.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;
+    console.log(points)
+
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-    studentPoints[0].textContent = parseInt(studentMCG.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
-    studentPoints[1].textContent = parseInt(studentMCG.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
-    studentPoints[2].textContent = parseInt(studentMCG.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
-    studentPoints[3].textContent = parseInt(studentMCG.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;
-    console.log(studentPoints[0].textContent)
-    
-    points.XP= parseInt(studentPoints[0].textContent)
-    points.HP= parseInt(studentPoints[1].textContent)
-    points.GP= parseInt(studentPoints[2].textContent)
-    points.AP= parseInt(studentPoints[3].textContent)
+    studentPoints[0].textContent = parseInt(points.XP)
+    studentPoints[1].textContent = parseInt(points.HP)
+    studentPoints[2].textContent = parseInt(points.GP)
+    studentPoints[3].textContent = parseInt(points.AP)
 
     studentMCG.XP= parseInt(studentPoints[0].textContent)
     studentMCG.HP= parseInt(studentPoints[1].textContent)
