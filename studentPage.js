@@ -46,10 +46,10 @@ async function studentPointsBtn() {
       focusConfirm: false,
       preConfirm: () => {
           const points = {
-              XP: parseInt(document.getElementById('swal-input1').value),
-              HP: parseInt(document.getElementById('swal-input2').value),
-              GP: parseInt(document.getElementById('swal-input3').value),
-              AP: parseInt(document.getElementById('swal-input4').value)
+              XP: document.getElementById('swal-input1').value,
+              HP: document.getElementById('swal-input2').value,
+              GP: document.getElementById('swal-input3').value,
+              AP: document.getElementById('swal-input4').value
           }
           return points
       }
@@ -66,11 +66,10 @@ async function studentPointsBtn() {
     console.log(studentMCG2)
     
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
-    //points.XP = parseInt(studentMCG2.XP) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
-    points.XP += parseInt(studentMCG2.XP);
-    /*points.HP = parseInt(studentMCG2.HP) + Number.isInteger(points.HP) ? parseInt(points.HP) : 0;
-    points.GP = parseInt(studentMCG2.GP) + Number.isInteger(points.GP) ? parseInt(points.GP) : 0;
-    points.AP = parseInt(studentMCG2.AP) + Number.isInteger(points.AP) ? parseInt(points.AP) : 0;*/
+    points.XP = parseInt(studentMCG2.XP) + isNaN(points.XP) ? 0 : parseInt(points.XP);
+    points.HP = parseInt(studentMCG2.HP) + isNaN(points.HP) ? 0 : parseInt(points.HP);
+    points.GP = parseInt(studentMCG2.GP) + isNaN(points.GP) ? 0 : parseInt(points.GP);
+    points.AP = parseInt(studentMCG2.AP) + isNaN(points.AP) ? 0 : parseInt(points.AP);
     console.log(points)
 
     studentPoints[0].textContent = parseInt(points.XP)
