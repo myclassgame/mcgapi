@@ -24,7 +24,7 @@ function loadStudentPage() {
 
 async function studentPointsBtn() {
   console.log("Dar puntos");
-  let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+  conts studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   console.log(studentMCG)
   const { value: formValues } = await Swal.fire({
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
@@ -61,8 +61,8 @@ async function studentPointsBtn() {
     // Objeto de datos que se enviará en la solicitud POST
     var points = formValues
 
-    studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
-    console.log(studentMCG)
+    const studentMCG2 = JSON.parse(localStorage.getItem('studentMCG'));
+    console.log(studentMCG2)
     /*
     const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
     points.XP = parseInt(studentPoints[0].textContent) + Number.isInteger(points.XP) ? parseInt(points.XP) : 0;
