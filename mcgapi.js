@@ -16,7 +16,7 @@ function loadEvents(page) {
   console.log("loadEvents")
 
   //Ocultar loadEvents
-  document.querySelector("#loadEvents").classList.add("hiddenElement"); 
+  //document.querySelector("#loadEvents").classList.add("hiddenElement"); 
 
   if (page==="studentPage") {
     //Cargar datos y eventos de studentPage.js
