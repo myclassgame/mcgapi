@@ -136,7 +136,7 @@ async function deleteStudent() {
       imageHeight: 75,
       imageAlt: '@MyClassGame',
       html:
-          '<h2>Borrar estudiante</h2>' ,
+          '<h2 style="color: white">Borrar estudiante</h2>' ,
       focusConfirm: false,
   }).then((result) => {
     if (result.isConfirmed) {
