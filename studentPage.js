@@ -123,9 +123,9 @@ function deleteStudent() {
   const studentId = studentMCG.id;
   console.log("Borrar " + studentId)
 
-  /*fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, {
+  fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, {
     method: 'DELETE',
-  });*/
+  });
 
   document.querySelector("[data-title='returnBtn']").click();
   
