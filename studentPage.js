@@ -16,6 +16,7 @@ function loadStudentPage() {
   studentPoints[3].textContent = studentMCG.AP;
 
   document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
+  document.querySelector("[data-title='deleteStudentBtn']").addEventListener("click", deleteStudent);
                             
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
@@ -113,4 +114,18 @@ async function studentPointsBtn() {
         console.log('Error:', error);
       });
   }
+}
+
+function deleteStudent() {
+  console.log('deleteStudent');
+
+  let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+  const studentId = studentMCG.id;
+
+  fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, {
+    method: 'DELETE',
+  });
+
+  document.querySelector("[data-title='returnBtn']").click();
+  
 }
