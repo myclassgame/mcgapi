@@ -37,7 +37,7 @@ function loadEvents(page) {
     loadClassesPage()
   }
 
-  if (mcgAPIText==="Login") {
+  if (mcgAPIText==="Teacher") {
     //Cargar datos y eventos de teachersPage.js
     loadTeacherPage()
   }
