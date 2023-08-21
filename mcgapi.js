@@ -22,22 +22,22 @@ function loadEvents(page) {
   //Ocultar loadEvents
   //document.querySelector("#loadEvents").classList.add("hiddenElement"); 
 
-  if (page==="studentPage") {
+  if (mcgAPIText==="Student") {
     //Cargar datos y eventos de studentPage.js
     loadStudentPage()
   }
   
-  if (page==="studentsPage") {
+  if (mcgAPIText==="Students") {
     //Cargar datos y eventos de studentsPage.js
     loadStudentsPage()
   }
 
-  if (page==="classesPage") {
+  if (mcgAPIText==="Classes") {
     //Cargar datos y eventos de classesPage.js
     loadClassesPage()
   }
 
-  if (page==="teacherPage") {
+  if (mcgAPIText==="Login") {
     //Cargar datos y eventos de teachersPage.js
     loadTeacherPage()
   }
