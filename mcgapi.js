@@ -15,6 +15,10 @@ files.forEach(file =>   {
 function loadEvents(page) {
   console.log("loadEvents")
 
+  const mcgAPIBtn = document.querySelector("[data-title='mcgAPI']");
+  const mcgAPIText = mcgAPIBtn.querySelector('.genially-view-text span').textContent;
+  console.log(mcgAPIText)
+
   //Ocultar loadEvents
   //document.querySelector("#loadEvents").classList.add("hiddenElement"); 
 
