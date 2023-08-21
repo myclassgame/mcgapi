@@ -123,6 +123,31 @@ function deleteStudent() {
   const studentId = studentMCG.id;
   console.log("Borrar " + studentId)
 
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Borrar',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          'Borrar estudiante' ,
+      focusConfirm: false,
+  }).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      Borrado!',
+      'El estudiante ha sido borrado.',
+      'success'
+    )
+  }
+})
+  
   fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, {
     method: 'DELETE',
   });
