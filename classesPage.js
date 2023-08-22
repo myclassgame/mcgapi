@@ -3,6 +3,8 @@ async function loadClassesPage(){
   
   //newclassMCG
   document.querySelector("[data-title='newclassMCG']").addEventListener("click", newclassMCG);
+
+  document.querySelector("[data-title='delteClassBtn']").addEventListener("click", deleteClassBtn);
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");   
@@ -96,11 +98,38 @@ async function loadClassesMCG() {
 }
 
 //Cargar clase
-function loadClassMCG(e){
+/*function loadClassMCG(e){
   console.log(e.currentTarget.id);
-  localStorage.setItem('classIdMCG',e.currentTarget.id);
+  const classIdData= JSON.stringify({'id':e.currentTarget.data-id,'classId':e.currentTarget.id});
+  localStorage.setItem('classIdMCG',classIdData);
   document.querySelector("[data-title='myclassMCG']").click();
   document.querySelector("#myclassesMCG").remove();
+}*/
+
+//Cargar clase
+function loadClassMCG(e){
+  console.log(e.currentTarget.id);
+  fetch('https://genialmcg.glitch.me/classes/?classId='+e.currentTarget.id)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data); // Manejar la respuesta recibida del servidor
+      let class = JSON.stringify(data[0])
+      localStorage.setItem('classMCG',class);  
+      console.log(localStorage.getItem('classMCG'))
+                                
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+
+      document.querySelector("[data-title='myclassMCG']").click();
+      document.querySelector("#myclassesMCG").remove();
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+      //Ocultar waitingMCG
+      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
+    });
 }
 
 //Crear clase 
@@ -172,4 +201,39 @@ async function newclassMCG() {
           console.log('Error:', error);
         });
   }
+}
+
+async function deleteClassBtn() {
+  console.log('deleteClass');
+
+  //const classIdMCG = window.localStorage.getItem("classIdMCG");
+  const classMCG = JSON.parse(localStorage.getItem('classMCG'));
+
+  await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Borrar',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          '<h2 style="color: white">Borrar clase</h2>' ,
+      focusConfirm: false,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //deleteClass(classMCG.id)
+      document.querySelector("[data-title='returnBtn']").click();
+    }
+  })
+}
+
+function deleteClass(classId) {
+  fetch('https://genialmcg.glitch.me/classes/' + classId, {
+    method: 'DELETE',
+  });
 }
