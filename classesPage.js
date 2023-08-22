@@ -229,7 +229,21 @@ async function deleteClassBtn() {
       focusConfirm: false,
   }).then((result) => {
     if (result.isConfirmed) {
-      //deleteClass(classMCG.id)
+      // Saber los estudiantes de la clase
+      fetch('https://genialmcg.glitch.me/students/?classId='+classMCG.classId)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) { 
+          data.forEach(function(element) {
+            // Borrar estudiante
+            deleteStudent(element.id);
+          })        
+        })
+        .catch(function(error) {
+          console.log('Error:', error);
+        });
+      deleteClass(classMCG.id)
       document.querySelector("[data-title='returnBtn']").click();
     }
   })
