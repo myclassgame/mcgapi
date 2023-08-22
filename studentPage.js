@@ -8,6 +8,9 @@ function loadStudentPage() {
   //studentBtn.addEventListener("click", loadStudentMCG)
   studentBtn.querySelector('span span').textContent = studentMCG.studentName;
   studentBtn.querySelector('.color1').style.fill = studentMCG.color;
+  if (studentMCG.image) {
+    studentBtn.querySelector('img').src = studentMCG.image;
+  }
   studentBtn.id=studentMCG.studentId;
   const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
   studentPoints[0].textContent = studentMCG.XP;
@@ -17,6 +20,7 @@ function loadStudentPage() {
 
   document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
   document.querySelector("[data-title='deleteStudentBtn']").addEventListener("click", deleteStudentBtn);
+  document.querySelector("[data-title='studentBtn']").addEventListener("click", studentBtn);
                             
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
@@ -148,4 +152,75 @@ function deleteStudent(studentId) {
   fetch('https://genialmcg.glitch.me/students/' + studentId, {
     method: 'DELETE',
   });
+}
+
+async function studentBtn() {
+  console.log("Modificar datos estudiante");
+  const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+  const { value: formValues } = await Swal.fire({
+      title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+      background: '#268bd2',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#0f0',
+      confirmButtonText: 'Guardar',
+      cancelButtonColor: '#d33',
+      imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+      imageWidth: 75,
+      imageHeight: 75,
+      imageAlt: '@MyClassGame',
+      html:
+          'Nombre<input id="swal-input1" class="swal2-input" placeholder="XP" type="number" min="-1000" max="1000" value="0"><br />' +
+          'Imagen<input id="swal-input2" class="swal2-input" placeholder="HP" type="number" min="-1000" max="1000" value="0"><br />' ,
+      focusConfirm: false,
+      preConfirm: () => {
+          const studentData = {
+              studentName: document.getElementById('swal-input1').value,
+              image: document.getElementById('swal-input2').value
+          }
+          return studentData
+      }
+  })
+  if (formValues) {
+    
+    //console.log(formValues)
+    
+    // Objeto de datos que se enviará en la solicitud POST
+    var studentData = formValues
+    console.log(studentData)
+
+    const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    console.log(studentMCG)
+
+    // Configurar opciones para la solicitud fetch GET
+    var options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(studentData)
+    };
+
+    // Realizar la solicitud fetch PATCH
+    fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, options)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data); // Manejar la respuesta recibida del servidor
+        let student = JSON.stringify(data)
+        localStorage.setItem('studentMCG',student);  
+        const studentBtn = document.querySelector("[data-title='studentMCG']");
+        studentBtn.querySelector('span span').textContent = data.studentName;
+        studentBtn.querySelector('img').src = data.image;
+        if(!data.status){
+          console.log("OK");
+        } else {
+          console.log("notOK");
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+      });
+  }
 }
