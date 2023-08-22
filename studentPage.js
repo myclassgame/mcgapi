@@ -16,7 +16,7 @@ function loadStudentPage() {
   studentPoints[3].textContent = studentMCG.AP;
 
   document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
-  document.querySelector("[data-title='deleteStudentBtn']").addEventListener("click", deleteStudent);
+  document.querySelector("[data-title='deleteStudentBtn']").addEventListener("click", deleteStudentBtn);
                             
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
@@ -116,12 +116,10 @@ async function studentPointsBtn() {
   }
 }
 
-async function deleteStudent() {
+async function deleteStudentBtn() {
   console.log('deleteStudent');
 
   let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
-  const studentId = studentMCG.id;
-  console.log("Borrar " + studentId)
 
   await Swal.fire({
       title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
@@ -140,10 +138,14 @@ async function deleteStudent() {
       focusConfirm: false,
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch('https://genialmcg.glitch.me/students/' + studentMCG.id, {
-        method: 'DELETE',
-      });
+      deleteStudent(studentMCG.id)
       document.querySelector("[data-title='returnBtn']").click();
     }
   })
+}
+
+function deleteStudent(studentId) {
+  fetch('https://genialmcg.glitch.me/students/' + studentId, {
+    method: 'DELETE',
+  });
 }
