@@ -4,7 +4,10 @@ async function loadClassesPage(){
   //newclassMCG
   document.querySelector("[data-title='newclassMCG']").addEventListener("click", newclassMCG);
 
-  document.querySelector("[data-title='delteClassBtn']").addEventListener("click", deleteClassBtn);
+  //deleteClassBtn
+  if (document.querySelector("[data-title='deleteClassBtn']")) {
+    document.querySelector("[data-title='deleteClassBtn']").addEventListener("click", deleteClassBtn);
+  }
   
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");   
