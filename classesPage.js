@@ -118,8 +118,8 @@ function loadClassMCG(e){
     })
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
-      let class = JSON.stringify(data[0])
-      localStorage.setItem('classMCG',class);  
+      let classMCG = JSON.stringify(data[0])
+      localStorage.setItem('classMCG',classMCG);  
       console.log(localStorage.getItem('classMCG'))
                                 
       //Ocultar waitingMCG
