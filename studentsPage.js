@@ -23,7 +23,8 @@ async function loadStudentsMCG() {
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
-  const classIdMCG = window.localStorage.getItem("classIdMCG");
+  const classMCG = JSON.parse(localStorage.getItem('classMCG'));
+  const classIdMCG = classMCG.classId;
   
   //Visualizar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
@@ -143,7 +144,8 @@ async function newStudents() {
       
       //Datos localStorage
       const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
-      const classIdMCG = window.localStorage.getItem("classIdMCG");
+      const classMCG = JSON.parse(localStorage.getItem('classMCG'));
+      const classIdMCG = classMCG.classId;
       
       studentListSinEspacios.forEach(nombre =>   {
     
