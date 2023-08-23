@@ -171,12 +171,14 @@ async function hcStudentBtn() {
       imageAlt: '@MyClassGame',
       html:
           'Nombre<input id="swal-input1" class="swal2-input" placeholder="Nombre" type="text"><br />' +
-          'Imagen<input id="swal-input2" class="swal2-input" placeholder="URL imagen" type="text"><br />' ,
+          'Color<input id="swal-input2" class="swal2-input" placeholder="Color" type="color"><br />' +
+          'Imagen<input id="swal-input3" class="swal2-input" placeholder="URL imagen" type="text"><br />' ,
       focusConfirm: false,
       preConfirm: () => {
           const studentData = {
               studentName: document.getElementById('swal-input1').value,
-              image: document.getElementById('swal-input2').value
+              color: document.getElementById('swal-input2').value,
+              image: document.getElementById('swal-input3').value
           }
           return studentData
       }
