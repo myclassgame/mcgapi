@@ -4,7 +4,7 @@ function loadStudentPage() {
 
   let studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   
-  const studentBtn = document.querySelector("[data-title='studentMCG']");
+  const studentBtn = document.querySelector("[data-title='studentBtn']");
   //studentBtn.addEventListener("click", loadStudentMCG)
   studentBtn.querySelector('span span').textContent = studentMCG.studentName;
   studentBtn.querySelector('.color1').style.fill = studentMCG.color;
@@ -12,6 +12,7 @@ function loadStudentPage() {
     studentBtn.querySelector('img').src = studentMCG.image;
   }
   studentBtn.id=studentMCG.studentId;
+  studentBtn.addEventListener("click", studentBtn);
   const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
   studentPoints[0].textContent = studentMCG.XP;
   studentPoints[1].textContent = studentMCG.HP;
@@ -20,7 +21,6 @@ function loadStudentPage() {
 
   document.querySelector("[data-title='studentPoints']").addEventListener("click", studentPointsBtn)
   document.querySelector("[data-title='deleteStudentBtn']").addEventListener("click", deleteStudentBtn);
-  document.querySelector("[data-title='studentBtn']").addEventListener("click", studentBtn);
                             
   //Ocultar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
