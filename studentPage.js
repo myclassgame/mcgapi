@@ -170,8 +170,8 @@ async function hcStudentBtn() {
       imageHeight: 75,
       imageAlt: '@MyClassGame',
       html:
-          'Nombre<input id="swal-input1" class="swal2-input" placeholder="XP" type="number" min="-1000" max="1000" value="0"><br />' +
-          'Imagen<input id="swal-input2" class="swal2-input" placeholder="HP" type="number" min="-1000" max="1000" value="0"><br />' ,
+          'Nombre<input id="swal-input1" class="swal2-input" placeholder="Nombre" type="text"><br />' +
+          'Imagen<input id="swal-input2" class="swal2-input" placeholder="URL imagen" type="text"><br />' ,
       focusConfirm: false,
       preConfirm: () => {
           const studentData = {
