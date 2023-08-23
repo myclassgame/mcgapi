@@ -171,7 +171,7 @@ async function hcStudentBtn() {
       imageAlt: '@MyClassGame',
       html:
           'Nombre<input id="swal-input1" class="swal2-input" placeholder="Nombre" type="text" value="' + studentMCG.studentName + '"><br />' +
-          'Color<input id="swal-input2" class="swal2-input" placeholder="Color" type="color" value="' + studentMCG.color + '" width="10"><br />' +
+          'Color<input id="swal-input2" class="swal2-input swal2-input-color" placeholder="Color" type="color" value="' + studentMCG.color + '" width="10"><br />' +
           'Imagen<input id="swal-input3" class="swal2-input" placeholder="URL imagen" type="text" value="' + studentMCG.image + '"><br />' ,
       focusConfirm: false,
       preConfirm: () => {
