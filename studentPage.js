@@ -170,9 +170,9 @@ async function hcStudentBtn() {
       imageHeight: 75,
       imageAlt: '@MyClassGame',
       html:
-          'Nombre<input id="swal-input1" class="swal2-input" placeholder="Nombre" type="text"><br />' +
-          'Color<input id="swal-input2" class="swal2-input" placeholder="Color" type="color"><br />' +
-          'Imagen<input id="swal-input3" class="swal2-input" placeholder="URL imagen" type="text"><br />' ,
+          'Nombre<input id="swal-input1" class="swal2-input" placeholder="Nombre" type="text" value="' + studentMCG.studentName + '"><br />' +
+          'Color<input id="swal-input2" class="swal2-input" placeholder="Color" type="color" value="' + studentMCG.color + '" width="10"><br />' +
+          'Imagen<input id="swal-input3" class="swal2-input" placeholder="URL imagen" type="text" value="' + studentMCG.image + '"><br />' ,
       focusConfirm: false,
       preConfirm: () => {
           const studentData = {
@@ -191,7 +191,7 @@ async function hcStudentBtn() {
     var studentData = formValues
     console.log(studentData)
 
-    const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
+    //const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
     console.log(studentMCG)
 
     // Configurar opciones para la solicitud fetch GET
@@ -215,6 +215,7 @@ async function hcStudentBtn() {
         const studentBtn = document.querySelector("[data-title='studentBtn']");
         studentBtn.querySelector('span span').textContent = data.studentName;
         studentBtn.querySelector('img').src = data.image;
+        studentBtn.querySelector('.color1').style.fill = data.color;
         if(!data.status){
           console.log("OK");
         } else {
