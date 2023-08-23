@@ -210,7 +210,7 @@ async function hcStudentBtn() {
         console.log(data); // Manejar la respuesta recibida del servidor
         let student = JSON.stringify(data)
         localStorage.setItem('studentMCG',student);  
-        const studentBtn = document.querySelector("[data-title='studentMCG']");
+        const studentBtn = document.querySelector("[data-title='studentBtn']");
         studentBtn.querySelector('span span').textContent = data.studentName;
         studentBtn.querySelector('img').src = data.image;
         if(!data.status){
