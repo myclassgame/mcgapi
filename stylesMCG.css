@@ -17,6 +17,9 @@
       background-color: white;
       height: 2em;
   }
+  .swal2-input-color {
+      width: 3em;
+  }
   .mcgStudentData *{
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-weight: bold;
