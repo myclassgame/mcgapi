@@ -58,6 +58,9 @@ async function loadStudentsMCG() {
         studentBtn.querySelector('span span').textContent = element.studentName;
         studentBtn.querySelector('.color1').style.fill = element.color;
         studentBtn.id=element.studentId;
+        if (element.image) {
+          studentBtn.querySelector('img').src = element.image;
+        }
         studentBtn.classList.remove("hiddenElement");
         studentBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
