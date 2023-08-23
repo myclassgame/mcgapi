@@ -12,7 +12,7 @@ function loadStudentPage() {
     studentBtn.querySelector('img').src = studentMCG.image;
   }
   studentBtn.id=studentMCG.studentId;
-  studentBtn.addEventListener("click", studentBtn);
+  studentBtn.addEventListener("click", hcStudentBtn);
   const studentPoints=document.querySelectorAll("[data-title='studentPoints'] .sc-FNXRL .genially-view-text span")
   studentPoints[0].textContent = studentMCG.XP;
   studentPoints[1].textContent = studentMCG.HP;
@@ -154,7 +154,7 @@ function deleteStudent(studentId) {
   });
 }
 
-async function studentBtn() {
+async function hcStudentBtn() {
   console.log("Modificar datos estudiante");
   const studentMCG = JSON.parse(localStorage.getItem('studentMCG'));
   const { value: formValues } = await Swal.fire({
