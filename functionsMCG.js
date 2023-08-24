@@ -13,10 +13,29 @@ function generarClaveAleatoria() {
 
   return clave;
 }
+
+function hslToHex(h, s, l) {
+  h = (h % 360 + 360) % 360;
+  s = Math.max(0, Math.min(1, s / 100));
+  l = Math.max(0, Math.min(1, l / 100));
+
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+
+  const r = Math.round((c + m) * 255);
+  const g = Math.round((x + m) * 255);
+  const b = Math.round((m) * 255);
+
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+}
+
 function randomPastelColor() {
-  let hue = Math.floor(Math.random() * 360);
-  let pastel = 'hsl(' + hue + ', 100%, 80%)';
-  return pastel;
+  const hue = Math.floor(Math.random() * 360); // Escoger un valor de hue aleatorio en [0, 360)
+  const saturation = 25 + Math.floor(Math.random() * 50); // Mantener la saturación baja a media
+  const lightness = 70 + Math.floor(Math.random() * 10); // Mantener la luminosidad en un rango medio a alto
+
+  return hslToHex(hue, saturation, lightness);
 }
 
 function postBadge(e){
