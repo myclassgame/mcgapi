@@ -5,6 +5,10 @@ function loadStudentsPage() {
   const registerButtons = document.querySelector("[data-title='newStudentsMCG']");
   registerButtons.addEventListener("click", newStudents);
 
+  //printCodes
+  const printCodesBtn = document.querySelector("[data-title='printCodes']");
+  printCodesBtn.addEventListener("click", printCodes);
+
   //Ocultar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
@@ -215,4 +219,14 @@ async function newStudents() {
           });
       })
   }
+}
+
+function printCodes() {
+    var printContents = document.getElementById('myclassesMCG').innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+
+    document.body.innerHTML = originalContents;
 }
