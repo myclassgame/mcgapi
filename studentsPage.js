@@ -55,7 +55,7 @@ async function loadStudentsMCG() {
         // Crea una copia del objeto
         const studentBtn = newStudentBtn.cloneNode(true);
         studentBtn.addEventListener("click", loadStudentMCG)
-        const spans = studentBtn.querySelectorAll('div span')
+        const spans = studentBtn.querySelectorAll('div > span')
         spans[0].textContent = element.studentName;
         spans[1].textContent = element.studentId;
         studentBtn.querySelector('.color1').style.fill = element.color;
