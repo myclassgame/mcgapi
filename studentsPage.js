@@ -223,10 +223,16 @@ async function newStudents() {
 
 function printCodes() {
     var printContents = document.getElementById('myclassesMCG').innerHTML;
-    var originalContents = document.body.innerHTML;
-
-    document.body.innerHTML = printContents;
-    window.print();
-
-    document.body.innerHTML = originalContents;
+    var newWindow = window.open('', '_blank');
+    
+    newWindow.document.open();
+    newWindow.document.write('<html><head><title>Print</title></head><body>');
+    newWindow.document.write(printContents);
+    newWindow.document.write('</body></html>');
+    newWindow.document.close();
+    
+    newWindow.onload = function() {
+        newWindow.print();
+        newWindow.close();
+    };
 }
