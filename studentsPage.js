@@ -56,7 +56,7 @@ async function loadStudentsMCG() {
         const studentBtn = newStudentBtn.cloneNode(true);
         studentBtn.addEventListener("click", loadStudentMCG)
         studentBtn.querySelector('span span').textContent = element.studentName;
-        studentBtn.querySelector('div span:nth-child(2)').textContent = element.studentId;
+        //studentBtn.querySelector('div span:nth-child(2)').textContent = element.studentId;
         studentBtn.querySelector('.color1').style.fill = element.color;
         studentBtn.id=element.studentId;
         if (element.image) {
