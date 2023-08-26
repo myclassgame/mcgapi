@@ -161,3 +161,9 @@
 [data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
   background: orange; 
 }
+
+@media print {
+    [data-title="classButton"] {
+        box-shadow: none;
+    }
+}
