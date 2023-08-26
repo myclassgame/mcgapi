@@ -226,9 +226,9 @@ function printCodes() {
     var newWindow = window.open('', '_blank');
     
     newWindow.document.open();
-    newWindow.document.write('<html><head><title>Print</title></head><body>');
+    newWindow.document.write('<html><head><title>Print</title><link rel="stylesheet" href="https://myclassgame.github.io/mcgapi/stylesMCG.css"></head><body><div id="myclassesMCG">');
     newWindow.document.write(printContents);
-    newWindow.document.write('</body></html>');
+    newWindow.document.write('</div></body></html>');
     newWindow.document.close();
     
     newWindow.onload = function() {
