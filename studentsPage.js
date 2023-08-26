@@ -232,7 +232,6 @@ function printCodes() {
     newWindow.document.close();
     
     newWindow.onload = function() {
-      newWindow.document.getElementsByTagName('body')[0].style.transform = 'scale(1.2)'; // Escala 120%
       newWindow.print();
       newWindow.close();
     };
