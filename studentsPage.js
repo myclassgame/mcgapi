@@ -226,7 +226,7 @@ function printCodes() {
     var newWindow = window.open('', '_blank');
     
     newWindow.document.open();
-    newWindow.document.write('<html><head><title>Tarjetas Estudiantes @MyClassGame genially</title><link rel="stylesheet" href="https://myclassgame.github.io/mcgapi/stylesMCG.css"><style>@page { size: landscape; }</style></head><body><div id="myclassesMCG">');
+    newWindow.document.write('<html><head><title>Tarjetas Estudiantes @MyClassGame genially</title><link rel="stylesheet" href="https://myclassgame.github.io/mcgapi/stylesMCG.css"></head><body><div id="myclassesMCG">');
     newWindow.document.write(printContents);
     newWindow.document.write('</div></body></html>');
     newWindow.document.close();
