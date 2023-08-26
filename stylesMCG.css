@@ -161,9 +161,3 @@
 [data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
   background: orange; 
 }
-
-@media print {
-    body {
-        margin: 0; /* Elimina los márgenes por defecto al imprimir */
-    }
-}
