@@ -1,4 +1,4 @@
-ufunction loadStudentsPage() {
+function loadStudentsPage() {
   console.log("loadStudentsPage")
 
   //newStudentsMCG
