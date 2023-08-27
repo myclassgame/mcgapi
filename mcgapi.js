@@ -2,7 +2,7 @@
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
 if (d.getElementById(id)) { return; }
-var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js", "classesPage.js", "teacherPage.js" ]
+var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js", "classesPage.js", "teacherPage.js" ,"jspdf.umd.min.js" ]
 files.forEach(file =>   {
   js = d.createElement("script"); 
   js.id = id; 
