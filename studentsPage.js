@@ -9,6 +9,10 @@ function loadStudentsPage() {
   const printCodesBtn = document.querySelector("[data-title='printCodes']");
   printCodesBtn.addEventListener("click", printCodes);
 
+  //pdfCodes
+  const printCodesBtn = document.querySelector("[data-title='pdfCodes']");
+  printCodesBtn.addEventListener("click", pdfCodes);
+
   //Ocultar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
@@ -235,4 +239,16 @@ function printCodes() {
       newWindow.print();
       newWindow.close();
     };
+}
+
+function pdfCodes() {
+    const pdf = new jsPDF('p', 'pt', 'letter'); // 'p' for portrait, 'pt' for points, 'letter' for paper size
+
+    const container = document.querySelector('#myclassesMCG');
+    pdf.addPage(); // Add a new page for each sub-container (except the first one)
+    pdf.fromHTML(container, 15, 15); // Add the content of the sub-container to the PDF
+
+    pdf.save('mcgCodes.pdf'); // Save the PDF with a specific filename
+
+    alert('PDF generado correctamente');
 }
