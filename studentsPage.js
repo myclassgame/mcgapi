@@ -11,7 +11,7 @@ function loadStudentsPage() {
 
   //pdfCodes
   const pdfCodesBtn = document.querySelector("[data-title='pdfCodes']");
-  pdeCodesBtn.addEventListener("click", pdfCodes);
+  pdfCodesBtn.addEventListener("click", pdfCodes);
 
   //Ocultar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
