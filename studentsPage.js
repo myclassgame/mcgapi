@@ -10,8 +10,8 @@ function loadStudentsPage() {
   printCodesBtn.addEventListener("click", printCodes);
 
   //pdfCodes
-  const printCodesBtn = document.querySelector("[data-title='pdfCodes']");
-  printCodesBtn.addEventListener("click", pdfCodes);
+  const pdfCodesBtn = document.querySelector("[data-title='pdfCodes']");
+  pdeCodesBtn.addEventListener("click", pdfCodes);
 
   //Ocultar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
