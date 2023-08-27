@@ -242,11 +242,11 @@ function printCodes() {
 }
 
 function pdfCodes() {
-    const pdf = new jsPDF('p', 'pt', 'letter'); // 'p' for portrait, 'pt' for points, 'letter' for paper size
+    const pdf = new jsPDF(); // 'p' for portrait, 'pt' for points, 'letter' for paper size
 
-    const container = document.querySelector('#myclassesMCG');
+    var printContents = document.getElementById('myclassesMCG').innerHTML;
     pdf.addPage(); // Add a new page for each sub-container (except the first one)
-    pdf.fromHTML(container, 15, 15); // Add the content of the sub-container to the PDF
+    pdf.fromHTML(printContents, 10, 10); // Add the content of the sub-container to the PDF
 
     pdf.save('mcgCodes.pdf'); // Save the PDF with a specific filename
 
