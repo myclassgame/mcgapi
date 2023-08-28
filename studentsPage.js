@@ -277,6 +277,5 @@ function pdfCodes() {
     });
 
     pdf.save('cromos.pdf');
-}
     alert('PDF generado correctamente');
 }
