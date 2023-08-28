@@ -251,31 +251,16 @@ function pdfCodes() {
 
     pdf.save('mcgCodes.pdf'); // Save the PDF with a specific filename
     */
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const cromos = document.querySelectorAll("[data-title='classButton']");
-    let x = 10;
-    let y = 10;
-    let count = 0;
-
-    cromos.forEach((cromo, index) => {
-	if (count === 3) {
-	    count = 0;
-	    x = 10;
-	    y += 35; // Ajusta este valor para controlar la posición vertical de los cromos
-	    if (y >= 290) { // Ajusta este valor para cambiar de página si es necesario
-		pdf.addPage();
-		y = 10;
-	    }
-	}
-
-	if (count > 0) {
-	    x += 40; // Ajusta este valor para controlar la posición horizontal de los cromos
-	}
-
-	pdf.text(x, y + 30, cromo.innerText);
-	count++;
-    });
-
-    pdf.save('cromos.pdf');
+    const element = document.querySelector('#myclassesMCG');
+    const opt = {
+	margin: 10,
+	filename: 'cromos.pdf',
+	image: { type: 'jpeg', quality: 0.98 },
+	html2canvas: { scale: 2 },
+	jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    
+    const pdf = await html2pdf().from(element).set(opt).outputPdf();
+    pdf.save();
     alert('PDF generado correctamente');
 }
