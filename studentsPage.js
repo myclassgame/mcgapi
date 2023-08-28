@@ -241,7 +241,7 @@ function printCodes() {
     };
 }
 
-function pdfCodes() {
+async function pdfCodes() {
     /*
     const pdf = new jsPDF(); // 'p' for portrait, 'pt' for points, 'letter' for paper size
 
