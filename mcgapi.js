@@ -2,7 +2,7 @@
 (function (d) { 
 var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
 if (d.getElementById(id)) { return; }
-var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js", "classesPage.js", "teacherPage.js" ]
+var files = [ "sweetalert2.min.js", "studentPage.js", "studentsPage.js", "functionsMCG.js", "classesPage.js", "teacherPage.js", "geniallysPage.js" ]
 files.forEach(file =>   {
   js = d.createElement("script"); 
   js.id = id; 
@@ -42,6 +42,8 @@ function loadEvents(page) {
     loadTeacherPage()
   }
   
-  //Cargar datos dels Estudiante
-  //setTimeout(loadStudentData, 3000)
+  if (mcgAPIText==="geniallys") {
+    //Cargar datos y eventos de teachersPage.js
+    loadGeniallysPage()
+  }
 }
