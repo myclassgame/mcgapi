@@ -242,6 +242,7 @@ function printCodes() {
 }
 
 function pdfCodes() {
+    /*
     const pdf = new jsPDF(); // 'p' for portrait, 'pt' for points, 'letter' for paper size
 
     var printContents = document.getElementById('myclassesMCG').innerHTML;
@@ -249,6 +250,19 @@ function pdfCodes() {
     pdf.fromHTML(printContents, 10, 10); // Add the content of the sub-container to the PDF
 
     pdf.save('mcgCodes.pdf'); // Save the PDF with a specific filename
+    */
+    var pdf = new jsPDF('p', 'pt', 'letter');
+		pdf.html(document.getElementById('myclassesMCG'), {
+			callback: function (pdf) {
+				var iframe = document.createElement('iframe');
+				iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+				document.body.appendChild(iframe);
+				iframe.src = pdf.output('datauristring');
 
+				//var div = document.createElement('pre');
+				//div.innerText=pdf.output();
+				//document.body.appendChild(div);
+			}
+		});
     alert('PDF generado correctamente');
 }
