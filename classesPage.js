@@ -173,7 +173,7 @@ async function newclassMCG() {
       data.color = randomPastelColor()
 
       //Obtener el Id del Genially
-      var url = window.location;
+      var url = window.location.href;
       console.log(url)
       var parts = url.split('/');
       var lastPart = parts[parts.length - 1];
