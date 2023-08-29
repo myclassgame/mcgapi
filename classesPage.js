@@ -41,12 +41,17 @@ async function loadClassesMCG() {
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
+
+  //Datos URL
+  let url = window.location.href;
+  let parts = url.split('/');
+  let genId = parts[parts.length - 1];
   
   //Visualizar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
   
   // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/classes/?userId='+userId)
+  fetch('https://genialmcg.glitch.me/classes/?userId='+userId+'&genId='+genId)
     .then(function(response) {
       return response.json();
     })
@@ -174,12 +179,9 @@ async function newclassMCG() {
 
       //Obtener el Id del Genially
       var url = window.location.href;
-      console.log(url)
       var parts = url.split('/');
-      var lastPart = parts[parts.length - 1];
+      data.genId = parts[parts.length - 1];
       //data.genId = window.location.pathname
-      console.log(lastPart)
-      return
 
       // Configurar opciones para la solicitud fetch POST
       var options = {
