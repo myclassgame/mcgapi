@@ -174,6 +174,7 @@ async function newclassMCG() {
 
       //Obtener el Id del Genially
       var url = window.location;
+      console.log(url)
       var parts = url.split('/');
       var lastPart = parts[parts.length - 1];
       //data.genId = window.location.pathname
