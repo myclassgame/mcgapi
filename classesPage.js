@@ -172,6 +172,14 @@ async function newclassMCG() {
       data.classId = generarClaveAleatoria()
       data.color = randomPastelColor()
 
+      //Obtener el Id del Genially
+      var url = window.location;
+      const arr = url.split('/')
+      //data.genId = arr[arr.length-1])
+      data.genId = window.location.pathname
+      console.log(data.genId)
+      return
+
       // Configurar opciones para la solicitud fetch POST
       var options = {
         method: 'POST',
