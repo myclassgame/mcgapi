@@ -173,8 +173,8 @@ async function newclassMCG() {
       data.color = randomPastelColor()
 
       //Obtener el Id del Genially
-      var url = window.location;
-      const arr = url.split('/')
+      //var url = window.location;
+      //const arr = url.split('/')
       //data.genId = arr[arr.length-1])
       data.genId = window.location.pathname
       console.log(data.genId)
