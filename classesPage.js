@@ -68,7 +68,7 @@ async function loadClassesMCG() {
         classBtn.querySelector('.color1').style.fill = element.color;
         classBtn.id=element.classId;
         classBtn.classList.remove("hiddenElement");
-        classBtn.setAttribute("data-title", "classButton"); 
+        classBtn.setAttribute("data-title", "elementButton"); 
         //Inserta la copia del objeto en el div de destino
         containerMCG.appendChild(classBtn);
       })
@@ -181,7 +181,7 @@ async function newclassMCG() {
           nclassBtn.querySelector('span span').textContent = data.className;
           nclassBtn.querySelector('.color1').style.fill = data.color;
           nclassBtn.id=data.classId;
-          nclassBtn.setAttribute("data-title", "classButton");
+          nclassBtn.setAttribute("data-title", "elementButton");
           nclassBtn.classList.remove("hiddenElement");
           //Inserta la copia del objeto en el div de destino
           document.querySelector("#containerMCG").appendChild(nclassBtn);
