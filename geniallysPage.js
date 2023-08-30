@@ -5,6 +5,9 @@ function loadGeniallysPage() {
   const newGeniallyBtn = document.querySelector("[data-title='newGenially']");
   newGeniallyBtn.addEventListener("click", newGenially);
 
+  //genSlideId
+  console.log(document.querySelector("#genially-view-slide").id)
+
   //Ocultar studentMCG
   document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
