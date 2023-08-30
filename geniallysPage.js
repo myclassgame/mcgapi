@@ -14,14 +14,12 @@ function loadGeniallysPage() {
   //Cargar estudiantes
   setTimeout(loadGeniallys, 3000)
 
-  //Ocultar mcgContainer
-  document.querySelector("[data-title='mcgContainer']").classList.add("hiddenElement");
+  //Ocultar containerMCG
+  document.querySelector("[data-title='containerMCG']").classList.add("hiddenElement");
 }
 
 //Cargar geniallys
 async function loadGeniallys() {
-  //Ocultar lcg
-  //document.querySelector("[data-title='lcg']").classList.add("hiddenElement");
   
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -41,18 +39,11 @@ async function loadGeniallys() {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newGeniallyBtn = document.querySelector("[data-title='geniallyMCG']");
       
-      const postitMCG = document.querySelector("[data-title='mcgContainer']");
-      /*postitMCG.style.overflowY="auto";
-      postitMCG.style.overflowX="hidden";
-      postitMCG.style.pointerEvents="auto";
+      const postitMCG = document.querySelector("[data-title='containerMCG']");
       
-      postitMCG.style.opacity=0;
-      postitMCG.style.visibility="hidden";
-      postitMCG.style.transition="all 5s ease-in-out";*/
-      
-      const mcgContainer = document.createElement('div');
-      mcgContainer.id = 'mcgContainer';
-      mcgContainer.classList.add('mcgContainer');
+      const containerMCG = document.createElement('div');
+      containerMCG.id = 'containerMCG';
+      containerMCG.classList.add('containerMCG');
          
       data.forEach(function(element) {
         // Crea una copia del objeto
@@ -63,20 +54,13 @@ async function loadGeniallys() {
         geniallyBtn.classList.remove("hiddenElement");
         geniallyBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
-        mcgContainer.appendChild(geniallyBtn);
+        containerMCG.appendChild(geniallyBtn);
       })
 
-      postitMCG.appendChild(mcgContainer);
-      //Visualizar postitMCG
-      /*postitMCG.style.opacity=1;
-      postitMCG.style.visibility="visible";
-      postitMCG.style.transition="all 0s ease-in-out";*/
+      postitMCG.appendChild(containerMCG);
 
-      //Ocultar studentMCG
-      //document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
-
-       //Visualizar mcgContainer
-      document.querySelector("[data-title='mcgContainer']").classList.remove("hiddenElement");
+       //Visualizar containerMCG
+      document.querySelector("[data-title='containerMCG']").classList.remove("hiddenElement");
       
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
@@ -106,7 +90,7 @@ function loadGeniallyMCG(e){
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
 
       document.querySelector("[data-title='myclassMCG']").click();
-      document.querySelector("#myclassesMCG").remove();
+      document.querySelector("#containerMCG").remove();
     })
     .catch(function(error) {
       console.log('Error:', error);
@@ -147,7 +131,7 @@ async function newGenially() {
     // Objeto con los datos del genially
     const genially = formValues;
     const newGeniallytBtn = document.querySelector("[data-title='geniallyMCG']");
-    const postitMCG = document.querySelector("#mcgContainer");
+    const postitMCG = document.querySelector("#containerMCG");
     
     //Datos localStorage
     const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
