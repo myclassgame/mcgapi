@@ -24,14 +24,14 @@ async function loadGeniallys() {
   //Datos userMCG
   let userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
   let userId=userMCG.userId;
-  const classMCG = JSON.parse(localStorage.getItem('classMCG'));
-  const classIdMCG = classMCG.classId;
   
   //Visualizar waitingMCG
   document.querySelector("[data-title='waitingMCG']").classList.remove("hiddenElement");
+
+  const genSlideId = document.querySelector(".genially-view-slide").id
   
   // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/students/?classId='+classIdMCG)
+  fetch('https://genialmcg.glitch.me/geniallys/?genSlideId='+genSlideId)
     .then(function(response) {
       return response.json();
     })
