@@ -20,7 +20,7 @@ function loadStudentsPage() {
   setTimeout(loadStudentsMCG, 3000)
 
   //Ocultar myclassesMCG
-  document.querySelector("[data-title='myclassesMCG']").classList.add("hiddenElement");
+  document.querySelector("[data-title='containerMCG']").classList.add("hiddenElement");
 }
 
 //Cargar estudiantes
@@ -46,18 +46,11 @@ async function loadStudentsMCG() {
       console.log(data); // Manejar la respuesta recibida del servidor
       const newStudentBtn = document.querySelector("[data-title='studentMCG']");
       
-      const postitMCG = document.querySelector("[data-title='myclassesMCG']");
-      /*postitMCG.style.overflowY="auto";
-      postitMCG.style.overflowX="hidden";
-      postitMCG.style.pointerEvents="auto";
+      const postitMCG = document.querySelector("[data-title='containerMCG']");
       
-      postitMCG.style.opacity=0;
-      postitMCG.style.visibility="hidden";
-      postitMCG.style.transition="all 5s ease-in-out";*/
-      
-      const myclassesMCG = document.createElement('div');
-      myclassesMCG.id = 'myclassesMCG';
-      myclassesMCG.classList.add('myclassesMCG');
+      const containerMCG = document.createElement('div');
+      containerMCG.id = 'containerMCG';
+      containerMCG.classList.add('containerMCG');
          
       data.forEach(function(element) {
         // Crea una copia del objeto
@@ -74,20 +67,13 @@ async function loadStudentsMCG() {
         studentBtn.classList.remove("hiddenElement");
         studentBtn.setAttribute("data-title", "classButton"); 
         //Inserta la copia del objeto en el div de destino
-        myclassesMCG.appendChild(studentBtn);
+        containerMCG.appendChild(studentBtn);
       })
 
       postitMCG.appendChild(myclassesMCG);
-      //Visualizar postitMCG
-      /*postitMCG.style.opacity=1;
-      postitMCG.style.visibility="visible";
-      postitMCG.style.transition="all 0s ease-in-out";*/
-
-      //Ocultar studentMCG
-      //document.querySelector("[data-title='studentMCG']").classList.add("hiddenElement"); 
 
        //Visualizar myclassesMCG
-      document.querySelector("[data-title='myclassesMCG']").classList.remove("hiddenElement");
+      document.querySelector("[data-title='containerMCG']").classList.remove("hiddenElement");
       
       //Ocultar waitingMCG
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
@@ -117,7 +103,7 @@ function loadStudentMCG(e){
       document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
 
       document.querySelector("[data-title='myclassMCG']").click();
-      document.querySelector("#myclassesMCG").remove();
+      document.querySelector("#containerMCG").remove();
     })
     .catch(function(error) {
       console.log('Error:', error);
@@ -153,7 +139,7 @@ async function newStudents() {
       const studentList = formValues.split(',');
       const studentListSinEspacios = studentList.map(palabra => palabra.trim());
       const newStudentBtn = document.querySelector("[data-title='studentMCG']");
-      const postitMCG = document.querySelector("#myclassesMCG");
+      const postitMCG = document.querySelector("#containerMCG");
       
       //Datos localStorage
       const userMCG = JSON.parse(window.localStorage.getItem("userMCG"));
@@ -205,18 +191,6 @@ async function newStudents() {
             //Inserta la copia del objeto en el div de destino
             postitMCG.appendChild(studentBtn);
             
-            /*
-            // Crea una copia del objeto
-            const newclassBtn = document.querySelector("[data-title='newclassMCG']")
-            const classBtn = newclassBtn.cloneNode(true);
-            classBtn.addEventListener("click", loadClassMCG)
-            classBtn.querySelector('span span').textContent = data.className;
-            classBtn.querySelector('.color1').style.fill = data.color;
-            classBtn.id=data.classId;
-            classBtn.setAttribute("data-title", "classButton"); 
-            //Inserta la copia del objeto en el div de destino
-            document.querySelector("#myclassesMCG").appendChild(classBtn);
-            */
           })
           .catch(function(error) {
             console.log('Error:', error);
