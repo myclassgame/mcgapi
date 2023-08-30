@@ -65,7 +65,7 @@ async function loadStudentsMCG() {
           studentBtn.querySelector('img').src = element.image;
         }
         studentBtn.classList.remove("hiddenElement");
-        studentBtn.setAttribute("data-title", "classButton"); 
+        studentBtn.setAttribute("data-title", "elementButton"); 
         //Inserta la copia del objeto en el div de destino
         containerMCG.appendChild(studentBtn);
       })
@@ -187,7 +187,7 @@ async function newStudents() {
             studentBtn.querySelector('.color1').style.fill = student.color;
             studentBtn.id=student.studentId;
             studentBtn.classList.remove("hiddenElement");
-            studentBtn.setAttribute("data-title", "classButton"); 
+            studentBtn.setAttribute("data-title", "elementButton"); 
             //Inserta la copia del objeto en el div de destino
             postitMCG.appendChild(studentBtn);
             
