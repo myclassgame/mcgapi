@@ -92,7 +92,7 @@
     opacity:0;
 }
 
-#myclassesMCG {
+#containerMCG {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -101,7 +101,7 @@
   transition: all 2s ease-in-out;
 }
 
-#myclassesMCG > div {
+#containerMCG > div {
     margin: 10px;
     page-break-inside: avoid; /* Evita que un div se corte en una página */
 }
@@ -124,18 +124,18 @@
     pointer-events:none;
 }
 
-[data-title="classButton"] {
+[data-title="elementButton"] {
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
     transition: transform .2s ease-in-out;
 }
 
-[data-title="classButton"]:hover {
+[data-title="elementButton"]:hover {
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.6);
     transform: translate(0, -10px) !important;
 }
 
-[data-title="myclassesMCG"] {
+[data-title="containerMCG"] {
     visibility: visible;
     opacity:1;
     overflow-y: auto;
@@ -144,26 +144,26 @@
     border: 10px solid #ffa50063 !important;
 }
 
-[data-title="myclassesMCG"].hiddenElement{
+[data-title="containerMCG"].hiddenElement{
     visibility: hidden !important;
     opacity:0 !important;
     pointer-events:none;
 }
 
-[data-title="myclassesMCG"]::-webkit-scrollbar {
+[data-title="containerMCG"]::-webkit-scrollbar {
   width: 5px;
 }
  
-[data-title="myclassesMCG"]::-webkit-scrollbar-track {
+[data-title="containerMCG"]::-webkit-scrollbar-track {
   background: #ecec8e4d;
 }
  
-[data-title="myclassesMCG"]::-webkit-scrollbar-thumb {
+[data-title="containerMCG"]::-webkit-scrollbar-thumb {
   background: orange; 
 }
 
 @media print {
-    [data-title="classButton"] {
+    [data-title="elementButton"] {
         box-shadow: none;
     }
 }
