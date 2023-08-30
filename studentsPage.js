@@ -19,7 +19,7 @@ function loadStudentsPage() {
   //Cargar estudiantes
   setTimeout(loadStudentsMCG, 3000)
 
-  //Ocultar myclassesMCG
+  //Ocultar containerMCG
   document.querySelector("[data-title='containerMCG']").classList.add("hiddenElement");
 }
 
@@ -70,7 +70,7 @@ async function loadStudentsMCG() {
         containerMCG.appendChild(studentBtn);
       })
 
-      postitMCG.appendChild(myclassesMCG);
+      postitMCG.appendChild(containerMCG);
 
        //Visualizar myclassesMCG
       document.querySelector("[data-title='containerMCG']").classList.remove("hiddenElement");
