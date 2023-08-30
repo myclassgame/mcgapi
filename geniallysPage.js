@@ -52,7 +52,7 @@ async function loadGeniallys() {
         const spans = geniallyBtn.querySelector('div  span')
         spans.textContent = element.genName;
         geniallyBtn.classList.remove("hiddenElement");
-        geniallyBtn.setAttribute("data-title", "classButton"); 
+        geniallyBtn.setAttribute("data-title", "elementButton"); 
         //Inserta la copia del objeto en el div de destino
         containerMCG.appendChild(geniallyBtn);
       })
@@ -120,7 +120,7 @@ async function newGenially() {
     preConfirm: () => {
       const genially = {
         genName: document.getElementById('swal-input1').value,
-        genURL: document.getElementById('swal-input1').value,
+        genURL: document.getElementById('swal-input2').value,
         genSlideId: genSlideId
       }
       return genially
@@ -161,7 +161,7 @@ async function newGenially() {
       geniallyBtn.addEventListener("click", loadGeniallyMCG);
       geniallyBtn.querySelector('span span').textContent = genially.genName;
       geniallyBtn.classList.remove("hiddenElement");
-      geniallyBtn.setAttribute("data-title", "classButton"); 
+      geniallyBtn.setAttribute("data-title", "elementButton"); 
       //Inserta la copia del objeto en el div de destino
       postitMCG.appendChild(geniallyBtn);
     })
