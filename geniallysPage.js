@@ -75,8 +75,8 @@ async function loadGeniallys() {
 
 //Cargar Genially
 function loadGeniallyMCG(e){
-  console.log(e.currentTarget.id);
-  window.open('https://view.genial.ly/'+e.currentTarget.id, '_blank');
+  console.log(e.currentTarget.getAttribute("data-genId"));
+  window.open('https://view.genial.ly/'+e.currentTarget.getAttribute("data-genId"), '_blank');
 }
 
 async function newGenially() {
@@ -145,7 +145,7 @@ async function newGenially() {
       geniallyBtn.querySelector('div span').textContent = genially.genName;
       geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
       geniallyBtn.classList.remove("hiddenElement");
-      geniallyBtn.id=genially.genId;
+      geniallyBtn.setAttribute("data-genId", genially.genId);
       geniallyBtn.setAttribute("data-title", "elementButton"); 
       //Inserta la copia del objeto en el div de destino
       postitMCG.appendChild(geniallyBtn);
