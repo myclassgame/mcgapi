@@ -118,9 +118,12 @@ async function newGenially() {
       '<input id="swal-input2" class="swal2-input" placeholder="URL Genially">',
     focusConfirm: false,
     preConfirm: () => {
+      let genURL = document.getElementById('swal-input2').value;
+      let parts = genURL.split('/');
+      let genId = parts[parts.length - 1];
       const genially = {
         genName: document.getElementById('swal-input1').value,
-        genURL: document.getElementById('swal-input2').value,
+        genId: genId,
         genSlideId: genSlideId
       }
       return genially
@@ -159,7 +162,8 @@ async function newGenially() {
       // Crea una copia del objeto
       const geniallyBtn = newGeniallyBtn.cloneNode(true);
       geniallyBtn.addEventListener("click", loadGeniallyMCG);
-      geniallyBtn.querySelector('span span').textContent = genially.genName;
+      geniallyBtn.querySelector('div span').textContent = genially.genName;
+      geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
       geniallyBtn.classList.remove("hiddenElement");
       geniallyBtn.setAttribute("data-title", "elementButton"); 
       //Inserta la copia del objeto en el div de destino
