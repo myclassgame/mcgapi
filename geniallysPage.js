@@ -130,7 +130,7 @@ async function newGenially() {
     console.log(formValues)
     // Objeto con los datos del genially
     const genially = formValues;
-    const newGeniallytBtn = document.querySelector("[data-title='geniallyMCG']");
+    const newGeniallyBtn = document.querySelector("[data-title='geniallyMCG']");
     const postitMCG = document.querySelector("#containerMCG");
     
     //Datos localStorage
