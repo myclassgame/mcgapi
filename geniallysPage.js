@@ -51,8 +51,8 @@ async function loadGeniallys() {
         //geniallyBtn.addEventListener("click", loadGeniallyMCG)
         const spans = geniallyBtn.querySelector('div  span')
         spans.textContent = element.genName;
-        geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
-        geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
+        geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+element.genId;
+        geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+element.genId;
         geniallyBtn.classList.remove("hiddenElement");
         geniallyBtn.setAttribute("data-title", "elementButton"); 
         //Inserta la copia del objeto en el div de destino
