@@ -75,6 +75,7 @@ async function loadGeniallys() {
 
 //Cargar Genially
 function loadGeniallyMCG(e){
+  console.log("loadGeniallyMCG")
   console.log(e.currentTarget.getAttribute("data-gid"));
   window.open('https://view.genial.ly/'+e.currentTarget.getAttribute("data-gid"), '_blank');
 }
@@ -144,7 +145,7 @@ async function newGenially() {
       //geniallyBtn.addEventListener("click", loadGeniallyMCG);
       geniallyBtn.querySelector('div span').textContent = genially.genName;
       geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
-      geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
+      //geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
       geniallyBtn.classList.remove("hiddenElement");
       geniallyBtn.setAttribute("data-title", "elementButton"); 
       //geniallyBtn.setAttribute("data-gid", genially.genId);
