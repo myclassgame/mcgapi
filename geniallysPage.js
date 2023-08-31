@@ -48,9 +48,11 @@ async function loadGeniallys() {
       data.forEach(function(element) {
         // Crea una copia del objeto
         const geniallyBtn = newGeniallyBtn.cloneNode(true);
-        geniallyBtn.addEventListener("click", loadGeniallyMCG)
+        //geniallyBtn.addEventListener("click", loadGeniallyMCG)
         const spans = geniallyBtn.querySelector('div  span')
         spans.textContent = element.genName;
+        geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
+        geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
         geniallyBtn.classList.remove("hiddenElement");
         geniallyBtn.setAttribute("data-title", "elementButton"); 
         //Inserta la copia del objeto en el div de destino
@@ -145,7 +147,7 @@ async function newGenially() {
       //geniallyBtn.addEventListener("click", loadGeniallyMCG);
       geniallyBtn.querySelector('div span').textContent = genially.genName;
       geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
-      //geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
+      geniallyBtn.querySelector('a').href = 'https://view.genial.ly/'+genially.genId;
       geniallyBtn.classList.remove("hiddenElement");
       geniallyBtn.setAttribute("data-title", "elementButton"); 
       //geniallyBtn.setAttribute("data-gid", genially.genId);
