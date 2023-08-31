@@ -76,27 +76,7 @@ async function loadGeniallys() {
 //Cargar Genially
 function loadGeniallyMCG(e){
   console.log(e.currentTarget.id);
-  fetch('https://genialmcg.glitch.me/students/?studentId='+e.currentTarget.id)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      console.log(data); // Manejar la respuesta recibida del servidor
-      let student = JSON.stringify(data[0])
-      localStorage.setItem('studentMCG',student);  
-      console.log(localStorage.getItem('studentMCG'))
-                                
-      //Ocultar waitingMCG
-      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-
-      document.querySelector("[data-title='myclassMCG']").click();
-      document.querySelector("#containerMCG").remove();
-    })
-    .catch(function(error) {
-      console.log('Error:', error);
-      //Ocultar waitingMCG
-      document.querySelector("[data-title='waitingMCG']").classList.add("hiddenElement");
-    });
+  window.open('https://view.genial.ly/'+e.currentTarget.id, '_blank');
 }
 
 async function newGenially() {
@@ -165,6 +145,7 @@ async function newGenially() {
       geniallyBtn.querySelector('div span').textContent = genially.genName;
       geniallyBtn.querySelector('iframe').src = 'https://view.genial.ly/'+genially.genId;
       geniallyBtn.classList.remove("hiddenElement");
+      geniallyBtn.id=genially.genId;
       geniallyBtn.setAttribute("data-title", "elementButton"); 
       //Inserta la copia del objeto en el div de destino
       postitMCG.appendChild(geniallyBtn);
