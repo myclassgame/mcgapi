@@ -24,6 +24,8 @@ function loadEvents(page) {
   }
 }
 
-function loadElementsPage(page) {
+function loadElementsPage() {
   console.log("loadElementsPage")
 }
+
+loadElementsPage()
