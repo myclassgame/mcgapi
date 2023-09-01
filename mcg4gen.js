@@ -26,6 +26,20 @@ function loadEvents(page) {
 
 function loadElementsPage() {
   console.log("loadElementsPage")
+  //Ocultar nextMCG
+  document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
+  //Visualizar waitingMCG
+  document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
+  //handleClick loginMCG
+  const mcg4gen = document.querySelector("[data-title='mcg4gen']").addEventListener("click", loginMCG);
+}
+
+function loginMCG() {
+  alert("Login")
+  //Visualizar nextMCG
+  document.querySelector("[data-title='nextMCG']").classList.remove("hiddenElement");
+  //Ocultar waitingMCG
+  document.querySelector("[data-title='stopMCG']").classList.add("hiddenElement");
 }
 
 loadElementsPage()
