@@ -23,3 +23,7 @@ function loadEvents(page) {
     loadElementsPage()
   }
 }
+
+function loadElementsPage(page) {
+  console.log("loadElementsPage")
+}
