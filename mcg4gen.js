@@ -123,6 +123,11 @@ async function loginMCG(){
           }
           
           localStorage.setItem('studentLoggedInMCG',JSON.stringify(studentLoggedInMCG));
+
+          //Visualizar nextMCG
+          document.querySelector("[data-title='nextMCG']").classList.remove("hiddenElement");
+          //Ocultar waitingMCG
+          document.querySelector("[data-title='stopMCG']").classList.add("hiddenElement");
           
         } else {
           mensajeSWAL(data.message)
