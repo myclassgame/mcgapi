@@ -43,12 +43,16 @@ function loadEvents(page) {
 
 function loadElementsPage() {
   console.log("loadElementsPage")
-  //Ocultar nextMCG
-  document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
-  //Visualizar waitingMCG
-  document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
+  
   //handleClick loginMCG
   document.querySelector("[data-title='mcgLogin']").addEventListener("click", loginMCG);
+  //handleClick Elements
+  const mcgElements = document.querySelectorAll("[data-title='mcgElement']");
+  mcgElements.forEach(function(element) { element.addEventListener("click", getMCGElement);});
+  //Ocultar nextMCG
+  document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
+  //Visualizar stopMCG
+  document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
 }
 
 /*function loginMCG() {
@@ -155,6 +159,10 @@ async function loginMCG(){
     //Visualizar waitingMCG
     document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
   }
+}
+
+function getMCGElement(e) {
+  alert("mcgElement: " +e.currentEvent.id)
 }
 
 loadElementsPage()
