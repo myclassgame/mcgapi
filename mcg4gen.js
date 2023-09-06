@@ -29,7 +29,7 @@ function mensajeSWAL(mensaje){
   })
 }
 
-function loadEvents(page) {
+function loadEvents() {
   console.log("loadEvents")
 
   const mcg4genBtn = document.querySelector("[data-title='mcg4gen']");
@@ -170,3 +170,5 @@ function getMCGElement(e) {
   const imageURL = e.target.querySelector("img").src
   alert("mcgElement: " +e.target.id + " " + imageURL)
 }
+
+loadEvents()
