@@ -149,7 +149,7 @@ async function loginMCG(){
     mensajeSWAL("Has cerrado la sesión")
     const mcgLoginBtn = document.querySelector("[data-title='mcgLogin']");
     mcgLoginBtn.querySelector('div span').textContent="Login";
-    mcgLoginBtn.querySelector('svg rect').style="fill: lightgreen;"
+    mcgLoginBtn.querySelector('svg rect').style="fill: rgb(238, 183, 43);"
     //Ocultar nextMCG
     document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
     //Visualizar waitingMCG
