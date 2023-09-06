@@ -162,7 +162,8 @@ async function loginMCG(){
 }
 
 function getMCGElement(e) {
-  alert("mcgElement: " +e.currentEvent.id)
+  const imageURL = e.target.querySelector("img").src
+  alert("mcgElement: " +e.target.id + " " + imageURL)
 }
 
 loadElementsPage()
