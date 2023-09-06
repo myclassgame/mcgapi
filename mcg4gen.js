@@ -174,7 +174,8 @@ function getMCGElement(e) {
 function mcgElementBtn(e) {
   //const imageURL = e.target.querySelector("img").src
   //alert("mcgElement: " +e.target.id + " " + imageURL)
-  alert("Elemento conseguido")
+  const mcgElement = document.querySelector("[data-title='elementImg']");
+  alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
 }
 
 loadEvents()
