@@ -48,7 +48,7 @@ function loadElementsPage() {
   //Visualizar waitingMCG
   document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
   //handleClick loginMCG
-  const mcg4gen = document.querySelector("[data-title='mcg4gen']").addEventListener("click", loginMCG);
+  document.querySelector("[data-title='mcgLogin']").addEventListener("click", loginMCG);
 }
 
 /*function loginMCG() {
@@ -124,6 +124,10 @@ async function loginMCG(){
             }
             
             localStorage.setItem('studentLoggedInMCG',JSON.stringify(studentLoggedInMCG));
+
+            const mcgLoginBtn = document.querySelector("[data-title='mcgLogin']");
+            mcgLoginBtn.querySelector('div span').textContent="Logout";
+            mcgLoginBtn.querySelector('svg rect').style="fill: red;"
   
             //Visualizar nextMCG
             document.querySelector("[data-title='nextMCG']").classList.remove("hiddenElement");
@@ -143,6 +147,9 @@ async function loginMCG(){
   } else {
     localStorage.removeItem('studentLoggedInMCG')
     mensajeSWAL("Has cerrado la sesión")
+    const mcgLoginBtn = document.querySelector("[data-title='mcgLogin']");
+    mcgLoginBtn.querySelector('div span').textContent="Login";
+    mcgLoginBtn.querySelector('svg rect').style="fill: lightgreen;"
     //Ocultar nextMCG
     document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
     //Visualizar waitingMCG
