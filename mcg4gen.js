@@ -54,6 +54,8 @@ function loadElementsPage() {
   //handleClick Elements
   const mcgElements = document.querySelectorAll("[data-title='mcgElement']");
   mcgElements.forEach(function(element) { element.addEventListener("click", getMCGElement);});
+  //handleClick mcgElementBtn
+  document.querySelector("[data-title='mcgElementBtn']").addEventListener("click", mcgElementBtn);
   //Ocultar nextMCG
   document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
   //Visualizar stopMCG
@@ -169,6 +171,12 @@ async function loginMCG(){
 function getMCGElement(e) {
   const imageURL = e.target.querySelector("img").src
   alert("mcgElement: " +e.target.id + " " + imageURL)
+}
+
+function mcgElementBtn(e) {
+  //const imageURL = e.target.querySelector("img").src
+  //alert("mcgElement: " +e.target.id + " " + imageURL)
+  alert("Elemento conseguido")
 }
 
 loadEvents()
