@@ -129,7 +129,8 @@ async function loginMCG(){
             const studentLoggedInMCG = {
               'userId':data.user.userId,
               'studentName':data.user.studentName,
-              'studentId': data.user.studentId
+              'studentId': data.user.studentId,
+              'sId': data.user.id
             }
             
             localStorage.setItem('studentLoggedInMCG',JSON.stringify(studentLoggedInMCG));
@@ -175,7 +176,12 @@ function mcgElementBtn(e) {
   //const imageURL = e.target.querySelector("img").src
   //alert("mcgElement: " +e.target.id + " " + imageURL)
   const mcgElement = document.querySelector("[data-title='elementImg']");
-  alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
+  //alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
+  const studentData = localStorage.getItem('studentLoggedInMCG')
+  const elementData = {
+    genId : mcgElement.id,
+    imgURL : mcgElement.querySelector("img").src,
+  }
 }
 
 loadEvents()
