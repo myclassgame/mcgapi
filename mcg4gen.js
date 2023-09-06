@@ -41,8 +41,8 @@ function loadEvents() {
   }
 
   if (mcg4genText==="Element") {
-    //Cargar datos del Elemento MCG
-    alert("Cargando...")
+    //handleClick mcgElementBtn
+    document.querySelector("[data-title='mcgElementBtn']").addEventListener("click", mcgElementBtn);
   }
 }
 
@@ -54,8 +54,6 @@ function loadElementsPage() {
   //handleClick Elements
   const mcgElements = document.querySelectorAll("[data-title='mcgElement']");
   mcgElements.forEach(function(element) { element.addEventListener("click", getMCGElement);});
-  //handleClick mcgElementBtn
-  document.querySelector("[data-title='mcgElementBtn']").addEventListener("click", mcgElementBtn);
   //Ocultar nextMCG
   document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
   //Visualizar stopMCG
