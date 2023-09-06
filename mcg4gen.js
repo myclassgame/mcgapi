@@ -33,11 +33,16 @@ function loadEvents(page) {
   console.log("loadEvents")
 
   const mcg4genBtn = document.querySelector("[data-title='mcg4gen']");
-  const mcg4genText = mcgAPIBtn.querySelector('.genially-view-text span').textContent;
+  const mcg4genText = mcg4genBtn.querySelector('.genially-view-text span').textContent;
 
-  if (mcg4genText==="Elements") {
-    //Cargar datos y eventos de elementsPage.js
+  if (mcg4genText==="for Genially") {
+    //Cargar datos y eventos
     loadElementsPage()
+  }
+
+  if (mcg4genText==="Element") {
+    //Cargar datos del Elemento MCG
+    alert("Cargando...")
   }
 }
 
@@ -165,5 +170,3 @@ function getMCGElement(e) {
   const imageURL = e.target.querySelector("img").src
   alert("mcgElement: " +e.target.id + " " + imageURL)
 }
-
-loadElementsPage()
