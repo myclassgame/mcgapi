@@ -41,6 +41,7 @@ function loadEvents() {
   }
 
   if (mcg4genText==="Element") {
+    document.querySelector("[data-title='elementGot']").classList.add("hiddenElement");
     //handleClick mcgElementBtn
     document.querySelector("[data-title='mcgElementBtn']").addEventListener("click", mcgElementBtn);
   }
