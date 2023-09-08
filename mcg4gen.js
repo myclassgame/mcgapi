@@ -54,10 +54,21 @@ function loadElementsPage() {
   //handleClick Elements
   const mcgElements = document.querySelectorAll("[data-title='mcgElement']");
   mcgElements.forEach(function(element) { element.addEventListener("click", getMCGElement);});
-  //Ocultar nextMCG
-  document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
-  //Visualizar stopMCG
-  document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
+  if (!localStorage.getItem('studentLoggedInMCG')) {{
+    //Ocultar nextMCG
+    document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
+    //Visualizar stopMCG
+    document.querySelector("[data-title='stopMCG']").classList.remove("hiddenElement");
+  } else {
+    const mcgLoginBtn = document.querySelector("[data-title='mcgLogin']");
+    mcgLoginBtn.querySelector('div span').textContent="Logout";
+    mcgLoginBtn.querySelector('svg rect').style="fill: red;"
+
+    //Visualizar nextMCG
+    document.querySelector("[data-title='nextMCG']").classList.remove("hiddenElement");
+    //Ocultar waitingMCG
+    document.querySelector("[data-title='stopMCG']").classList.add("hiddenElement");
+  }
 }
 
 /*function loginMCG() {
