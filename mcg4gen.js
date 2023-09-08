@@ -178,10 +178,16 @@ function mcgElementBtn(e) {
   const mcgElement = document.querySelector("[data-title='elementImg']");
   //alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
   const studentData = localStorage.getItem('studentLoggedInMCG')
+  const studentPoints=document.querySelectorAll("[data-title='elementPoints'] .sc-FNXRL .genially-view-text span")
   const elementData = {
     genId : mcgElement.id,
     imgURL : mcgElement.querySelector("img").src,
+    XP: studentPoints[0].textContent,
+    HP: studentPoints[1].textContent, 
+    GP: studentPoints[2].textContent,
+    AP: studentPoints[3].textContent
   }
+  console.log(elementData)
 }
 
 loadEvents()
