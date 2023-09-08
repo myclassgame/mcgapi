@@ -152,13 +152,18 @@ async function newStudents() {
         const student = {
           studentId : generarClaveAleatoria(),
           studentName: nombre,
+          alias: '',
           userId : userMCG.userId,
           classId : classIdMCG,
           color : randomPastelColor(),
           XP:0,
           HP:10,
           GP:0,
-          AP:0
+          AP:0,
+          level: 0,
+          badges:[],
+          powers:[],
+          stickers:[],
         }
   
         console.log(student)
