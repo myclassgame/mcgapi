@@ -54,7 +54,7 @@ function loadElementsPage() {
   //handleClick Elements
   const mcgElements = document.querySelectorAll("[data-title='mcgElement']");
   mcgElements.forEach(function(element) { element.addEventListener("click", getMCGElement);});
-  if (!localStorage.getItem('studentLoggedInMCG')) {{
+  if (!localStorage.getItem('studentLoggedInMCG')) {
     //Ocultar nextMCG
     document.querySelector("[data-title='nextMCG']").classList.add("hiddenElement");
     //Visualizar stopMCG
