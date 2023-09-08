@@ -188,7 +188,7 @@ function mcgElementBtn(e) {
   //alert("mcgElement: " +e.target.id + " " + imageURL)
   const mcgElement = document.querySelector("[data-title='elementImg']");
   //alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
-  const studentData = localStorage.getItem('studentLoggedInMCG')
+  const studentData = JSON.parse(localStorage.getItem('studentLoggedInMCG'))
   const studentPoints=document.querySelectorAll("[data-title='elementPoints'] .sc-FNXRL .genially-view-text span")
   const elementData = {
     genId : mcgElement.id,
@@ -209,7 +209,8 @@ function mcgElementBtn(e) {
   };
 
   // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/students/'+studentData.sId+'/badges', options)
+  const url=`https://genialmcg.glitch.me/students/${studentData.sId}/badges`
+  fetch(url, options)
     .then(function(response) {
       return response.json();
     })
