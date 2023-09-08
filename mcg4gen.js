@@ -216,6 +216,8 @@ function mcgElementBtn(e) {
     })
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
+      document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
+      document.querySelector("[data-title='elementGot']").classList.remove("hiddenElement");
     })
     .catch(function(error) {
       console.log('Error:', error);
