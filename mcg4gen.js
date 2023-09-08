@@ -198,7 +198,27 @@ function mcgElementBtn(e) {
     GP: studentPoints[2].textContent,
     AP: studentPoints[3].textContent
   }
-  console.log(elementData)
+  console.log(studentData)
+  // Configurar opciones para la solicitud fetch POST
+  var options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(elementData)
+  };
+
+  // Realizar la solicitud fetch POST
+  fetch('https://genialmcg.glitch.me/students/'+studentData.sId+"/badges, options)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data); // Manejar la respuesta recibida del servidor
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+    });
 }
 
 loadEvents()
