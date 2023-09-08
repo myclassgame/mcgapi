@@ -209,7 +209,7 @@ function mcgElementBtn(e) {
   };
 
   // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/students/'+studentData.sId+"/badges, options)
+  fetch('https://genialmcg.glitch.me/students/'+studentData.sId+'/badges', options)
     .then(function(response) {
       return response.json();
     })
