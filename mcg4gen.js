@@ -42,6 +42,27 @@ function loadEvents() {
 
   if (mcg4genText==="Element") {
     document.querySelector("[data-title='elementGot']").classList.add("hiddenElement");
+    document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
+    const mcgElementId = document.querySelector("[data-title='elementImg']").id
+    const studentData = JSON.parse(localStorage.getItem('studentLoggedInMCG'))
+    const url=`https://genialmcg.glitch.me/students/${studentData.sId}/badges?genId=${mcgElementId}`
+    fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data); // Manejar la respuesta recibida del servidor
+        if (data.lenth==0) {
+          document.querySelector("[data-title='mcgElementBtn']").classList.remove("hiddenElement");
+          document.querySelector("[data-title='elementGot']").classList.add("hiddenElement");
+        } else {
+          document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
+          document.querySelector("[data-title='elementGot']").classList.remove("hiddenElement");
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+      });
     //handleClick mcgElementBtn
     document.querySelector("[data-title='mcgElementBtn']").addEventListener("click", mcgElementBtn);
   }
