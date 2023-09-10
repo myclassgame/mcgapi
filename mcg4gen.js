@@ -159,12 +159,9 @@ async function loginMCG(){
           if(!data.status){
             console.log("Credenciales válidas")
             
-            const studentLoggedInMCG = {
-              'userId':data.user.userId,
-              'studentName':data.user.studentName,
-              'studentId': data.user.studentId,
-              'sId': data.user.id
-            }
+            const studentLoggedInMCG = data.user
+            studentLoggedInMCG.sId = data.user.id
+            console.log(studentLoggedInMCG)
             
             localStorage.setItem('studentLoggedInMCG',JSON.stringify(studentLoggedInMCG));
 
