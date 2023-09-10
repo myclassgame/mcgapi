@@ -211,16 +211,17 @@ function mcgElementBtn(e) {
   const mcgElement = document.querySelector("[data-title='elementImg']");
   //alert(mcgElement.id + " " + mcgElement.querySelector("img").src)
   const studentData = JSON.parse(localStorage.getItem('studentLoggedInMCG'))
-  const studentPoints=document.querySelectorAll("[data-title='elementPoints'] .sc-FNXRL .genially-view-text span")
+  const elementPoints=document.querySelectorAll("[data-title='elementPoints'] .sc-FNXRL .genially-view-text span")
   const elementData = {
     genId : mcgElement.id,
     imgURL : mcgElement.querySelector("img").src,
-    XP: studentPoints[0].textContent,
-    HP: studentPoints[1].textContent, 
-    GP: studentPoints[2].textContent,
-    AP: studentPoints[3].textContent
+    XP: elementPoints[0].textContent,
+    HP: elementPoints[1].textContent, 
+    GP: elementPoints[2].textContent,
+    AP: elementPoints[3].textContent
   }
-  console.log(studentData)
+  console.log("studentData:"+studentData)
+  console.log("elementData:"+elementData)
   // Configurar opciones para la solicitud fetch POST
   var options = {
     method: 'POST',
@@ -237,7 +238,7 @@ function mcgElementBtn(e) {
       return response.json();
     })
     .then(function(data) {
-      console.log(data); // Manejar la respuesta recibida del servidor
+      //console.log(data); // Manejar la respuesta recibida del servidor
       //Sumar puntos
    
       let addPoints= {
@@ -260,9 +261,10 @@ function mcgElementBtn(e) {
         },
         body: JSON.stringify(addPoints)
       };
-  
+
+      console.log("addPoints:" + addPoints)
       // Realizar la solicitud fetch PATCH
-      fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
+      /*fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
         .then(function(response) {
           return response.json();
         })
@@ -277,7 +279,7 @@ function mcgElementBtn(e) {
         })
         .catch(function(error) {
           console.log('Error:', error);
-        });
+        });*/
       
       document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
       document.querySelector("[data-title='elementGot']").classList.remove("hiddenElement");
