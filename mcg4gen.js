@@ -270,6 +270,11 @@ function mcgElementBtn(e) {
         
           if(!data.status){
             console.log("OK");
+            studentData.XP = addPoints.XP
+            studentData.HP = addPoints.HP
+            studentData.GP = addPoints.GP
+            studentData.AP = addPoints.AP
+            localStorage.setItem('studentLoggedInMCG',studentData);  
           } else {
             console.log("notOK");
           }
