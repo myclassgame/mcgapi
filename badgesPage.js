@@ -42,7 +42,7 @@ async function loadBadgesMCG() {
       data.forEach(function(element) {
         // Crea una copia del objeto
         const badgeBtn = badgeMCG.cloneNode(true);
-        badgeBtn.querySelector('span span').textContent = element.className;
+        badgeBtn.querySelector('img').src = element.imgURL;
         badgeBtn.classList.remove("hiddenElement"); 
         //Inserta la copia del objeto en el div de destino
         containerMCG.appendChild(badgeBtn);
