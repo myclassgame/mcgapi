@@ -52,7 +52,7 @@ function loadEvents() {
       })
       .then(function(data) {
         console.log(data); // Manejar la respuesta recibida del servidor
-        if (data.lenth==0) {
+        if (data.length==0) {
           document.querySelector("[data-title='mcgElementBtn']").classList.remove("hiddenElement");
           document.querySelector("[data-title='elementGot']").classList.add("hiddenElement");
         } else {
