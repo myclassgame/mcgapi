@@ -261,7 +261,7 @@ function mcgElementBtn(e) {
 
       console.log(addPoints)
       // Realizar la solicitud fetch PATCH
-      /*fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
+      fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
         .then(function(response) {
           return response.json();
         })
@@ -276,7 +276,7 @@ function mcgElementBtn(e) {
         })
         .catch(function(error) {
           console.log('Error:', error);
-        });*/
+        });
       
       document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
       document.querySelector("[data-title='elementGot']").classList.remove("hiddenElement");
