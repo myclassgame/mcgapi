@@ -238,6 +238,47 @@ function mcgElementBtn(e) {
     })
     .then(function(data) {
       console.log(data); // Manejar la respuesta recibida del servidor
+      //Sumar puntos
+   
+      let addPoints= {
+        'XP':0,
+        'HP':0,
+        'GP':0,
+        'AP':0,
+      }
+      
+      addPoints.XP = parseInt(studentData.XP) + parseInt(elementData.XP);
+      addPoints.HP = parseInt(studentData.HP) + parseInt(elementData.HP);
+      addPoints.GP = parseInt(studentData.GP) + parseInt(elementData.GP);
+      addPoints.AP = parseInt(studentData.AP) + parseInt(elementData.AP);
+  
+      // Configurar opciones para la solicitud fetch GET
+      var options = {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(addPoints)
+      };
+  
+      // Realizar la solicitud fetch PATCH
+      fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          console.log(data); // Manejar la respuesta recibida del servidor
+        
+          if(!data.status){
+            console.log("OK");
+          } else {
+            console.log("notOK");
+          }
+        })
+        .catch(function(error) {
+          console.log('Error:', error);
+        });
+      
       document.querySelector("[data-title='mcgElementBtn']").classList.add("hiddenElement");
       document.querySelector("[data-title='elementGot']").classList.remove("hiddenElement");
     })
