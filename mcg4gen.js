@@ -220,8 +220,8 @@ function mcgElementBtn(e) {
     GP: elementPoints[2].textContent,
     AP: elementPoints[3].textContent
   }
-  console.log("studentData:"+studentData)
-  console.log("elementData:"+elementData)
+  console.log(studentData)
+  console.log(elementData)
   // Configurar opciones para la solicitud fetch POST
   var options = {
     method: 'POST',
@@ -262,7 +262,7 @@ function mcgElementBtn(e) {
         body: JSON.stringify(addPoints)
       };
 
-      console.log("addPoints:" + addPoints)
+      console.log(addPoints)
       // Realizar la solicitud fetch PATCH
       /*fetch('https://genialmcg.glitch.me/students/' + studentData.sId, options)
         .then(function(response) {
