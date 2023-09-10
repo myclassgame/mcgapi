@@ -274,7 +274,8 @@ function mcgElementBtn(e) {
             studentData.HP = addPoints.HP
             studentData.GP = addPoints.GP
             studentData.AP = addPoints.AP
-            localStorage.setItem('studentLoggedInMCG',studentData);  
+            let student = JSON.stringify(studentData)
+            localStorage.setItem('studentLoggedInMCG',student);  
           } else {
             console.log("notOK");
           }
