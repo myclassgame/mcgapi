@@ -46,4 +46,9 @@ function loadEvents(page) {
     //Cargar datos y eventos de teachersPage.js
     loadGeniallysPage()
   }
+
+  if (mcgAPIText==="Badges") {
+    //Cargar datos y eventos de badgesPage.js
+    loadBadgesPage()
+  }
 }
