@@ -31,7 +31,7 @@ async function loadGeniallys() {
   const genSlideId = document.querySelector(".genially-view-slide").id
   
   // Realizar la solicitud fetch POST
-  fetch('https://genialmcg.glitch.me/geniallys/?genSlideId='+genSlideId)
+  fetch('https://genialmcg.glitch.me/geniallys/?genSlideId='+genSlideId+'userId='+userId)
     .then(function(response) {
       return response.json();
     })
